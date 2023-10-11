@@ -20,7 +20,7 @@ if(process.env.LOG_LEVEL == '1') {
 export const logger = createLogger({
     level: logLevel,
     silent: logSilent,
-    transports: [ new transports.File({filename: process.env.LOG_FILE}) ],
+    transports: [ new transports.File({filename: process.env.LOG_FILE || 'default.log'}) ],
     format: format.combine(
         format.timestamp(),
         format.printf(({ level, message, timestamp}) => {

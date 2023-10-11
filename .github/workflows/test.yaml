@@ -9,8 +9,6 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    env:                            # <-- This is what you add
-      LOG_FILE: ${{ secrets.LOG_FILE }}
     steps:
       - name: Checkout
         uses: actions/checkout@v3
