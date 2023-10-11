@@ -57,9 +57,9 @@ then
         if [[ "${LOG_FILE}" == '' ]]; then
             echo "LOG_FILE not set"
             exit 1
-        elif [[ "${GITHUB_TOKEN}" == '' ]]; then
-            echo "GITHUB_TOKEN not set"
-            exit 1
+        # elif [[ "${GITHUB_TOKEN}" == '' ]]; then
+        #     echo "GITHUB_TOKEN not set"
+        #     exit 1
         else
             node main.js $1
             exit $?
