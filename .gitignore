@@ -1,6 +1,6 @@
 _pycache_
 .DS_Store
-*.js
+
 .env
 *.txt
 *.py
