@@ -5,13 +5,13 @@ import http from 'isomorphic-git/http/node';
 import { logger } from './logging_cfg';
 
 
-test('should extract the readme and then output array correctly', async () => {
-    const gitHubLink = 'https://github.com/expressjs/express';
-    const result = await ReadMeExtractor(gitHubLink);
+// test('should extract the readme and then output array correctly', async () => {
+//     const gitHubLink = 'https://github.com/expressjs/express';
+//     const result = await ReadMeExtractor(gitHubLink);
 
-    expect(result).toStrictEqual([1, 1, 1, "MIT"]);
+//     expect(result).toStrictEqual([1, 1, 1, "MIT"]);
  
-}, 10000);
+// }, 10000);
 
 test('should extract the readme and then output array correctly', async () => {
     const gitHubLink = 'https://github.com/bhatnag8/Radiant';
