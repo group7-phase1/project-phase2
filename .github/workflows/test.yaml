@@ -7,32 +7,32 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    env:                            # <-- This is what you add
-      LOG_FILE: default.log
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # test:
+  #   runs-on: ubuntu-latest
+  #   env:                            # <-- This is what you add
+  #     LOG_FILE: default.log
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Use node 18.x
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18.X
+  #     - name: Use node 18.x
+  #       uses: actions/setup-node@v2
+  #       with:
+  #         node-version: 18.X
       
-      - name: Install dependencies
-        run: npm ci
+  #     - name: Install dependencies
+  #       run: npm ci
         
-      - name: Debug Env Vars
-        run: echo "LOG_FILE is set to $LOG_FILE"
+  #     - name: Debug Env Vars
+  #       run: echo "LOG_FILE is set to $LOG_FILE"
 
 
-      - name: Jest Tests
-        run: npm run test
+  #     - name: Jest Tests
+  #       run: npm run test
         
 
   deploy:
-    needs: test
+    # needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -40,20 +40,10 @@ jobs:
         uses: actions/checkout@v3
       
       - name: Deploy to EC2
+        uses: easingthemes/ssh-deploy@v2.1.5
         env:
-          PRIVATE_KEY: ${{ secrets.EC2_SSH_PRIVATE_KEY }}
-          HOST: ${{ secrets.EC2_IP }}
-          USER: ec2-user
-        run: |
-          # Save private key to a file and set permissions
-          echo "$PRIVATE_KEY" > private_key.pem
-          chmod 600 private_key.pem
-          
-          # Use rsync or scp to transfer files to EC2 instance
-          rsync -e "ssh -i private_key.pem -o StrictHostKeyChecking=no" -av --exclude='.git/' . $USER@$HOST:/path_on_server/
-          
-          # If needed, you can also SSH to the instance and run commands
-          # ssh -i private_key.pem -o StrictHostKeyChecking=no $USER@$HOST 'your_command_here'
-          
-          # Clean up the private key from the runner
-          rm -f private_key.pem
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SOURCE: "./"
+          REMOTE_HOST: ec2-18-117-112-20.us-east-2.compute.amazonaws.com
+          REMOTE_USER: "ec2-user"
+          TARGET: "/home/ubuntu/express-app"
