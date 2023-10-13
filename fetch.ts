@@ -4,6 +4,8 @@ import * as dotenv from 'dotenv';
 import { logger } from './logging_cfg'
 dotenv.config();
 
+
+
 const personalAccessToken = process.env.GITHUB_TOKEN; // personalAccessToken stored locally
 
 interface MetricData {
