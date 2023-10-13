@@ -77,6 +77,7 @@ jobs:
           git pull origin main
           npm install
           npm start
+          
         EOF
         rm -f keypair.pem
 
