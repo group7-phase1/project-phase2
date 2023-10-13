@@ -1,81 +1,34 @@
 name: CI/CD Workflow
 
 on:
-  push:
+  pull_request:
     branches: [ main ]
+  # push:
+  #   branches: [ main ]
 
 jobs:
-  # test:
-  #   runs-on: ubuntu-latest
-  #   env:                            # <-- This is what you add
-  #     LOG_FILE: default.log
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-
-  #     - name: Use node 18.x
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: 18.X
-      
-  #     - name: Install dependencies
-  #       run: npm ci
-        
-  #     - name: Debug Env Vars
-  #       run: echo "LOG_FILE is set to $LOG_FILE"
-
-
-  #     - name: Jest Tests
-  #       run: npm run test
-      
-
-  deploy:
-    # needs: test
-    name: Deploy to EC2
+  test:
     runs-on: ubuntu-latest
+    env:                            # <-- This is what you add
+      LOG_FILE: default.log
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
+      - name: Use node 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.X
       
-      - name: Deploy to EC2
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.AWS_SSH_KEY }}
-          SOURCE: "./"
-          REMOTE_HOST: "ec2-18-223-123-98.us-east-2.compute.amazonaws.com"
-          REMOTE_USER: "ec2-user"
-          TARGET: "/home/ec2-user/express-app"
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Debug Env Vars
+        run: echo "LOG_FILE is set to $LOG_FILE"
 
 
-# name: Deploy to EC2
+      - name: Jest Tests
+        run: npm run test
+      
 
-# on:
-#   push:
-#     branches: [ main ]
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#     - name: Checkout code
-#       uses: actions/checkout@v2
-    
-#     - name: Deploy to EC2
-#       env:
-#         AWS_SSH_KEY: ${{ secrets.AWS_SSH_KEY }}
-#         AWS_HOST: ${{ secrets.AWS_HOST }}
-#         AWS_USERNAME: ${{ secrets.AWS_USERNAME }}
-#       run: |
-#         echo "$AWS_SSH_KEY" > keypair.pem
-#         chmod 600 keypair.pem
-#         ssh -i "keypair.pem" $AWS_USERNAME@$AWS_HOST << EOF
-#           # Your deployment commands here, for example:
-#           cd /
-#           git pull origin main
-#           npm install
-#           npm start
-
-#         EOF
-#         rm -f keypair.pem
 

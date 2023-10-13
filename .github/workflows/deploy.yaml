@@ -1,0 +1,31 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Deploy to EC2
+      env:
+        AWS_SSH_KEY: ${{ secrets.AWS_SSH_KEY }}
+        AWS_HOST: ${{ secrets.AWS_HOST }}
+        AWS_USERNAME: ${{ secrets.AWS_USERNAME }}
+      run: |
+        echo "$AWS_SSH_KEY" > keypair.pem
+        chmod 600 keypair.pem
+        ssh -i "keypair.pem" $AWS_USERNAME@$AWS_HOST << EOF
+          # Your deployment commands here, for example:
+          cd /
+          git pull origin main
+          npm install
+          npm start
+        EOF
+        rm -f keypair.pem
+
