@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+export $(egrep -v '^#' .env | xargs)
+
+
 # check if input is install
 if [ "$1" = "install" ]; then
     # install dependencies
@@ -13,7 +17,7 @@ if [ "$1" = "install" ]; then
     JESTERR=$(npm install --save-dev jest 2>&1 > '/dev/null')
     ISOERR=$(npm install isomorphic-git 2>&1 > '/dev/null')
     # check for successful installs
-    if [[ $TSERROR != '' ]]; then
+    if [[ $TSERR != '' ]]; then
         echo 'Error installing typescript'
         let "DEPENDENCIESINSTALLED -= 1"
     elif [[ $TSNODEERR != '' ]]; then
@@ -41,7 +45,7 @@ if [ "$1" = "install" ]; then
         echo $DEPENDENCIESINSTALLED dependencies successfully installed
         exit 0
     fi
-    if [[ $DEPDENCIESINSTALLED < 8 ]]; then
+    if [[ $DEPENDENCIESINSTALLED < 8 ]]; then
         echo $DEPENDENCIESINSTALLED dependencies successfully installed
         exit 1
     fi
@@ -49,7 +53,9 @@ if [ "$1" = "install" ]; then
 # check if input is a file
 elif [ -f "$1" ]
 then
-    TSC=$(tsc main.ts 2>&1 > '/dev/null');
+    # TSC=$(tsc main.ts 2>&1 > '/dev/null');
+    TSC=$(npx tsc main.ts 2>&1 > '/dev/null');
+
     if [[ "${TSC}" != '' ]]; then
         echo "Files failed to compile"
         exit 1
@@ -57,9 +63,9 @@ then
         if [[ "${LOG_FILE}" == '' ]]; then
             echo "LOG_FILE not set"
             exit 1
-        # elif [[ "${GITHUB_TOKEN}" == '' ]]; then
-        #     echo "GITHUB_TOKEN not set"
-        #     exit 1
+        elif [[ "${GITHUB_TOKEN}" == '' ]]; then
+            echo "GITHUB_TOKEN not set"
+            exit 1
         else
             node main.js $1
             exit $?
