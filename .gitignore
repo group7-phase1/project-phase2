@@ -5,3 +5,10 @@ _pycache_
 *.txt
 *.py
 node_modules
+calculations.js
+fetch.js
+fileio.js
+github-readme-extractor.js
+logging_cfg.js
+main.js
+server.js
