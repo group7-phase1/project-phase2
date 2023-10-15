@@ -12,3 +12,8 @@ github-readme-extractor.js
 logging_cfg.js
 main.js
 server.js
+tests.json
+coverage/coverage-summary.json
+user_auth.js
+tests.json
+coverage/coverage-summary.json
