@@ -15,8 +15,6 @@ aws.config.update({
 });
 
 const s3 = new aws.S3();
-
-// Create an S3 bucket for package storage
 const bucketName = 'ece461team';
 
 // Configure Multer to upload files to S3
@@ -24,7 +22,7 @@ const upload = multer({
   storage: multerS3({
     s3,
     bucket: bucketName,
-    acl: 'private-read', // or 'private' for private access
+    acl: 'private-read',
     key: (req, file, cb) => {
       const ext = path.extname(file.originalname);
       const uniqueFilename = Date.now() + ext;
@@ -38,9 +36,7 @@ app.post('/upload', upload.single('package'), (req, res) => {
   res.status(200).send('Package uploaded successfully.');
 });
 
-// ...
 
-// Start the Express server
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
