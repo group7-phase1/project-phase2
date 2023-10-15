@@ -5,6 +5,7 @@ import * as readline from 'readline';
 
 dotenv.config();
 
+
 const cognito = new CognitoIdentityProvider({
     region: 'us-east-2',
     credentials: {
