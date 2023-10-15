@@ -10,7 +10,7 @@ export type module = {
     RAMP_UP_SCORE: number,
     CORRECTNESS_SCORE: number,
     BUS_FACTOR_SCORE: number,    
-    RESPONSIVE_MAINTAINER_SCORE: number,
+    RESPONSIVE_MAINTAINER_SCORE: number, // Test 
     LICENSE_SCORE: number
 }
 

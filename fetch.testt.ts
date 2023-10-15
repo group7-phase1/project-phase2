@@ -13,7 +13,7 @@ test('should fetch and return MetricData', async () => {
     expect(result.mostPulls365).toBeGreaterThanOrEqual(0);
     expect(result.totalPulls365).toBeGreaterThanOrEqual(0);
     expect(result.issuesClosed).toBeGreaterThanOrEqual(0);
-    expect(result.issuesTotal).toBeGreaterThanOrEqual(0);
+    expect(result.issuesTotal).toBeGreaterThanOrEqual(0); // hi
     expect(result.issuesClosed30).toBeGreaterThanOrEqual(0);
     expect(result.issuesTotal30).toBeGreaterThanOrEqual(0);
     expect(result.issuesClosed14).toBeGreaterThanOrEqual(0);
