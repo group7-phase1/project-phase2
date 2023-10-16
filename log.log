@@ -12,3 +12,4 @@
 [2023-10-16T17:09:45.621Z] error: Error creating user:  User account already exists
 [2023-10-16T17:43:06.022Z] error: Error creating user:  Password did not conform with password policy: Password must have symbol characters
 [2023-10-16T17:44:45.781Z] error: Error creating user:  User account already exists
+[2023-10-16T17:57:39.070Z] error: Error creating user:  1 validation error detected: Value at 'temporaryPassword' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[\S]+.*[\S]+$
