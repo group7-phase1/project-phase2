@@ -5,18 +5,18 @@ let globalState = {
 };
 
 // Function to set authentication state
-function setAuthenticationState(isAuthenticated, username) {
+export function setAuthenticationState(isAuthenticated, username) {
     globalState.isAuthenticated = isAuthenticated;
     globalState.username = username;
 }
 
 // Function to check if a user is authenticated
-function checkAuthentication() {
+export function checkAuthentication() {
     return globalState.isAuthenticated;
 }
 
 // Function to get the username
-function getUsername() {
+export function getUsername() {
     return globalState.username;
 }
 
