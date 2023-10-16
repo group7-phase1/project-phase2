@@ -1,8 +1,5 @@
 #!/bin/bash
-
-
 export $(egrep -v '^#' .env | xargs)
-
 
 # check if input is install
 if [ "$1" = "install" ]; then
@@ -119,14 +116,30 @@ elif [ "$1" = "login" ]; then
             echo "GITHUB_TOKEN not set"
             exit 1
         else
-            node user_auth.js $1
+            node user_auth.js login
+            echo "you are logged in"
             exit $?
         fi
     fi
 
-
-
-
+elif  [ "$1" = "logout" ]; then
+    TSC=$(npx tsc user_auth.ts 2>&1 > '/dev/null');
+    if [[ "${TSC}" != '' ]]; then
+        echo "Files failed to compile"
+        exit 1
+    else
+        if [[ "${LOG_FILE}" == '' ]]; then
+            echo "LOG_FILE not set"
+            exit 1
+        elif [[ "${GITHUB_TOKEN}" == '' ]]; then
+            echo "GITHUB_TOKEN not set"
+            exit 1
+        else
+            node user_auth.js logout
+            echo "logged out"
+            exit $?
+        fi
+    fi
 
 # invalid input
 else
