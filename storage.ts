@@ -1,42 +1,34 @@
-import express from 'express';
-import * as aws from 'aws-sdk';
-import multer from 'multer';
-import multerS3 from 'multer-s3';
-import * as path from 'path';
+import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { Credentials } from "@aws-sdk/types";
+import * as fs from 'fs';
 
-const app = express();
-const port = 3000;
+export async function uploadFile(filePath: string, keyName: string): Promise<boolean> {
+  const credentials: Credentials = {
+    accessKeyId: process.env.COGNITO_ACCESS_KEY!,
+    secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY!,
+  };
 
-// Configure AWS SDK
-aws.config.update({
-  accessKeyId: 'COGNITO_ACCESS_KEY',
-  secretAccessKey: 'COGNITO_SECRET_ACCESS_KEY',
-  region: 'REGION',
-});
+  const client = new S3Client({
+    region: 'us-east-2',
+    credentials
+  });
 
-const s3 = new aws.S3();
-const bucketName = 'ece461team';
+  const bucketName = 'ece461team';
+  const fileContent = fs.readFileSync(filePath);
 
-// Configure Multer to upload files to S3
-const upload = multer({
-  storage: multerS3({
-    s3,
-    bucket: bucketName,
-    acl: 'private-read',
-    key: (req, file, cb) => {
-      const ext = path.extname(file.originalname);
-      const uniqueFilename = Date.now() + ext;
-      cb(null, uniqueFilename);
-    },
-  }),
-});
+  // Setting up S3 upload parameters
+  const params = {
+    Bucket: bucketName,
+    Key: keyName,
+    Body: fileContent
+  };
 
-// Set up a POST endpoint for package uploads
-app.post('/upload', upload.single('package'), (req, res) => {
-  res.status(200).send('Package uploaded successfully.');
-});
-
-
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+  try {
+    const result = await client.send(new PutObjectCommand(params));
+    console.log(`File uploaded successfully. ETag: ${result.ETag}`);
+    return true;
+  } catch (err) {
+    console.error("Error uploading the file:", err);
+    return false;
+  }
+}
