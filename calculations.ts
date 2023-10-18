@@ -1,6 +1,9 @@
 import { module, GenerateOutput } from './fileio';
 import { logger } from './logging_cfg';
 import { API } from './server';
+import fs from 'fs';
+import path from 'path';
+
 
 
 // object to hold raw data for each module
@@ -125,8 +128,14 @@ export async function GenerateCalculations(currModule: module, npmFlag: boolean)
         logger.log('debug', 'Calculated LICENSE SCORE: ' + currModule.LICENSE_SCORE);
         currModule.NET_SCORE = +NetScore(currModule).toFixed(5);
         logger.log('debug', 'Calculated NET_SCORE: ' + currModule.NET_SCORE);
+        
+        const dependencyPinningScore = calculateDependencyPinningScore();
+        currModule.DEPENDENCY_PINNING_SCORE = +dependencyPinningScore.toFixed(5);
+        logger.log('debug', 'Calculated DEPENDENCY_PINNING_SCORE: ' + currModule.DEPENDENCY_PINNING_SCORE);
 
         logger.log('info', 'Completed calculation for module: ' + currModule.URL);
+
+        
 
         if (rawData.contrubtorMostPullRequests == -1) {
             currModule.BUS_FACTOR_SCORE = 0;
@@ -135,12 +144,51 @@ export async function GenerateCalculations(currModule: module, npmFlag: boolean)
             currModule.RESPONSIVE_MAINTAINER_SCORE = 0;
             currModule.LICENSE_SCORE = 0;
             currModule.NET_SCORE = 0;
+            currModule.DEPENDENCY_PINNING_SCORE = 0;
         }
         
         GenerateOutput(currModule);
     });
     response.catch((err) => {
         logger.log('info', 'Error in API call: ' + err);
+        // For example, you might want to set it to a default value.
+        currModule.DEPENDENCY_PINNING_SCORE = 0;
         GenerateOutput(currModule);
     });
 }
+
+// Function to calculate the dependency pinning score
+// Function to calculate the dependency pinning score
+function calculateDependencyPinningScore(): number {
+    try {
+        // Read package.json
+        const packageJsonPath = path.join(__dirname, '..', 'package.json');
+        const packageJsonData = fs.readFileSync(packageJsonPath, 'utf-8');
+        const packageJson = JSON.parse(packageJsonData);
+
+        const dependencies = {
+            ...packageJson.dependencies,
+            ...packageJson.devDependencies,
+        };
+
+        let pinnedCount = 0;
+
+        // Check each dependency to see if it's pinned to a specific major+minor version
+        for (const [dep, version] of Object.entries(dependencies)) {
+            // Regex to check if the version is pinned (e.g., "2.3.4" is pinned, but "^2.3.4" and "2.3.x" are not)
+            if (typeof version === 'string' && /^\d+\.\d+\.\d+$/.test(version)) {
+                pinnedCount++;
+            }
+        }
+
+        // Calculate the score
+        const totalDependencies = Object.keys(dependencies).length;
+        const score = totalDependencies > 0 ? pinnedCount / totalDependencies : 1.0;
+
+        return score;
+    } catch (error) {
+        console.error('Error calculating dependency pinning score:', error);
+        return 0; // Consider appropriate error handling
+    }
+}
+
