@@ -34,6 +34,6 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "ts-node server.ts"
+    "start": "ts-node apiserver.ts"
   }
 }
