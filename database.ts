@@ -1,29 +1,66 @@
-import * as AWS from 'aws-sdk';
-import * as pgPromise from 'pg-promise';
+import { Pool } from 'pg';
 
-AWS.config.update({
-accessKeyId: 'COGNITO_ACCESS_KEY',
-secretAccessKey: 'COGNITO_SECRET_ACCESS_KEY',
-region: 'REGION',
+const pool = new Pool({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: 'postgres',
+    password: process.env.DB_PASSWORD,
+    port: 5432,
+    // Add other connection configurations if necessary
 });
 
-// Create an RDS database client using pg-promise
-const pgp = pgPromise();
-const db = pgp({
-user: 'ece461team',
-password: 'ece461group!',
-host: 'ece461-phase2.cb1yc4n1pcpo.us-east-2.rds.amazonaws.com',
-port: 5432,
-database: 'ece461-phase2',
-});
+export async function insertUploadedFile(userID: number, zipFileName: string): Promise<boolean> {
+    try {
+        const query = `
+            INSERT INTO packages(user_id, zip_filename)
+            VALUES($1, $2)
+            RETURNING package_id;
+        `;
+        const values = [userID, zipFileName];
+        const result = await pool.query(query, values);
+        return !!result.rowCount;
+    } catch (error) {
+        console.error('Error inserting into database:', error);
+        return false;
+    }
+}
 
-const fileName = 'example.zip';
+export async function closeConnection(): Promise<void> {
+    await pool.end();
+}
 
-// Insert the file name into the database
-db.none('INSERT INTO file_names (name) VALUES($1)', [fileName])
-.then(() => {
-console.log('File name inserted successfully.');
-})
-.catch((error) => {
-console.error('Error inserting file name:', error);
-});
+export async function insertUser(username: string): Promise<number | null> {
+    try {
+        const query = `
+            INSERT INTO users(name)
+            VALUES($1)
+            RETURNING id;
+        `;
+        const values = [username];
+        const result = await pool.query(query, values);
+        if (result.rowCount > 0) {
+            return result.rows[0].id;  // Return the newly created user's ID
+        }
+        return null;
+    } catch (error) {
+        console.error('Error inserting user into database:', error);
+        return null;
+    }
+}
+
+export async function getUserIdByUsername(username: string): Promise<number | null> {
+    try {
+        const query = `
+            SELECT id FROM users WHERE name = $1 LIMIT 1;
+        `;
+        const values = [username];
+        const result = await pool.query(query, values);
+        if (result.rowCount > 0) {
+            return result.rows[0].id;
+        }
+        return null;
+    } catch (error) {
+        console.error('Error fetching user ID:', error);
+        return null;
+    }
+}
