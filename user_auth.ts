@@ -2,6 +2,7 @@ import { CognitoIdentityProvider } from "@aws-sdk/client-cognito-identity-provid
 import * as dotenv from "dotenv";
 import { logger } from './logging_cfg';
 import * as readline from 'readline';
+import { insertUser } from './database';
 const fs = require('fs');
 dotenv.config();
 import { setAuthenticationState, checkAuthentication, getUsername } from './authState';
@@ -30,7 +31,13 @@ function login() {
             try {
                 const data = await cognito.adminCreateUser(params);
                 console.log(data);
-                // writeUsernameToFile(params.Username);
+        
+                const userId = await insertUser(params.Username);
+                if (!userId) {
+                    console.error('Failed to insert user into the database.');
+                    return;
+                }
+        
                 setAuthenticationState(true, params.Username);
                 logger.log('User created successfully: ', data);
             } catch (err) {

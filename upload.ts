@@ -1,6 +1,7 @@
 import { uploadFile } from "./storage";
 import * as readline from 'readline';
 import { checkAuthentication } from "./authState";
+import { insertUploadedFile, getUserIdByUsername } from "./database";
 async function askQuestion(query: string): Promise<string> {
     const rl = readline.createInterface({
         input: process.stdin,
@@ -17,10 +18,10 @@ async function askQuestion(query: string): Promise<string> {
 
 async function upload() {
     try {
-        if (checkAuthentication() === false) {
-            console.log('You must be logged in to upload a file. Use "./run login" command to log in.');
-            return false;
-        }
+        // if (checkAuthentication() === false) {
+        //     console.log('You must be logged in to upload a file. Use "./run login" command to log in.');
+        //     return false;
+        // }
         // Ask user for file path in terminal
         const filePath = await askQuestion('Enter file path: ');
         const fileName = filePath.split('/').pop() as string;
@@ -30,8 +31,19 @@ async function upload() {
             return false;
         }
         const result = await uploadFile(filePath, fileName);
-
+        
         if (result) {
+
+            const userID = await getUserIdByUsername('romanczug')
+            if (userID === null) {
+                console.error('Failed to fetch user ID.');
+                return false;
+            }
+            const dbResult = await insertUploadedFile(userID, fileName);
+            if (!dbResult) {
+                console.error('Failed to update database with uploaded file.');
+                return false;
+            }
             return true;
         } else {
             return false;

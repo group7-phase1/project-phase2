@@ -1,55 +1,66 @@
-// import pgPromise = require('pg-promise');
+import { Pool } from 'pg';
 
-// // Create an RDS database client using pg-promise
-// const pgp = pgPromise();
-// const db = pgp({
-//   user: 'ece461',
-//   password: 'ece461group!',
-//   host: 'ece461database.cb1yc4n1pcpo.us-east-2.rds.amazonaws.com',
-//   port: 5432,
-//   database: 'ece461database',
-//   ssl: true, // Enable SSL for secure connections
-// });
-
-// const fileName = 'example.zip';
-
-// // Insert the file name into the database
-// db.none('INSERT INTO file_names (name) VALUES($1)', [fileName])
-//   .then(() => {
-//     console.log('File name inserted successfully.');
-//   })
-//   .catch((error) => {
-//     console.error('Error inserting file name:', error);
-//   });
-
-const { Pool } = require('pg');
-
-// Configure the PostgreSQL connection
 const pool = new Pool({
-  user: 'ece461',
-  host: 'ece461database.cb1yc4n1pcpo.us-east-2.rds.amazonaws.com',
-  database: 'ece461database',
-  password: 'ece461group',
-  port: 5432, // PostgreSQL default port
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: 'postgres',
+    password: process.env.DB_PASSWORD,
+    port: 5432,
+    // Add other connection configurations if necessary
 });
 
-// Attempt to connect to the database
-pool.connect()
-  .then(() => {
-    console.log('Connected to the PostgreSQL database');
-    
-    // Perform database operations here
-    // Example query:
-    pool.query('SELECT * FROM your_table', (err, res) => {
-      if (err) {
-        console.error('Error executing query:', err);
-      } else {
-        console.log('Query result:', res.rows);
-      }
-      // Don't forget to release the client when done
-      pool.end();
-    });
-  })
-  .catch((err) => {
-    console.error('Error connecting to the database:', err);
-  });
+export async function insertUploadedFile(userID: number, zipFileName: string): Promise<boolean> {
+    try {
+        const query = `
+            INSERT INTO packages(user_id, zip_filename)
+            VALUES($1, $2)
+            RETURNING package_id;
+        `;
+        const values = [userID, zipFileName];
+        const result = await pool.query(query, values);
+        return !!result.rowCount;
+    } catch (error) {
+        console.error('Error inserting into database:', error);
+        return false;
+    }
+}
+
+export async function closeConnection(): Promise<void> {
+    await pool.end();
+}
+
+export async function insertUser(username: string): Promise<number | null> {
+    try {
+        const query = `
+            INSERT INTO users(name)
+            VALUES($1)
+            RETURNING id;
+        `;
+        const values = [username];
+        const result = await pool.query(query, values);
+        if (result.rowCount > 0) {
+            return result.rows[0].id;  // Return the newly created user's ID
+        }
+        return null;
+    } catch (error) {
+        console.error('Error inserting user into database:', error);
+        return null;
+    }
+}
+
+export async function getUserIdByUsername(username: string): Promise<number | null> {
+    try {
+        const query = `
+            SELECT id FROM users WHERE name = $1 LIMIT 1;
+        `;
+        const values = [username];
+        const result = await pool.query(query, values);
+        if (result.rowCount > 0) {
+            return result.rows[0].id;
+        }
+        return null;
+    } catch (error) {
+        console.error('Error fetching user ID:', error);
+        return null;
+    }
+}
