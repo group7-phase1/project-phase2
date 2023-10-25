@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 
 // Serve static assets (React app) from the build directory
 // Place this before your API routes to ensure they aren't overridden by the catch-all handler
-app.use(express.static(path.join(__dirname, '../my-react-app/build')));
+app.use(express.static('/home/ec2-user/react-frontend/build'));
 
 // Use this middleware to parse JSON in request body
 app.use(express.json());
@@ -34,9 +34,10 @@ app.post('/upload', async (req: Request, res: Response) => {
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/home/ec2-user/react-frontend/build', 'index.html'));
 });
+
 
 // Start the server
 app.listen(PORT, () => {
