@@ -1,12 +1,18 @@
 import express, { Request, Response } from 'express';
+import path from 'path';  // Add this import at the top
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Serve static assets (React app) from the build directory
+// Place this before your API routes to ensure they aren't overridden by the catch-all handler
+app.use(express.static(path.join(__dirname, '../my-react-app/build')));
 
 // Use this middleware to parse JSON in request body
 app.use(express.json());
 
 // Define your API routes
+
 app.post('/login', async (req: Request, res: Response) => {
     try {
         // Your login logic here
@@ -26,8 +32,13 @@ app.post('/upload', async (req: Request, res: Response) => {
     }
 });
 
+// Catch all handler to serve index.html for any request that doesn't match an API route
+// This should come after your API routes
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../react-frontend/build', 'index.html'));
+});
+
 // Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
