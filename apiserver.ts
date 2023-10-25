@@ -35,7 +35,7 @@ app.post('/upload', async (req: Request, res: Response) => {
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../react-frontend/build', 'index.html'));
+    res.sendFile(path.join(__dirname, '/home/ec2-user/react-frontend/build', 'index.html'));
 });
 
 // Start the server
