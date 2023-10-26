@@ -13,7 +13,7 @@ app.use(express.json());
 
 // Define your API routes
 
-app.post('/login', async (req: Request, res: Response) => {
+app.post('/api_login', async (req: Request, res: Response) => {
     try {
         // Your login logic here
         // Use `req.body.username` and `req.body.password` to get the submitted username and password
@@ -23,14 +23,65 @@ app.post('/login', async (req: Request, res: Response) => {
     }
 });
 
-app.post('/upload', async (req: Request, res: Response) => {
+// 
+app.post('/api_upload', async (req: Request, res: Response) => {
     try {
-        // Your upload logic here
         res.send({ success: true, message: 'File uploaded successfully' });
     } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
 });
+
+app.post('/api_register', async (req: Request, res: Response) => {
+    try {
+        // Your register logic here
+        // Use `req.body.username` and `req.body.password` to get the submitted username and password
+        res.send({ success: true, message: 'User registered successfully' });
+
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+
+);
+
+app.post('/api_get_packages', async (req: Request, res: Response) => {
+    // return multiple packages with netscore, package name, package id, package description
+    
+    try{
+        
+        const packages = [
+            {
+                id: 1,
+                name: "package1",
+                description: "package1 description",
+                netscore: 0.5
+            },
+            {
+                id: 2,
+                name: "package2",
+                description: "package2 description",
+                netscore: 0.6
+            },
+            {
+                id: 3,
+                name: "package3",
+                description: "package3 description",
+                netscore: 0.7
+            }
+        ]
+        res.send({ success: true, message: 'Packages retrieved successfully', packages: packages });
+
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+);
+
+
+// app.post("/register")
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
