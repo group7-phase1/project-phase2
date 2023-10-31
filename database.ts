@@ -1,4 +1,8 @@
 import { Pool } from 'pg';
+import dotenv from 'dotenv';
+console.log(process.env.DB_HOST)
+dotenv.config();
+console.log(process.env.DB_HOST)
 
 const pool = new Pool({
     user: process.env.DB_USER,
@@ -9,8 +13,13 @@ const pool = new Pool({
     // Add other connection configurations if necessary
 });
 
+console.log('Connecting to database...');
+console.log(pool);
+
 export async function insertUploadedFile(userID: number, packageName: string, version: string, packageFamilyID: number, zipFileName: string): Promise<boolean> {
     try {
+        console.log('Inserting into database...');
+        console.log(pool);
         const query = `
             INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file)
             VALUES($1, $2, $3, $4, $5)
@@ -27,6 +36,7 @@ export async function insertUploadedFile(userID: number, packageName: string, ve
 
 export async function getPackageFamilyID(packageFamilyName: string): Promise<number | null> {
     try {
+        console.log(pool);
         const query = `
             SELECT package_family_id FROM package_family WHERE package_family_name = $1;
         `;
@@ -45,6 +55,7 @@ export async function getPackageFamilyID(packageFamilyName: string): Promise<num
 
 export async function getPackageFamilies(userID: number): Promise<string []> {
     try {
+        console.log(pool);
         const query = `
             SELECT package_family_name, package_family_id FROM package_family WHERE user_id = $1;
         `;
@@ -59,6 +70,7 @@ export async function getPackageFamilies(userID: number): Promise<string []> {
 
 export async function getPackagesFromPackageFamily(packageFamilyID: number): Promise<string []> {
     try {
+        console.log(pool);
         const query = `
             SELECT package_name FROM packages WHERE package_family_id = $1;
         `;
@@ -77,6 +89,7 @@ export async function closeConnection(): Promise<void> {
 
 export async function insertUser(username: string): Promise<number | null> {
     try {
+        console.log(pool);
         const query = `
             INSERT INTO users(name)
             VALUES($1)
@@ -96,6 +109,7 @@ export async function insertUser(username: string): Promise<number | null> {
 
 export async function getUserIdByUsername(username: string): Promise<number | null> {
     try {
+        console.log(pool);
         const query = `
             SELECT id FROM users WHERE name = $1 LIMIT 1;
         `;
