@@ -2,14 +2,16 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
-import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily } from './database';
+import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, deleteUser } from './database';
 import dotenv from 'dotenv';
 
 dotenv.config();
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
-app.use(express.static('/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build'));
+
+app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
+
 app.use(express.json());
 
 const storage = multer.memoryStorage();
@@ -36,9 +38,9 @@ app.post('/api_login', async (req: Request, res: Response) => {
 app.post('/api_upload', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
     try {
         const zipFile = (req as any).file;
-        const zipFileName = req.body.zipFileName;
+        const zipFileName = req.body.name;
         const userID = req.body.userID;
-        const packageFamilyID = req.body.packageFamilyID;
+        const packageFamilyID = req.body.version;
         const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID);
 
         if (result) {
@@ -139,13 +141,36 @@ app.post('/api_register', async (req: Request, res: Response) => {
 
 );
 
-// app.post("/register")
+app.post('/api_reset', async (req: Request, res: Response) => {
+    try {
+        const username = req.body.email;
+        const password = req.body.password;
+        const packages = await deleteUser(username, password);
+        res.send({ success: true, message: 'Account Deleted Successfully', packages: packages });
+
+
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+);
+
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build', 'index.html'));
+
+app.get('*', (req, res) => {
+    const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
+    res.sendFile(indexPath);
+
 });
+
+// app.get('/grid', (req, res) => {
+//     res.sendFile(path.join(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/src/pages/Grid.js'));
+//     //console.log('On grid')
+// });
+
 
 
 // Start the server
