@@ -9,7 +9,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+
 app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
+
 app.use(express.json());
 
 const storage = multer.memoryStorage();
@@ -157,9 +159,11 @@ app.post('/api_reset', async (req: Request, res: Response) => {
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
+
 app.get('*', (req, res) => {
     const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
     res.sendFile(indexPath);
+
 });
 
 // app.get('/grid', (req, res) => {
