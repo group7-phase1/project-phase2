@@ -130,7 +130,7 @@ export async function deleteUser(username: string, password: string): Promise<bo
     }
 }
 
-async function validateUser(username: string, password: string): Promise<boolean> {
+export async function validateUser(username: string, password: string): Promise<boolean> {
     const query = `
         SELECT * FROM users
         WHERE username = $1
