@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
-import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, deleteUser } from './database';
+import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, deleteUser, insertUser, validateUser, insertUploadedFile } from './database';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
+app.use(express.static('/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build'));
 
 app.use(express.json());
 
@@ -19,9 +19,16 @@ const multerUpload = multer({ storage: storage });
 
 app.post('/api_login', async (req: Request, res: Response) => {
     try {
-        // Your login logic here
-        // Use `req.body.username` and `req.body.password` to get the submitted username and password
-        res.send({ success: true, message: 'User logged in successfully' });
+        const username = req.body.username;
+        const password = req.body.password;
+        const admin = req.body.admin;
+        const valid = await validateUser(username, password)
+        if(valid) {
+            res.send({ success: true, message: 'User logged in successfully' });
+        }
+        else {
+            res.send({ success: false, message: 'User credentials incorrect' });
+        }
     } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
@@ -70,6 +77,8 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
         const userID = req.body.userID;
         const packageFamilyName = req.body.packageFamilyName;
         const packageFamilyID = await getPackageFamilyID(packageFamilyName);
+        const version = req.body.version;
+        const secret = req.body.secret;
 
         if (!packageFamilyID) {
             res.send({ success: false, message: 'Invalid package family name' });
@@ -79,9 +88,32 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
         const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID);
 
         if (result) {
+            insertUploadedFile(userID, packageFamilyName, version, packageFamilyID, zipFileName);
             res.send({ success: true, message: 'File uploaded successfully' });
         } else {
             res.send({ success: false, message: 'File failed to upload' });
+        }
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+    try {
+        const zipFile = (req as any).file;
+        const zipFileName = req.body.zipFileName;
+        const userID = req.body.userID;
+        const packageFamilyName = req.body.packageFamilyName;
+        const packageFamilyID = await getPackageFamilyID(packageFamilyName);
+        const version = req.body.version;
+
+        const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID);
+
+        if (result) {
+            insertUploadedFile(userID, packageFamilyName, version, packageFamilyID, zipFileName);
+            res.send({ success: true, message: 'File updated successfully' });
+        } else {
+            res.send({ success: false, message: 'File updated to upload' });
         }
     } catch (error) {
         res.status(500).send({ success: false, message: error });
@@ -129,10 +161,12 @@ app.post('/api_get_packages', async (req: Request, res: Response) => {
 
 app.post('/api_register', async (req: Request, res: Response) => {
     try {
-        // Your register logic here
-        // Use `req.body.username` and `req.body.password` to get the submitted username and password
+        const username = req.body.username;
+        const password = req.body.password;
+        const group = req.body.groupName;
+        const admin = req.body.admin;
+        await insertUser(username);
         res.send({ success: true, message: 'User registered successfully' });
-
     }
     catch (error) {
         res.status(500).send({ success: false, message: error });
@@ -161,7 +195,7 @@ app.post('/api_reset', async (req: Request, res: Response) => {
 // This should come after your API routes
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
+    const indexPath = path.resolve(__dirname, '/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build/index.html');
     res.sendFile(indexPath);
 
 });
