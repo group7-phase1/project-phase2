@@ -2,7 +2,8 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
-import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily } from './database';
+import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, deleteUser, insertUploadedFile  } from './database';
+import { login, register } from './user_auth';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -17,13 +18,37 @@ const multerUpload = multer({ storage: storage });
 
 app.post('/api_login', async (req: Request, res: Response) => {
     try {
-        // Your login logic here
-        // Use `req.body.username` and `req.body.password` to get the submitted username and password
-        res.send({ success: true, message: 'User logged in successfully' });
+        const authResult = await login(req.body.username, req.body.password);
+        if (authResult) {
+            res.send({ success: true, message: 'User logged in successfully', token: authResult.IdToken });
+        } else {
+            res.status(401).send({ success: false, message: 'Authentication failed' });
+        }
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        if (error instanceof Error) {
+            res.status(500).send({ success: false, message: error.message });
+        }
+        else {
+            res.status(500).send({ success: false, message: "Error logging in" });
+        }
     }
 });
+
+app.post('/api_register', async (req: Request, res: Response) => {
+    try {
+        await register(req.body.username, req.body.password);
+        res.send({ success: true, message: 'User registered successfully' });
+    } catch (error) {
+        if(error instanceof Error){
+            res.status(500).send({ success: false, message: error.message });
+        }
+        else{
+            res.status(500).send({ success: false, message: "Error registering user" });
+        }
+        
+    }
+});
+
 
 /**
  * Function to upload a zip file to the server
@@ -68,6 +93,8 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
         const userID = req.body.userID;
         const packageFamilyName = req.body.packageFamilyName;
         const packageFamilyID = await getPackageFamilyID(packageFamilyName);
+        const version = req.body.version;
+        const secret = req.body.secret;
 
         if (!packageFamilyID) {
             res.send({ success: false, message: 'Invalid package family name' });
@@ -81,6 +108,33 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
         } else {
             res.send({ success: false, message: 'File failed to upload' });
         }
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+    try {
+        const zipFile = (req as any).file;
+        const zipFileName = req.body.zipFileName;
+        const userID = req.body.userID;
+        const packageFamilyName = req.body.packageFamilyName;
+        const packageFamilyID = await getPackageFamilyID(packageFamilyName);
+        const version = req.body.version;
+        if (packageFamilyID) {
+
+            const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID);
+            if (result) {
+                res.send({ success: true, message: 'File updated successfully' });
+            } else {
+                res.send({ success: false, message: 'File updated to upload' });
+            }
+        } else {
+            res.send({ success: false, message: 'Invalid package family name' });
+            return;
+        }
+
+       
     } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
@@ -124,26 +178,28 @@ app.post('/api_get_packages', async (req: Request, res: Response) => {
 }
 );
 
-
-app.post('/api_register', async (req: Request, res: Response) => {
+app.post('/api_reset', async (req: Request, res: Response) => {
     try {
-        // Your register logic here
-        // Use `req.body.username` and `req.body.password` to get the submitted username and password
-        res.send({ success: true, message: 'User registered successfully' });
+        const username = req.body.email;
+        const password = req.body.password;
+        const packages = await deleteUser(username, password);
+        res.send({ success: true, message: 'Account Deleted Successfully', packages: packages });
+
 
     }
     catch (error) {
         res.status(500).send({ success: false, message: error });
     }
 }
-
 );
+
+
 
 // app.post("/register")
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build', 'index.html'));
 });
 

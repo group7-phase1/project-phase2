@@ -1,73 +1,86 @@
-import { CognitoIdentityProvider } from "@aws-sdk/client-cognito-identity-provider";
+import { 
+    CognitoIdentityProvider, 
+    AdminInitiateAuthCommandOutput, 
+    AuthFlowType 
+  } from "@aws-sdk/client-cognito-identity-provider";
+
 import * as dotenv from "dotenv";
 import { logger } from './logging_cfg';
-import * as readline from 'readline';
 import { insertUser } from './database';
-const fs = require('fs');
-dotenv.config();
-import { setAuthenticationState, checkAuthentication, getUsername } from './authState';
 
-function login() {
+dotenv.config();
+
+export async function login(username: string, password: string) {
     const cognito = new CognitoIdentityProvider({
         region: 'us-east-2',
         credentials: {
-            accessKeyId: process.env.COGNITO_ACCESS_KEY as string, 
+            accessKeyId: process.env.COGNITO_ACCESS_KEY as string,
             secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY as string,
         },
     });
-    
-    const rl = readline.createInterface({
-        input: process.stdin,
-        output: process.stdout
-    });
-    rl.question('Enter username: ', (username: string) => {
-        rl.question('Enter password: ', async (password: string) => {
-            const params = {
-                UserPoolId: process.env.USER_POOL_ID as string,
-                Username: username,
-                TemporaryPassword: password,
-            };
-    
-            try {
-                const data = await cognito.adminCreateUser(params);
-                console.log(data);
-        
-                const userId = await insertUser(params.Username);
-                if (!userId) {
-                    console.error('Failed to insert user into the database.');
-                    return;
-                }
-        
-                setAuthenticationState(true, params.Username);
-                logger.log('User created successfully: ', data);
-            } catch (err) {
-                console.log(err);
-                logger.error('Error creating user: ', err);
-            }
-    
-            rl.close();
-        });
-    });
-    
-}
 
-function logout() {
-    setAuthenticationState(false, '');
-    console.log('User logged out');
-}
+    const params = {
+        AuthFlow: 'ADMIN_NO_SRP_AUTH' as AuthFlowType,  
+        UserPoolId: process.env.USER_POOL_ID as string,
+        ClientId: process.env.CLIENT_ID as string, 
+        AuthParameters: {
+            'USERNAME': username,
+            'PASSWORD': password,
+        }
+    };
 
-if (require.main === module) {
-    const command = process.argv[2];
-    if (command === 'login') {
-      login();
-    } else if (command === 'logout') {
-      logout();
-    } else {
-      console.log('Invalid command. Use "login" or "logout".');
+    try {
+        const data: AdminInitiateAuthCommandOutput = await cognito.adminInitiateAuth(params);
+        
+        if (data && data.AuthenticationResult) {
+            logger.log('User logged in successfully: ', data.AuthenticationResult);
+            return data.AuthenticationResult; // Return the authentication result which contains tokens
+        } else {
+            throw new Error('Authentication failed');
+        }
+    } catch (err) {
+        console.log(err);
+        logger.error('Error logging in: ', err);
+        throw err;
     }
-  }
+}
 
-  
-  
-  
-  
+
+
+export async function register(username: string, password: string) {
+    const cognito = new CognitoIdentityProvider({
+        region: 'us-east-2',
+        credentials: {
+            accessKeyId: process.env.COGNITO_ACCESS_KEY as string,
+            secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY as string,
+        },
+    });
+
+    const params = {
+        UserPoolId: process.env.USER_POOL_ID as string,
+        Username: username,
+        TemporaryPassword: password,
+    };
+
+    try {
+        const data = await cognito.adminCreateUser(params);
+        console.log(data);
+
+        const userId = await insertUser(params.Username);
+        if (!userId) {
+            throw new Error('Failed to insert user into the database.');
+        }
+
+        logger.log('User created successfully: ', data);
+        return { success: true, message: 'User registered successfully' };
+    } catch (err) {
+        console.log(err);
+        logger.error('Error creating user: ', err);
+        throw err;
+    }
+}
+
+
+// export function logout() {
+//     console.log('User logged out');
+// }
