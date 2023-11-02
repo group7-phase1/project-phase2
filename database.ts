@@ -107,6 +107,45 @@ export async function insertUser(username: string): Promise<number | null> {
     }
 }
 
+export async function deleteUser(username: string, password: string): Promise<boolean> {
+    try {
+        // Validate the username and password
+        const user = await validateUser(username, password);
+
+        if (user) {
+            // If the user exists and the password is correct, proceed with deletion
+            const query = `
+                DELETE FROM users
+                WHERE username = $1;
+            `;
+            const values = [username];
+            await pool.query(query, values);
+            return true; // User deleted successfully
+        } else {
+            return false; // Invalid username or password
+        }
+    } catch (error) {
+        console.error('Error deleting user from database:', error);
+        return false;
+    }
+}
+
+export async function validateUser(username: string, password: string): Promise<boolean> {
+    const query = `
+        SELECT * FROM users
+        WHERE username = $1
+        AND password = $2;
+    `;
+    const values = [username, password]; // Note that this does not hash the password
+    const result = await pool.query(query, values);
+
+    if (result.rowCount > 0) {
+        return true; // Username and password are valid
+    }
+
+    return false; // Username or password is invalid
+}
+
 export async function getUserIdByUsername(username: string): Promise<number | null> {
     try {
         console.log(pool);
