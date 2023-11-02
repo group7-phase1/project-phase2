@@ -87,15 +87,15 @@ export async function closeConnection(): Promise<void> {
     await pool.end();
 }
 
-export async function insertUser(username: string): Promise<number | null> {
+export async function insertUser(username: string, admin: boolean): Promise<number | null> {
     try {
         console.log(pool);
         const query = `
-            INSERT INTO users(name)
-            VALUES($1)
+            INSERT INTO users(name, is_admin)
+            VALUES($1,$2)
             RETURNING id;
         `;
-        const values = [username];
+        const values = [username, admin];
         const result = await pool.query(query, values);
         if (result.rowCount > 0) {
             return result.rows[0].id;  // Return the newly created user's ID
