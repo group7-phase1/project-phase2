@@ -47,7 +47,7 @@ export async function login(username: string, password: string) {
 
 
 
-export async function register(username: string, password: string) {
+export async function register(username: string, password: string, admin: boolean) {
     const cognito = new CognitoIdentityProvider({
         region: 'us-east-2',
         credentials: {
@@ -55,18 +55,21 @@ export async function register(username: string, password: string) {
             secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY as string,
         },
     });
-
     const params = {
         UserPoolId: process.env.USER_POOL_ID as string,
         Username: username,
         TemporaryPassword: password,
+        Admin: admin
     };
 
     try {
+        console.log("cognito try");
         const data = await cognito.adminCreateUser(params);
+        console.log("cognito data");
         console.log(data);
 
-        const userId = await insertUser(params.Username);
+        const userId = await insertUser(params.Username, params.Admin);
+        console.log("userId ", userId)
         if (!userId) {
             throw new Error('Failed to insert user into the database.');
         }

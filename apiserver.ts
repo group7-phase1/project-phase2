@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
-import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, deleteUser, insertUploadedFile  } from './database';
+import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, deleteUser, insertUploadedFile, insertUser  } from './database';
 import { login, register } from './user_auth';
 import dotenv from 'dotenv';
 
@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 
-app.use(express.static('/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build'));
+app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
 
 app.use(express.json());
 
@@ -37,14 +37,20 @@ app.post('/api_login', async (req: Request, res: Response) => {
 });
 
 app.post('/api_register', async (req: Request, res: Response) => {
+    console.log("api_reigster");
     try {
-        await register(req.body.username, req.body.password);
+        console.log("try successful");
+        console.log(req.body);
+        await register(req.body.username, req.body.password, req.body.admin);
+        console.log("register successful");
         res.send({ success: true, message: 'User registered successfully' });
     } catch (error) {
         if(error instanceof Error){
+            console.log("HERE");
             res.status(500).send({ success: false, message: error.message });
         }
         else{
+            console.log("HERE2");
             res.status(500).send({ success: false, message: "Error registering user" });
         }
         
@@ -61,11 +67,16 @@ app.post('/api_register', async (req: Request, res: Response) => {
  * @returns {boolean} - Whether the file was uploaded successfully
  */
 app.post('/api_upload', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+    console.log("Upload Function");
     try {
-        const zipFile = (req as any).file;
+        const zipFile = req.body.file.buffer;
+        console.log("File", zipFile);
         const zipFileName = req.body.name;
+        console.log("Name", zipFileName);
         const userID = req.body.userID;
+        console.log("Userid" , userID);
         const packageFamilyID = req.body.version;
+        console.log("Family", packageFamilyID);
         const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID);
 
         if (result) {
@@ -117,19 +128,25 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
 });
 
 app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+    console.log("update function");
     try {
         const zipFile = (req as any).file;
         const zipFileName = req.body.zipFileName;
         const userID = req.body.userID;
         const packageFamilyName = req.body.packageFamilyName;
+        console.log(zipFileName);
         const packageFamilyID = await getPackageFamilyID(packageFamilyName);
+        console.log(packageFamilyID);
         const version = req.body.version;
         if (packageFamilyID) {
-
+            console.log(packageFamilyID);
             const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID);
+            console.log(result);
             if (result) {
+                console.log(result);
                 res.send({ success: true, message: 'File updated successfully' });
             } else {
+                console.log(result);
                 res.send({ success: false, message: 'File updated to upload' });
             }
         } else {
@@ -198,25 +215,16 @@ app.post('/api_reset', async (req: Request, res: Response) => {
 }
 );
 
-
-
-
-// app.post("/register")
-
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build', 'index.html'));
-
+    const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
+    res.sendFile(indexPath);
 });
-
-
 
 // Start the server
 app.listen(PORT, () => {
     console.log(process.env.DB_HOST)
     console.log(`Server is running on http://localhost:${PORT}`);
 });
-
-
 
