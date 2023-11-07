@@ -2,7 +2,7 @@ import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 import { Credentials } from "@aws-sdk/types";
 import * as fs from 'fs';
 
-export async function uploadFile(filePath: string, keyName: string): Promise<boolean> {
+export async function uploadFile(fileBuffer: Buffer, keyName: string): Promise<boolean> {
   const credentials: Credentials = {
     accessKeyId: process.env.COGNITO_ACCESS_KEY!,
     secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY!,
@@ -14,13 +14,12 @@ export async function uploadFile(filePath: string, keyName: string): Promise<boo
   });
 
   const bucketName = 'ece461team';
-  const fileContent = fs.readFileSync(filePath);
 
   // Setting up S3 upload parameters
   const params = {
     Bucket: bucketName,
     Key: keyName,
-    Body: fileContent
+    Body: fileBuffer  // Directly use the buffer
   };
 
   try {

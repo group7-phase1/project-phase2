@@ -1,18 +1,22 @@
 import { uploadFile } from "./storage";
 import * as readline from 'readline';
 import { checkAuthentication } from "./authState";
-import { insertUploadedFile, getUserIdByUsername } from "./database";
+import { insertUploadedFile, getUserIdByCognitoID} from "./database";
 
-export async function upload(zipFilePath: string, zipFileName: string, userID: number, packageFamilyID: number): Promise<boolean> {
+export async function upload(fileBuffer: Buffer, zipFileName: string, userID: string, packageFamilyID: number, version: string ): Promise<boolean> {
     try {
         if (!zipFileName.endsWith('.zip')) {
             console.log('File must be a .zip');
             return false;
         }
-        const result = await uploadFile(zipFilePath, zipFileName);
+        const result = await uploadFile(fileBuffer, zipFileName);
         
         if (result) {
-            const [packageName, version] = zipFileName.replace('.zip', '').split('_');
+            const packageName = zipFileName.replace('.zip', '')
+            if (!userID) {
+                console.error('Failed to retrieve user ID from database.');
+                return false;
+            }
             const dbResult = await insertUploadedFile(userID, packageName, version, packageFamilyID, zipFileName);
             if (!dbResult) {
                 console.error('Failed to update database with uploaded file.');
