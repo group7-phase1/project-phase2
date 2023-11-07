@@ -13,21 +13,23 @@ const pool = new Pool({
     // Add other connection configurations if necessary
 });
 
-console.log('Connecting to database...');
-console.log(pool);
-
-export async function insertUploadedFile(userID: number, packageName: string, version: string, packageFamilyID: number, zipFileName: string): Promise<boolean> {
+export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string): Promise<boolean> {
     try {
         console.log('Inserting into database...');
-        console.log(pool);
+        // console.log(pool);
         const query = `
             INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file)
             VALUES($1, $2, $3, $4, $5)
-            RETURNING package_id;
         `;
         const values = [packageFamilyID, packageName, userID, version, zipFileName];
         const result = await pool.query(query, values);
-        return !!result.rowCount;
+        console.log(result);
+        if (result.rowCount > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        
     } catch (error) {
         console.error('Error inserting into database:', error);
         return false;
@@ -36,7 +38,7 @@ export async function insertUploadedFile(userID: number, packageName: string, ve
 
 export async function getPackageFamilyID(packageFamilyName: string): Promise<number | null> {
     try {
-        console.log(pool);
+        // console.log(pool);
         const query = `
             SELECT package_family_id FROM package_family WHERE package_family_name = $1;
         `;
@@ -53,9 +55,31 @@ export async function getPackageFamilyID(packageFamilyName: string): Promise<num
     }
 }
 
-export async function getPackageFamilies(userID: number): Promise<string []> {
+export async function createPackageFamily(userID: string, packageFamilyName: string): Promise<number | null> {
     try {
-        console.log(pool);
+        // console.log(pool);
+        const query = `
+            INSERT INTO package_family(user_id, package_family_name)
+            VALUES($1, $2)
+            RETURNING package_family_id;
+        `;
+        const values = [userID, packageFamilyName];
+        const result = await pool.query(query, values);
+        if (result.rowCount > 0) {
+            return result.rows[0].package_family_id;
+        } else {
+            return null;
+        }
+    }
+    catch (error) {
+        console.error('Error inserting package family into database:', error);
+        return null;
+    }
+}
+
+export async function getPackageFamilies(userID: string): Promise<string []> {
+    try {
+        // console.log(pool);
         const query = `
             SELECT package_family_name, package_family_id FROM package_family WHERE user_id = $1;
         `;
@@ -70,7 +94,7 @@ export async function getPackageFamilies(userID: number): Promise<string []> {
 
 export async function getPackagesFromPackageFamily(packageFamilyID: number): Promise<string []> {
     try {
-        console.log(pool);
+        // console.log(pool);
         const query = `
             SELECT package_name FROM packages WHERE package_family_id = $1;
         `;
@@ -87,118 +111,111 @@ export async function closeConnection(): Promise<void> {
     await pool.end();
 }
 
-export async function insertUser(username: string, admin: boolean): Promise<number | null> {
+export async function insertUser(username: string, admin: boolean, userIDfromCognito: string): Promise<number | null> {
     try {
-        console.log(pool);
+        // console.log(pool);
+        console.log('Inserting user into database...');
         const query = `
-            INSERT INTO users(name, is_admin)
-            VALUES($1,$2)
+            INSERT INTO users(name, is_admin, cognito_id)
+            VALUES($1,$2,$3)
             RETURNING id;
         `;
-        const values = [username, admin];
+
+        const values = [username, admin, userIDfromCognito];
         const result = await pool.query(query, values);
+        console.log(result)
+        console.log(result.rowCount)
         if (result.rowCount > 0) {
+            console.log(result.rows[0].id)
             return result.rows[0].id;  // Return the newly created user's ID
         }
         return null;
     } catch (error) {
+
         console.error('Error inserting user into database:', error);
-        return null;
+        throw error;
+        // return null;
     }
 }
 
-export async function deleteUser(username: string, password: string): Promise<boolean> {
+export async function getUserIdByCognitoID(cognitoID: string): Promise<number | null> {
     try {
-        // Validate the username and password
-        const user = await validateUser(username, password);
-
-        if (user) {
-            // If the user exists and the password is correct, proceed with deletion
-            const query = `
-                DELETE FROM users
-                WHERE username = $1;
-            `;
-            const values = [username];
-            await pool.query(query, values);
-            return true; // User deleted successfully
-        } else {
-            return false; // Invalid username or password
-        }
-    } catch (error) {
-        console.error('Error deleting user from database:', error);
-        return false;
-    }
-}
-
-export async function validateUser(username: string, password: string): Promise<boolean> {
-    const query = `
-        SELECT * FROM users
-        WHERE username = $1
-        AND password = $2;
-    `;
-    const values = [username, password]; // Note that this does not hash the password
-    const result = await pool.query(query, values);
-
-    if (result.rowCount > 0) {
-        return true; // Username and password are valid
-    }
-
-    return false; // Username or password is invalid
-}
-
-export async function getUserIdByUsername(username: string): Promise<number | null> {
-    try {
-        console.log(pool);
         const query = `
-            SELECT id FROM users WHERE name = $1 LIMIT 1;
+            SELECT id FROM users WHERE cognito_id = $1 LIMIT 1;
         `;
-        const values = [username];
+        const values = [cognitoID];
         const result = await pool.query(query, values);
         if (result.rowCount > 0) {
             return result.rows[0].id;
         }
         return null;
-    } catch (error) {
+    }
+    catch (error) {
         console.error('Error fetching user ID:', error);
         return null;
     }
 }
 
-export async function deleteUser(username: string, password: string): Promise<boolean> {
-    try {
-        // Validate the username and password
-        const user = await validateUser(username, password);
+// export async function deleteUser(username: string, password: string): Promise<boolean> {
+//     try {
+//         // Validate the username and password
+//         const user = await validateUser(username, password);
 
-        if (user) {
-            // If the user exists and the password is correct, proceed with deletion
-            const query = `
-                DELETE FROM users
-                WHERE username = $1;
-            `;
-            const values = [username];
-            await pool.query(query, values);
-            return true; // User deleted successfully
-        } else {
-            return false; // Invalid username or password
-        }
-    } catch (error) {
-        console.error('Error deleting user from database:', error);
-        return false;
-    }
-}
+//         if (user) {
+//             // If the user exists and the password is correct, proceed with deletion
+//             const query = `
+//                 DELETE FROM users
+//                 WHERE username = $1;
+//             `;
+//             const values = [username];
+//             await pool.query(query, values);
+//             return true; // User deleted successfully
+//         } else {
+//             return false; // Invalid username or password
+//         }
+//     } catch (error) {
+//         console.error('Error deleting user from database:', error);
+//         return false;
+//     }
+// }
 
-async function validateUser(username: string, password: string): Promise<boolean> {
-    const query = `
-        SELECT * FROM users
-        WHERE username = $1
-        AND password = $2;
-    `;
-    const values = [username, password]; // Note that this does not hash the password
-    const result = await pool.query(query, values);
+// export async function validateUser(username: string, password: string): Promise<boolean> {
+//     const query = `
+//         SELECT * FROM users
+//         WHERE username = $1
+//         AND password = $2;
+//     `;
+//     const values = [username, password]; // Note that this does not hash the password
+//     const result = await pool.query(query, values);
 
-    if (result.rowCount > 0) {
-        return true; // Username and password are valid
-    }
+//     if (result.rowCount > 0) {
+//         return true; // Username and password are valid
+//     }
 
-    return false; // Username or password is invalid
-}
+//     return false; // Username or password is invalid
+// }
+
+// export async function deleteUser(username: string, password: string): Promise<boolean> {
+//     try {
+//         // Validate the username and password
+//         const user = await validateUser(username, password);
+
+//         if (user) {
+//             // If the user exists and the password is correct, proceed with deletion
+//             const query = `
+//                 DELETE FROM users
+//                 WHERE username = $1;
+//             `;
+//             const values = [username];
+//             await pool.query(query, values);
+//             return true; // User deleted successfully
+//         } else {
+//             return false; // Invalid username or password
+//         }
+//     } catch (error) {
+//         console.error('Error deleting user from database:', error);
+//         return false;
+//     }
+// }
+
+
