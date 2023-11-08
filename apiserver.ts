@@ -20,7 +20,7 @@ const multerUpload = multer({ storage: storage });
 
 
 
-// * API ENDPOINTS
+// * API ENDPOINTS THESE ARE FINISHED
 app.post('/api_login', async (req: Request, res: Response) => {
     try {
         console.log("inside try")
@@ -56,14 +56,9 @@ app.post('/api_register', async (req: Request, res: Response) => {
     }
 });
 
-// UPLOAD PACKAGE TO EXISTING PACKAGE FAMILY
-app.post('/api_upload', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
-    console.log("Upload Function");
+// CATCH ALL PACKAGE FAMILIES FOR THE USER
+app.post('/api_get_package_families', async (req: Request, res: Response) => {
     try {
-        const zipFile = req.body.file.buffer;
-        console.log("File", zipFile);
-        const zipFileName = req.body.name;
-        console.log("Name", zipFileName);
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
             return res.status(401).send({ success: false, message: 'No token provided' });
@@ -72,30 +67,22 @@ app.post('/api_upload', multerUpload.single('zipFile'), async (req: Request, res
         if (!decoded || typeof decoded === 'string') {
             return res.status(401).send({ success: false, message: 'Invalid token' });
         }
-        const userID = decoded.sub;
-        if (!userID || typeof userID !== 'string') {
+        const sub = decoded.sub;
+        if (!sub || typeof sub !== 'string') {
             return res.status(401).send({ success: false, message: 'Invalid token' });
         }
-        console.log("Userid", userID);
-        const packageFamilyID = req.body.version;
-        console.log("Family", packageFamilyID);
-        const version = req.body.version;
-        console.log("Version", version);
-
-        const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID, version);
-
-        if (result) {
-            alert("File uploaded successfully");
-            res.send({ success: true, message: 'File uploaded successfully' });
-        } else {
-            alert("File failed to upload");
-            res.send({ success: false, message: 'File failed to upload' });
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
         }
+
+        const packageFamilies = await getPackageFamilies(userID.toString());
+        res.send({ success: true, message: 'Package families retrieved successfully', packageFamilies: packageFamilies });
     } catch (error) {
-        alert("Error");
         res.status(500).send({ success: false, message: error });
     }
-});
+}
+);
 
 // CREATE A NEW PACKAGE FAMILY AND UPLOAD FIRST PACKAGE
 app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
@@ -147,7 +134,8 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
     }
 });
 
-// UPDATE EXISTING PACKAGE IN PACKAGE FAMILY
+// UPDATE EXISTING PACKAGE IN PACKAGE FAMILY WITH NEW VERSION
+// TODO: FINISH THIS
 app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
     console.log("update function");
     try {
@@ -181,35 +169,8 @@ app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Req
     }
 });
 
-// CATCH ALL PACKAGE FAMILIES FOR THE USER
-app.post('/api_get_package_families', async (req: Request, res: Response) => {
-    try {
-        const token = req.headers.authorization?.split(' ')[1];
-        if (!token) {
-            return res.status(401).send({ success: false, message: 'No token provided' });
-        }
-        const decoded = jwt.decode(token);
-        if (!decoded || typeof decoded === 'string') {
-            return res.status(401).send({ success: false, message: 'Invalid token' });
-        }
-        const sub = decoded.sub;
-        if (!sub || typeof sub !== 'string') {
-            return res.status(401).send({ success: false, message: 'Invalid token' });
-        }
-        const userID = await getUserIdByCognitoID(sub);
-        if (!userID) {
-            return res.status(401).send({ success: false, message: 'Invalid token' });
-        }
-
-        const packageFamilies = await getPackageFamilies(userID.toString());
-        res.send({ success: true, message: 'Package families retrieved successfully', packageFamilies: packageFamilies });
-    } catch (error) {
-        res.status(500).send({ success: false, message: error });
-    }
-}
-);
-
 // CATCH ALL PACKAGES IN PACKAGE FAMILY
+// TODO: FINISH THIS
 app.post('/api_get_packages', async (req: Request, res: Response) => {
     try {
         const packageFamilyID = req.body.packageFamilyID;
