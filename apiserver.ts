@@ -212,7 +212,7 @@ app.post('/api_get_package_families', async (req: Request, res: Response) => {
 // CATCH ALL PACKAGES IN PACKAGE FAMILY
 app.post('/api_get_packages', async (req: Request, res: Response) => {
     try {
-        const packageFamilyID = req.body.packageFamilyID;
+        const packageFamilyID = req.body.data.packageFamilyID;
         const packages = await getPackagesFromPackageFamily(packageFamilyID);
         res.send({ success: true, message: 'Packages retrieved successfully', packages: packages });
 
