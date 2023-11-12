@@ -107,6 +107,21 @@ export async function getPackagesFromPackageFamily(packageFamilyID: number): Pro
     }
 }
 
+export async function getPackageDetailsFromPackageFamily(packageFamilyID: number): Promise<string []> {
+    try {
+        // console.log(pool);
+        const query = `
+            SELECT package_name, version, zipped_file FROM packages WHERE package_family_id = $1;
+        `;
+        const values = [packageFamilyID];
+        const result = await pool.query(query, values);
+        return result.rows;
+    } catch (error) {
+        console.error('Error retrieving packages:', error);
+        return [];
+    }
+}
+
 export async function closeConnection(): Promise<void> {
     await pool.end();
 }
@@ -156,44 +171,45 @@ export async function getUserIdByCognitoID(cognitoID: string): Promise<number | 
     }
 }
 
-// export async function deleteUser(username: string, password: string): Promise<boolean> {
-//     try {
-//         // Validate the username and password
-//         const user = await validateUser(username, password);
+export async function deleteUser(username: string, password: string): Promise<boolean> {
+    try {
+        // Validate the username and password
+        //const user = await validateUser(username, password);
 
-//         if (user) {
-//             // If the user exists and the password is correct, proceed with deletion
-//             const query = `
-//                 DELETE FROM users
-//                 WHERE username = $1;
-//             `;
-//             const values = [username];
-//             await pool.query(query, values);
-//             return true; // User deleted successfully
-//         } else {
-//             return false; // Invalid username or password
-//         }
-//     } catch (error) {
-//         console.error('Error deleting user from database:', error);
-//         return false;
-//     }
-// }
+        if (1) {
+            // If the user exists and the password is correct, proceed with deletion
+            const query = `
+                DELETE FROM users
+                WHERE name = $1;
+            `;
+            console.log(username);
+            const values = [username];
+            const result = await pool.query(query, values);
+            console.log(result);
+            return true; // User deleted successfully
+        } else {
+            return false; // Invalid username or password
+        }
+    } catch (error) {
+        console.error('Error deleting user from database:', error);
+        return false;
+    }
+}
 
-// export async function validateUser(username: string, password: string): Promise<boolean> {
-//     const query = `
-//         SELECT * FROM users
-//         WHERE username = $1
-//         AND password = $2;
-//     `;
-//     const values = [username, password]; // Note that this does not hash the password
-//     const result = await pool.query(query, values);
+export async function validateUser(username: string, password: string): Promise<boolean> {
+    const query = `
+        SELECT * FROM users
+        WHERE name = $1
+    `;
+    const values = [username]; // Note that this does not hash the password
+    const result = await pool.query(query, values);
+// TODO: NEED TO CHECK FOR PASSWORD
+    if (result.rowCount > 0) {
+        return true; // Username and password are valid
+    }
 
-//     if (result.rowCount > 0) {
-//         return true; // Username and password are valid
-//     }
-
-//     return false; // Username or password is invalid
-// }
+    return false; // Username or password is invalid
+}
 
 // export async function deleteUser(username: string, password: string): Promise<boolean> {
 //     try {
