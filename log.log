@@ -18,3 +18,5 @@
 [2023-11-10T01:27:08.916Z] error: Error logging in:  Incorrect username or password.
 [2023-11-10T01:29:11.004Z] error: Error creating user:  Username cannot be of email format, since user pool is configured for email alias.
 [2023-11-10T01:30:17.656Z] error: Error creating user:  Username cannot be of email format, since user pool is configured for email alias.
+[2023-11-12T20:55:34.757Z] error: Error logging in:  Incorrect username or password.
+[2023-11-12T20:55:35.880Z] error: Error logging in:  Incorrect username or password.
