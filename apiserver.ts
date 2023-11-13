@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
-import { getPackageFamilyID, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser } from './database';
+import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser } from './database';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -230,7 +230,6 @@ app.post('/api_get_package_details', async (req: Request, res: Response) => {
         const packages = await getPackageDetailsFromPackageFamily(packageFamilyID);
         res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
 
-
     }
     catch (error) {
         res.status(500).send({ success: false, message: error });
@@ -238,6 +237,18 @@ app.post('/api_get_package_details', async (req: Request, res: Response) => {
 }
 );
 
+app.post('/api_get_package_family_name', async (req: Request, res: Response) => {
+    try {
+        const packageFamilyID = req.body.data.packageFamilyID;
+        const packages = await getPackageFamilyName(packageFamilyID);
+        res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+);
 app.post('/api_reset', async (req: Request, res: Response) => {
     try {
 
