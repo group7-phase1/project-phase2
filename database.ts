@@ -121,6 +121,20 @@ export async function getPackageDetailsFromPackageFamily(packageFamilyID: number
         return [];
     }
 }
+export async function getPackageFamilyName(packageFamilyID: number): Promise<string []> {
+    try {
+        // console.log(pool);
+        const query = `
+        SELECT package_family_name FROM package_family WHERE package_family_id = $1;
+        `;
+        const values = [packageFamilyID];
+        const result = await pool.query(query, values);
+        return result.rows;
+    } catch (error) {
+        console.error('Error retrieving packages:', error);
+        return [];
+    }
+}
 
 export async function closeConnection(): Promise<void> {
     await pool.end();
