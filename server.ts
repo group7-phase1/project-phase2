@@ -1,18 +1,19 @@
 // Imports
 import { data } from './calculations';
 import { fetch_METRICS, getLink, convertLink } from './fetch';
-import { ReadMeExtractor } from './github-readme-extractor'
+import { ReadMeExtractor, DependenciesExtractor } from './github-readme-extractor'
 import { logger } from './logging_cfg'
 
 // If there's a link for a npm package, set the flag to true and add the link
 export async function API(link: string, npmFlag: boolean): Promise<data> {
-    if (npmFlag) { 
-        link = await Promise.resolve(getLink(link));   // Calling the getLink function to get the GitHub API link
-    }
+    try {
+        if (npmFlag) { 
+            link = await Promise.resolve(getLink(link));   // Calling the getLink function to get the GitHub API link
+        }
 
     const githubApiLink: string = convertLink(link);
 
-    let rawData: data = {contrubtorMostPullRequests: 0, totalPullRequests: 0, activeContributors: 0,
+    let rawData: data = { dependencies:{}, contrubtorMostPullRequests: 0, totalPullRequests: 0, reviewedPullRequests: 0,totalCodeChanges: 0, reviewedCodeChanges: 0, activeContributors: 0,
         totalClosedIssues: 0, totalissues: 0, totalClosedIssuesMonth: 0, totalIssuesMonth: 0,
         quickStart: 0, examples: 0, usage: 0, closedIssues: 0, openIssues: 0, license: ''};
     
@@ -30,6 +31,14 @@ export async function API(link: string, npmFlag: boolean): Promise<data> {
         logger.log('info', 'Failed to fetch readme data');
     }
 
+    const response2 = await DependenciesExtractor(link);
+
+    if(response) {
+        rawData.dependencies = response2;
+    } else {
+        logger.log('info', 'Failed to fetch readme data');
+    }
+
     // Printing the results of fetch_METRIC_1
     if (userData) {
         logger.log('info', 'Fetched Github user data');
@@ -42,10 +51,21 @@ export async function API(link: string, npmFlag: boolean): Promise<data> {
         rawData.totalIssuesMonth = userData.issuesTotal30;
         rawData.closedIssues = userData.issuesClosed14;
         rawData.openIssues = userData.issuesOpen;
+        rawData.totalPullRequests = userData.totalPullRequests;
+        rawData.totalCodeChanges = userData.totalCodeChanges;
+        rawData.reviewedPullRequests = userData.reviewedPullRequests;
+        rawData.reviewedCodeChanges = userData.reviewedCodeChanges;
+        //rawData.fractionDependenciesPinned = userData.fractionDependenciesPinned; // new metric
+        //rawData.fractionCodeIntroducedReviewed = userData.fractionCodeIntroducedReviewed;
 
     } else {
         logger.log('info', 'Failed to fetch GitHub user data');        
     }
 
     return rawData;
+} catch (error) {
+    logger.log('info', 'An error occurred:' + error);
+    return { dependencies:{}, contrubtorMostPullRequests: 0, totalPullRequests: 0, reviewedPullRequests: 0,totalCodeChanges: 0, reviewedCodeChanges: 0, activeContributors: 0, totalClosedIssues: 0, totalissues: 0, totalClosedIssuesMonth: 0, totalIssuesMonth: 0, quickStart: 0, examples: 0, usage: 0, closedIssues: 0, openIssues: 0, license: ''
+}
+}
 }

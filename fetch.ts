@@ -8,6 +8,26 @@ dotenv.config();
 
 const personalAccessToken = process.env.GITHUB_TOKEN; // personalAccessToken stored locally
 
+// New function to fetch package.json and parse it
+async function fetchPackageJson(apiLink: string): Promise<any> {
+    try {
+        // Construct the URL for the package.json file in the repository
+        const url = `${apiLink}/contents/package.json`;
+        const response = await axios.get(url, {
+            headers: { 'Authorization': `token ${personalAccessToken}` },
+        });
+
+        // Decode the content from Base64 and parse the JSON
+        const packageJsonContent = Buffer.from(response.data.content, 'base64').toString();
+        const packageJson = JSON.parse(packageJsonContent);
+
+        return packageJson;
+    } catch (error) {
+        logger.log('error', `Error fetching package.json: ${error}`);
+        return null;
+    }
+}
+
 interface MetricData {
     totalPullers365: number; // number of active contributors, last 365 days [bus factor]
     mostPulls365: number; // most active contributor's pull request count, last 365 days [bus factor]
@@ -18,6 +38,13 @@ interface MetricData {
     issuesTotal30: number; // total number of issues, last 30 days [correctness]
     issuesClosed14: number; // number of closed issues, last 14 days [responsive maintainer]
     issuesOpen: number; // number of open issues [responsive maintainer]
+    totalPullRequests: number;
+    reviewedPullRequests: number;
+    totalCodeChanges: number;
+    reviewedCodeChanges: number;
+    // totalReviewedPRs: number;
+    // fractionDependenciesPinned: number;
+    // fractionCodeIntroducedReviewed: number;
 }
 
 // Creates 3 dates and configures it to be:
@@ -52,10 +79,39 @@ async function fetch_METRICS(apiLink: string): Promise<MetricData> {
         totalPullers365: 0, // number of active contributors, last 365 days [bus factor]
         mostPulls365: 0, // most active contributor's pull request count, last 365 days [bus factor]
         totalPulls365: 0, // number of pull requests, last 365 days [bus factor]
+        totalReviewedPRs: 0,
     };
+
+    const MetricDataPartial3 = {
+        totalPullRequests: 0,
+        reviewedPullRequests: 0,
+        totalCodeChanges: 0,
+        reviewedCodeChanges: 0
+    };
+    
+    const MetricDataPartial4 = {
+        totalPullRequests: 0,
+        reviewedPullRequests: 0,
+        totalCodeChanges: 0,
+        reviewedCodeChanges: 0
+    };
+
+    await checkGitHubRateLimit();
 
     let status: number | undefined = await linkValidator(apiLink);
 
+    // totalPullers365: number; // number of active contributors, last 365 days [bus factor]
+    // mostPulls365: number; // most active contributor's pull request count, last 365 days [bus factor]
+    // totalPulls365: number; // number of pull requests, last 365 days [bus factor]
+    // issuesClosed: number; // number of closed issues [correctness]
+    // issuesTotal: number; // total number of issues [correctness]
+    // issuesClosed30: number; // number of closed issues, last 30 days [correctness]
+    // issuesTotal30: number; // total number of issues, last 30 days [correctness]
+    // issuesClosed14: number; // number of closed issues, last 14 days [responsive maintainer]
+    // issuesOpen: number; // number of open issues [responsive maintainer]
+    // totalReviewedPRs: number;
+    // fractionDependenciesPinned: number;
+    // fractionCodeIntroducedReviewed: number;
     if (status != 200) {
         let exportMetric: MetricData = {
             totalPullers365: -1, // number of active contributors, last 365 days [bus factor]
@@ -67,13 +123,21 @@ async function fetch_METRICS(apiLink: string): Promise<MetricData> {
             issuesTotal30: -1, // total number of issues, last 30 days [correctness]
             issuesClosed14: -1, // number of closed issues, last 14 days [responsive maintainer]
             issuesOpen: -1, // number of open issues [responsive maintainer]
+            totalPullRequests: -1,
+            reviewedPullRequests: -1,
+            totalCodeChanges: -1,
+            reviewedCodeChanges: -1,
         };
         return exportMetric;
     }
 
+    
+
     // calls the 2 functions
     await fetchIssues(apiLink, MetricDataPartial1);
     await fetchPulls(apiLink, MetricDataPartial2);
+    await fetchIssuesMetric2(apiLink, MetricDataPartial3);
+    await fetchPullsMetric2(apiLink, MetricDataPartial4);
 
     let exportMetric: MetricData = {
         totalPullers365: MetricDataPartial2.totalPullers365, // number of active contributors, last 365 days [bus factor]
@@ -85,6 +149,12 @@ async function fetch_METRICS(apiLink: string): Promise<MetricData> {
         issuesTotal30: MetricDataPartial1.issuesTotal30, // total number of issues, last 30 days [correctness]
         issuesClosed14: MetricDataPartial1.issuesClosed14, // number of closed issues, last 14 days [responsive maintainer]
         issuesOpen: MetricDataPartial1.issuesOpen, // number of open issues [responsive maintainer]
+        totalPullRequests: MetricDataPartial3.totalPullRequests, // total pull requests
+        reviewedPullRequests: MetricDataPartial3.reviewedPullRequests, // total merged pull requests
+        totalCodeChanges: MetricDataPartial4.totalCodeChanges, // total pull requests
+        reviewedCodeChanges: MetricDataPartial4.reviewedCodeChanges,
+
+        // totalReviewedPRs: MetricDataPartial2.totalReviewedPRs, // total merged pull requests
     };
 
     logger.log('debug', `Metric data: ${exportMetric}`);
@@ -95,7 +165,11 @@ async function fetch_METRICS(apiLink: string): Promise<MetricData> {
 async function linkValidator(apiLink: string) {
     try {
         // Fetch the content of the api package page
-        const response = await axios.get(apiLink);
+        const response = await axios.get(apiLink, {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        });
         if (response.status == 200) {
             return 200;
         }
@@ -104,7 +178,84 @@ async function linkValidator(apiLink: string) {
         return 400;
     }
 
+
 }
+
+async function checkGitHubRateLimit(): Promise<void> {
+    console.log("in checkGitHubRateLimit")
+    try {
+        const response = await axios.get('https://api.github.com/rate_limit', {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        });
+
+        const rateLimit = response.data.resources.core; // This provides rate limit information for the core API
+        const searchLimit = response.data.resources.search; // This provides rate limit information for the search API
+
+        console.log(`Core Limit: ${rateLimit.limit}`);
+        console.log(`Core Remaining: ${rateLimit.remaining}`);
+        console.log(`Core Reset Time: ${new Date(rateLimit.reset * 1000)}`);  // Convert to milliseconds and create a Date object
+
+        console.log(`Search Limit: ${searchLimit.limit}`);
+        console.log(`Search Remaining: ${searchLimit.remaining}`);
+        console.log(`Search Reset Time: ${new Date(searchLimit.reset * 1000)}`);  // Convert to milliseconds and create a Date object
+    } catch (error) {
+        console.error("Error fetching GitHub rate limit:", error);
+    }
+}
+
+async function fetchIssuesMetric2(apiLink: string, MetricData: any): Promise<void> {
+    try {
+        const responsePulls = await axios.get(`${apiLink}/pulls?state=all&per_page=1`, {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        });
+        
+        const lastPageMatch = responsePulls.headers['link'].match(/&page=(\d+)>; rel="last"/);
+        MetricData.totalPullRequests = lastPageMatch ? parseInt(lastPageMatch[1], 10) : responsePulls.data.length;
+
+        const responseReviewedPRs = await axios.get(`${apiLink}/pulls?state=all&per_page=100&sort=updated&direction=desc`, {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        });
+        MetricData.reviewedPullRequests = responseReviewedPRs.data.filter((pr: any) => pr.review_comments > 0).length;
+    } catch (error) {
+        console.error("Error fetching issues:", error);
+    }
+}
+
+async function fetchPullsMetric2(apiLink: string, MetricData: any): Promise<void> {
+    try {
+        const responseCommits = await axios.get(`${apiLink}/commits?per_page=1`, {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        });
+        
+        const lastPageMatch = responseCommits.headers['link'].match(/&page=(\d+)>; rel="last"/);
+        MetricData.totalCodeChanges = lastPageMatch ? parseInt(lastPageMatch[1], 10) : responseCommits.data.length;
+
+        const responsePulls = await axios.get(`${apiLink}/pulls?state=all&per_page=100&sort=updated&direction=desc`, {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        });
+        
+        const commitPromises = responsePulls.data.map((pr: any) => axios.get(pr.commits_url, {
+            headers: {
+                Authorization: `token ${personalAccessToken}`,
+            },
+        }));
+        const commitsResponses = await Promise.all(commitPromises);
+        MetricData.reviewedCodeChanges = commitsResponses.reduce((acc, res) => acc + res.data.length, 0);
+    } catch (error) {
+        console.error("Error fetching pulls:", error);
+    }
+}
+
 
 async function fetchIssues(apiLink: string, MetricDataPartial1: any) {
 

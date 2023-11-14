@@ -1,5 +1,8 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
+import { GenerateCalculations } from './calculations';
+import { module} from './fileio';
+
 console.log(process.env.DB_HOST)
 dotenv.config();
 console.log(process.env.DB_HOST)
@@ -13,9 +16,51 @@ const pool = new Pool({
     // Add other connection configurations if necessary
 });
 
-export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string): Promise<boolean> {
+export async function updateFamilyScores(packageFamilyID: string, scores: module): Promise<boolean> {
     try {
+        const query = `
+            UPDATE package_family
+            SET bus_factor_score = $1, correctness_score = $2, ramp_up_score = $3, responsive_maintainer_score = $4, license_score = $5, net_score = $6, dependency_pinning_score = $7, code_review_coverage_score = $8
+            WHERE package_family_id = $9;
+        `;
+        const values = [scores.BUS_FACTOR_SCORE, scores.CORRECTNESS_SCORE, scores.RAMP_UP_SCORE, scores.RESPONSIVE_MAINTAINER_SCORE, scores.LICENSE_SCORE, scores.NET_SCORE, scores.DEPENDENCY_PINNING_SCORE, scores.CODE_REVIEW_COVERAGE_SCORE, packageFamilyID];
+
+        const result = await pool.query(query, values);
+        if (result.rowCount > 0) {
+            return true;
+        } else {
+            return false;
+        }
+
+    } catch (error) {
+        console.error('Error updating family scores:', error);
+        return false;
+    }
+}
+
+export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string, gitHubLink: string): Promise<boolean> {
+    try {
+        const currModule: module = {
+            URL: gitHubLink,
+            BUS_FACTOR_SCORE: 0,
+            CORRECTNESS_SCORE: 0,
+            RAMP_UP_SCORE: 0,
+            RESPONSIVE_MAINTAINER_SCORE: 0,
+            LICENSE_SCORE: 0,
+            NET_SCORE: 0,
+            DEPENDENCY_PINNING_SCORE: 0,
+            CODE_REVIEW_COVERAGE_SCORE: 0,
+        };
+
         console.log('Inserting into database...');
+        await GenerateCalculations(currModule, false);
+
+        console.log(currModule);
+        const resultScores = updateFamilyScores(packageFamilyID.toString(), currModule);
+        if (!resultScores) {
+            console.error('Failed to update family scores.');
+            return false;
+        }
         // console.log(pool);
         const query = `
             INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file)

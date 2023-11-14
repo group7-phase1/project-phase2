@@ -11,8 +11,11 @@ export type module = {
     CORRECTNESS_SCORE: number,
     BUS_FACTOR_SCORE: number,    
     RESPONSIVE_MAINTAINER_SCORE: number, // Test 
-    LICENSE_SCORE: number
+    LICENSE_SCORE: number,
+    DEPENDENCY_PINNING_SCORE: number,
+    CODE_REVIEW_COVERAGE_SCORE: number
 }
+
 
 // read URLs from input into array of strings
 // each string in return array will be one URL
@@ -40,7 +43,8 @@ function FindGitModules(URLsList: string[]): module[] {
     for(let idx: number = 0; idx < URLsList.length; idx++) {
         if(URLsList[idx].includes("github.com/")) {
             let newModule: module = {URL: URLsList[idx], NET_SCORE: 0, RAMP_UP_SCORE: 0, CORRECTNESS_SCORE: 0,
-                                     BUS_FACTOR_SCORE: 0, RESPONSIVE_MAINTAINER_SCORE: 0, LICENSE_SCORE: 0};
+                                     BUS_FACTOR_SCORE: 0, RESPONSIVE_MAINTAINER_SCORE: 0, LICENSE_SCORE: 0, DEPENDENCY_PINNING_SCORE: 0,
+                                     CODE_REVIEW_COVERAGE_SCORE: 0};
             moduleList.push(newModule);
         }
     }
@@ -59,7 +63,8 @@ function FindNPMModules(URLsList: string[]): module[] {
     for(let idx: number = 0; idx < URLsList.length; idx++) {
         if(URLsList[idx].includes("npmjs.com/")) {
             let newModule: module = {URL: URLsList[idx], NET_SCORE: 0, RAMP_UP_SCORE: 0, CORRECTNESS_SCORE: 0,
-                                     BUS_FACTOR_SCORE: 0, RESPONSIVE_MAINTAINER_SCORE: 0, LICENSE_SCORE: 0};
+                                     BUS_FACTOR_SCORE: 0, RESPONSIVE_MAINTAINER_SCORE: 0, LICENSE_SCORE: 0, DEPENDENCY_PINNING_SCORE: 0,
+                                     CODE_REVIEW_COVERAGE_SCORE: 0};
             logger.log('debug', 'URL: ' + URLsList[idx]);
             moduleList.push(newModule);
         }
@@ -79,7 +84,8 @@ function FindOtherModules(URLsList: string[]): module[] {
     for(let idx: number = 0; idx < URLsList.length; idx++) {
         if(!(URLsList[idx].includes("npmjs.com/")) && !(URLsList[idx].includes("github.com/"))) {
             let newModule: module = {URL: URLsList[idx], NET_SCORE: 0, RAMP_UP_SCORE: 0, CORRECTNESS_SCORE: 0,
-                                     BUS_FACTOR_SCORE: 0, RESPONSIVE_MAINTAINER_SCORE: 0, LICENSE_SCORE: 0};
+                                     BUS_FACTOR_SCORE: 0, RESPONSIVE_MAINTAINER_SCORE: 0, LICENSE_SCORE: 0, DEPENDENCY_PINNING_SCORE: 0,
+                                     CODE_REVIEW_COVERAGE_SCORE: 0};
             moduleList.push(newModule);
         }
     }
