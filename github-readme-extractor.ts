@@ -3,7 +3,52 @@ import * as git from 'isomorphic-git';
 import http from 'isomorphic-git/http/node';
 import { logger } from './logging_cfg';
 
-//const githubRepoUrl = 'https://github.com/lodash/lodash'; // Replace with the actual GitHub repository URL
+// return a dictionary of dependencies and their versions
+export async function DependenciesExtractor(githubRepoUrl: string): Promise<Record<string, string>> {
+  const localRepoPath = './local-repo';
+
+  try {
+    // Check if the local directory exists already
+    const localRepoExists = fs.existsSync(localRepoPath);
+
+    // If it exists, delete it first
+    if (localRepoExists) {
+      await fs.promises.rm(localRepoPath, { recursive: true });
+      logger.log('info', "Cloned local repo deleted successfully");
+    }
+
+    // Clone the repository
+    logger.log('info', 'Cloning repository...');
+    await git.clone({
+      fs,
+      http,
+      dir: localRepoPath,
+      url: githubRepoUrl,
+      singleBranch: true,
+    });
+
+    // Read the package.json file
+    const filesInRepo = fs.readdirSync(localRepoPath);
+
+    const packageJson = filesInRepo.find((item) => item.toLowerCase() === 'package.json');
+
+    if (!packageJson) {
+      logger.log('info', 'no package.json file found');
+      return {};
+    }
+
+    const packageJsonPath = `${localRepoPath}/${packageJson}`;
+    const packageJsonContent = fs.readFileSync(packageJsonPath, 'utf-8');
+    const packageJsonData = JSON.parse(packageJsonContent);
+
+    return packageJsonData.dependencies || {};
+
+  } catch (error) {
+    logger.log('info', 'An error occurred:' + error);
+    return {};
+  }
+}
+
 
 export async function ReadMeExtractor(githubRepoUrl: string): Promise<[number, number, number, string]> {
   const localRepoPath = './local-repo'; // Specify the path where you want to clone the repository
