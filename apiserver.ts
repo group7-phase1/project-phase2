@@ -153,7 +153,21 @@ app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Req
     try {
         const zipFile = (req as any).file;
         const zipFileName = req.body.zipFileName;
-        const userID = req.body.userID;
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).send({ success: false, message: 'No token provided' });
+        }
+        // console.log("Token", token);
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
         console.log(zipFileName);
         const packageFamilyID = req.body.packageFamilyID;
         console.log(packageFamilyID);
@@ -161,7 +175,7 @@ app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Req
         console.log(version);
         if (packageFamilyID) {
             console.log(packageFamilyID);
-            const result = await upload(zipFile.buffer, zipFileName, userID, packageFamilyID, version);
+            const result = await upload(zipFile.buffer, zipFileName, userID.toString(), packageFamilyID, version);
             console.log(result);
             if (result) {
                 console.log(result);
