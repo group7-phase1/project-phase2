@@ -224,18 +224,48 @@ app.post('/api_get_package_family_name', async (req: Request, res: Response) => 
     }
 }
 );
+// app.post('/api_reset', async (req: Request, res: Response) => {
+//     try {
+
+//         const username = req.body.username;
+//         const password = req.body.password;
+//         const packages = await deleteUser(username, password);
+//         res.send({ success: true, message: 'Account Deleted Successfully', packages: packages });
+
+
+
+//     }
+//     catch (error) {
+//         res.status(500).send({ success: false, message: error });
+//     }
+// }
+// );
+
 app.post('/api_reset', async (req: Request, res: Response) => {
     try {
+        console.log("inside try")
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).send({ success: false, message: 'No token provided' });
+        }
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
 
-        const username = req.body.username;
-        const password = req.body.password;
-        const packages = await deleteUser(username, password);
-        res.send({ success: true, message: 'Account Deleted Successfully', packages: packages });
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
 
-
-
-    }
-    catch (error) {
+        const result = await deleteUser(userID.toString());
+        if (result) {
+            res.send({ success: true, message: 'User deleted successfully' });
+        } else {
+            res.send({ success: false, message: 'User failed to delete' });
+        }
+    } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
 }
