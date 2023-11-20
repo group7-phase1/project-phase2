@@ -16,6 +16,30 @@ const pool = new Pool({
     // Add other connection configurations if necessary
 });
 
+export async function deleteUser(userID: string): Promise<boolean> {
+    const client = await pool.connect();
+    try {
+        console.log('Deleting user and related data from database...');
+        await client.query('BEGIN');
+        const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE user_id = $1)';
+        const deletePackageFamilyQuery = 'DELETE FROM package_family WHERE user_id = $1';
+        const deleteUserQuery = 'DELETE FROM users WHERE id = $1';
+
+        await client.query(deletePackagesQuery, [userID]);
+        await client.query(deletePackageFamilyQuery, [userID]);
+        await client.query(deleteUserQuery, [userID]);
+        
+        await client.query('COMMIT');
+        return true;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.error('Error deleting user and related data from database:', error);
+        return false;
+    } finally {
+        client.release();
+    }
+}
+
 export async function updateFamilyScores(packageFamilyID: string, scores: module): Promise<boolean> {
     try {
         const query = `
@@ -113,6 +137,7 @@ export async function createPackageFamily(userID: string, packageFamilyName: str
         if (result.rowCount > 0) {
             return result.rows[0].package_family_id;
         } else {
+            console.error('Error creating package family.');
             return null;
         }
     }
@@ -230,30 +255,30 @@ export async function getUserIdByCognitoID(cognitoID: string): Promise<number | 
     }
 }
 
-export async function deleteUser(username: string, password: string): Promise<boolean> {
-    try {
-        // Validate the username and password
-        //const user = await validateUser(username, password);
+// export async function deleteUser(username: string, password: string): Promise<boolean> {
+//     try {
+//         // Validate the username and password
+//         //const user = await validateUser(username, password);
 
-        if (1) {
-            // If the user exists and the password is correct, proceed with deletion
-            const query = `
-                DELETE FROM users
-                WHERE name = $1;
-            `;
-            console.log(username);
-            const values = [username];
-            const result = await pool.query(query, values);
-            console.log(result);
-            return true; // User deleted successfully
-        } else {
-            return false; // Invalid username or password
-        }
-    } catch (error) {
-        console.error('Error deleting user from database:', error);
-        return false;
-    }
-}
+//         if (1) {
+//             // If the user exists and the password is correct, proceed with deletion
+//             const query = `
+//                 DELETE FROM users
+//                 WHERE name = $1;
+//             `;
+//             console.log(username);
+//             const values = [username];
+//             const result = await pool.query(query, values);
+//             console.log(result);
+//             return true; // User deleted successfully
+//         } else {
+//             return false; // Invalid username or password
+//         }
+//     } catch (error) {
+//         console.error('Error deleting user from database:', error);
+//         return false;
+//     }
+// }
 
 export async function validateUser(username: string, password: string): Promise<boolean> {
     const query = `
