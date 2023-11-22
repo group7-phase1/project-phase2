@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
-import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser } from './database';
+import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -12,7 +12,7 @@ import { version } from 'isomorphic-git';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build'));
+app.use(express.static('/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build'));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -271,13 +271,43 @@ app.post('/api_reset', async (req: Request, res: Response) => {
 }
 );
 
+app.post('/api_clear_packages', async (req: Request, res: Response) => {
+    try {
+        console.log("inside try")
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).send({ success: false, message: 'No token provided' });
+        }
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
+
+        const result = await clearPackages(userID.toString());
+        if (result) {
+            res.send({ success: true, message: 'Packages deleted successfully' });
+        } else {
+            res.send({ success: false, message: 'Packages failed to delete' });
+        }
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+);
+
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
 
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build/index.html');
+    const indexPath = path.resolve(__dirname, '/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build/index.html');
     res.sendFile(indexPath);
 });
 
