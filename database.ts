@@ -40,6 +40,27 @@ export async function deleteUser(userID: string): Promise<boolean> {
     }
 }
 
+export async function clearPackages(userID: string): Promise<boolean> {
+    const client = await pool.connect();
+    try {
+        console.log('Deleting user and related data from database...');
+        await client.query('BEGIN');
+        const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE user_id = $1)';
+        const deletePackageFamilyQuery = 'DELETE FROM package_family WHERE user_id = $1';
+
+        await client.query(deletePackagesQuery, [userID]);
+        await client.query(deletePackageFamilyQuery, [userID]);
+        await client.query('COMMIT');
+        return true;
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.error('Error deleting user and related data from database:', error);
+        return false;
+    } finally {
+        client.release();
+    }
+}
+
 export async function updateFamilyScores(packageFamilyID: string, scores: module): Promise<boolean> {
     try {
         const query = `
@@ -151,7 +172,7 @@ export async function getPackageFamilies(userID: string): Promise<string []> {
     try {
         // console.log(pool);
         const query = `
-            SELECT package_family_name, package_family_id FROM package_family WHERE user_id = $1;
+            SELECT package_family_name, package_family_id, ramp_up_score, bus_factor_score, correctness_score, responsive_maintainer_score, license_score, net_score, dependency_pinning_score, code_review_coverage_score FROM package_family WHERE user_id = $1;
         `;
         const values = [userID];
         const result = await pool.query(query, values);
