@@ -3,6 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
+import { getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -295,6 +296,38 @@ app.post('/api_clear_packages', async (req: Request, res: Response) => {
         } else {
             res.send({ success: false, message: 'Packages failed to delete' });
         }
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+);
+
+// AUTOGRADER API CALLS
+app.post('/packages', async (req: Request, res: Response) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        const offset = req.headers.offset;
+        if(req.headers.offset == null) {
+            const offset = 1;
+        }
+        if (!token) {
+            return res.status(401).send({ success: false, message: 'No token provided' });
+        }
+        const decoded = jwt.decode(token);
+        if (!decoded || typeof decoded === 'string') {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        const sub = decoded.sub;
+        if (!sub || typeof sub !== 'string') {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+
+        const packageFamilies = await getPackageFamiliesAG(userID.toString());
+        res.send({ packageFamilies });
     } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
