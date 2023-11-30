@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
-import { getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG } from './autograderdatabase';
+import { getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -363,6 +363,156 @@ app.post('/reset', async (req: Request, res: Response) => {
     }
 }
 );
+
+// package/{id}
+app.post('/package/:id', async (req: Request, res: Response) => {
+    try {
+        const packageFamilyID = parseInt(req.params.id, 10);
+
+        const token = req.headers.authorization;
+
+        if (isNaN(packageFamilyID)) {
+            return res.status(400).send({ success: false, message: 'Invalid package ID' });
+        }
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        const packages = await getPackageDetailsFromPackageFamily(packageFamilyID);
+        res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+        if (!packages) {
+            return res.status(404).send({ success: false, message: 'Package does not exist' });
+        }
+
+        res.status(200).send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+    console.log("update function");
+    try {
+        const zipFile = (req as any).file;
+        const zipFileName = req.body.zipFileName;
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).send({ success: false, message: 'No token provided' });
+        }
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
+        console.log(zipFileName);
+        const packageFamilyID = req.body.packageFamilyID;
+        console.log(packageFamilyID);
+        const version = req.body.version;
+        console.log(version);
+        if (packageFamilyID) {
+            console.log(packageFamilyID);
+            const result = await upload(zipFile.buffer, zipFileName, userID.toString(), packageFamilyID, version);
+            console.log(result);
+            if (result) {
+                console.log(result);
+                res.send({ success: true, message: 'File updated successfully' });
+            } else {
+                console.log(result);
+                res.send({ success: false, message: 'File updated to upload' });
+            }
+        } else {
+            res.send({ success: false, message: 'Invalid package family name' });
+            return;
+        }
+
+
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+app.delete('/package/:id', async (req: Request, res: Response) => {
+    try {
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const result = await clearSinglePackageAG(userID.toString());
+        if (result) {
+            res.status(200).send({ success: true, message: 'Package deleted successfully' });
+        } else {
+            res.status(400).send({ success: false, message: 'User failed to delete' });
+        }
+    } catch (error) {
+        res.status(404).send({ success: false, message: error });
+    }
+}
+);
+
+// /package Upload package
+app.post('/package', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+    try {
+        if (!req.file) {
+            return res.status(400).send({ success: false, message: 'No file uploaded.' });
+        }
+        console.log("creating a new package family");
+        const zipFileBuffer = req.file.buffer;
+        const zipFileName = req.body.zipFileName;
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        // console.log("Token", token);
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
+        const packageFamilyName = req.body.packageFamilyName;
+        console.log("Package Family Name", packageFamilyName);
+        const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
+        console.log("packageFamilyID", packageFamilyID);
+        const version = req.body.version;
+        console.log("Version", version);
+        const secret = req.body.secret;
+        console.log("Secret", secret);
+
+        if (!packageFamilyID) {
+            res.status(400).send({ success: false, message: 'Invalid package family name' });
+            return;
+        }
+
+        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
+
+        if (result) {
+            res.send({ success: true, message: 'File uploaded successfully' });
+        } else {
+            res.send({ success: false, message: 'File failed to upload' });
+        }
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
