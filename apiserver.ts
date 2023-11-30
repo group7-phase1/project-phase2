@@ -13,7 +13,7 @@ import { version } from 'isomorphic-git';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
+app.use(express.static('/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build'));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -336,7 +336,7 @@ app.post('/packages', async (req: Request, res: Response) => {
 );
 
 //Deletes all packages of the user
-app.post('/reset', async (req: Request, res: Response) => {
+app.delete('/reset', async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
@@ -354,41 +354,79 @@ app.post('/reset', async (req: Request, res: Response) => {
 
         const result = await clearPackages(userID.toString());
         if (result) {
-            res.status(200).send({ success: true, message: 'Packages deleted successfully' });
+            res.status(200).send({ message: 'registry is reset' });
         } else {
-            res.status(500).send({ success: false, message: 'Packages failed to delete' });
+            res.status(400).send({ message: 'registry is not reset' });
         }
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(400).send({ success: false, message: error });
     }
 }
 );
 
 // package/{id}
-app.post('/package/:id', async (req: Request, res: Response) => {
+// app.get('/package/:id', async (req: Request, res: Response) => {
+//     try {
+//         const packageFamilyID = parseInt(req.params.id, 10);
+
+//         const token = req.headers.authorization;
+
+//         if (isNaN(packageFamilyID)) {
+//             return res.status(400).send({ success: false, message: 'Invalid package ID' });
+//         }
+//         if (!token) {
+//             return res.status(400).send({ success: false, message: 'No token provided' });
+//         }
+//         const packages = await getPackageDetailsFromPackageFamily(packageFamilyID);
+//         res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+//         if (!packages) {
+//             return res.status(404).send({ success: false, message: 'Package does not exist' });
+//         }
+
+//         res.status(200).send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+//     }
+//     catch (error) {
+//         res.status(500).send({ success: false, message: error });
+//     }
+// });
+app.get('/package/:id', async (req: Request, res: Response) => {
     try {
         const packageFamilyID = parseInt(req.params.id, 10);
 
-        const token = req.headers.authorization;
-
-        if (isNaN(packageFamilyID)) {
-            return res.status(400).send({ success: false, message: 'Invalid package ID' });
+        const token = req.headers.authorization?.split(' ')[1];
+        const offset = req.headers.offset;
+        if(req.headers.offset == null) {
+            const offset = 1;
         }
         if (!token) {
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(401).send({ success: false, message: 'No token provided' });
         }
-        const packages = await getPackageDetailsFromPackageFamily(packageFamilyID);
-        res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
-        if (!packages) {
-            return res.status(404).send({ success: false, message: 'Package does not exist' });
+        const decoded = jwt.decode(token);
+        if (!decoded || typeof decoded === 'string') {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        const sub = decoded.sub;
+        if (!sub || typeof sub !== 'string') {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
         }
 
-        res.status(200).send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+        const packages = await getPackageDetailsFromPackageFamilyAG(packageFamilyID, userID.toString());
+
+        if (!packages) {
+            return res.status(404).send({ message: 'Package does not exist' });
+        }
+
+        res.status(200).send({ packages: packages});
     }
     catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(500).send({ message: error });
     }
 });
+
 
 app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
     console.log("update function");
@@ -547,13 +585,13 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
             return;
         }
 
-        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
+        // const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
 
-        if (result) {
-            res.send({ success: true, message: 'File uploaded successfully' });
-        } else {
-            res.send({ success: false, message: 'File failed to upload' });
-        }
+        // if (result) {
+        //     res.send({ success: true, message: 'File uploaded successfully' });
+        // } else {
+        //     res.send({ success: false, message: 'File failed to upload' });
+        // }
     } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
@@ -565,7 +603,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
+    const indexPath = path.resolve(__dirname, '/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build/index.html');
     res.sendFile(indexPath);
 });
 

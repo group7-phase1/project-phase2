@@ -341,3 +341,37 @@
 [2023-11-22T21:50:42.061Z] info: Calculating Net Score
 [2023-11-22T21:50:42.061Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-11-22T21:50:42.063Z] info: Program completed successfully
+[2023-11-30T19:38:16.710Z] info: Working on link: https://github.com/zeit/arg
+[2023-11-30T19:38:17.515Z] info: Entering fetchIssues function
+[2023-11-30T19:38:18.235Z] info: Entering fetchPulls function
+[2023-11-30T19:38:24.871Z] info: Cloning repository...
+[2023-11-30T19:38:24.884Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-11-30T19:38:24.885Z] info: File deleted successfully
+[2023-11-30T19:38:24.885Z] info: Cloned local repo deleted successfully
+[2023-11-30T19:38:24.885Z] info: Cloned local repo deleted successfully
+[2023-11-30T19:38:24.885Z] info: Cloning repository...
+[2023-11-30T19:38:25.474Z] info: Fetched Github user data
+[2023-11-30T19:38:25.475Z] info: Calculating Bus Factor
+[2023-11-30T19:38:25.475Z] info: Calculating Correctness
+[2023-11-30T19:38:25.475Z] info: Calculating Ramp Up
+[2023-11-30T19:38:25.475Z] info: Calculating License
+[2023-11-30T19:38:25.475Z] info: Calculating Net Score
+[2023-11-30T19:38:25.475Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-11-30T19:38:25.476Z] info: Program completed successfully
+[2023-11-30T19:52:12.163Z] info: Working on link: https://github.com/zeit/arg
+[2023-11-30T19:52:12.720Z] info: Entering fetchIssues function
+[2023-11-30T19:52:13.349Z] info: Entering fetchPulls function
+[2023-11-30T19:52:20.335Z] info: Cloning repository...
+[2023-11-30T19:52:20.361Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-11-30T19:52:20.361Z] info: File deleted successfully
+[2023-11-30T19:52:20.362Z] info: Cloned local repo deleted successfully
+[2023-11-30T19:52:20.362Z] info: Cloned local repo deleted successfully
+[2023-11-30T19:52:20.363Z] info: Cloning repository...
+[2023-11-30T19:52:21.253Z] info: Fetched Github user data
+[2023-11-30T19:52:21.253Z] info: Calculating Bus Factor
+[2023-11-30T19:52:21.253Z] info: Calculating Correctness
+[2023-11-30T19:52:21.253Z] info: Calculating Ramp Up
+[2023-11-30T19:52:21.254Z] info: Calculating License
+[2023-11-30T19:52:21.254Z] info: Calculating Net Score
+[2023-11-30T19:52:21.254Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-11-30T19:52:21.255Z] info: Program completed successfully

@@ -168,20 +168,53 @@ export async function createPackageFamilyAG(userID: string, packageFamilyName: s
     }
 }
 
-export async function getPackageFamiliesAG(userID: string): Promise<string []> {
+interface PackageFamilyRow {
+    Version: string | null;
+    Name: string;
+    ID: string;
+  }
+  
+  export async function getPackageFamiliesAG(userID: string): Promise<PackageFamilyRow[]> {
     try {
-        // console.log(pool);
-        const query = `
-            SELECT version, package_family_name, package_family_id FROM package_family WHERE user_id = $1;
+      const query = `
+        SELECT package_family_name as Name, package_family_id as ID FROM package_family WHERE user_id = $1;
+      `;
+      const values = [userID];
+      const result = await pool.query(query, values);
+  
+      const packageFamilyIds = result.rows.map((row) => row.id);
+  
+      const finalResult: PackageFamilyRow[] = [];
+  
+      for (const packageFamilyId of packageFamilyIds) {
+        const versionQuery = `
+          SELECT version FROM packages WHERE package_family_id = $1;
         `;
-        const values = [userID];
-        const result = await pool.query(query, values);
-        return result.rows;
+        const versionValues = [packageFamilyId];
+        const versionResult = await pool.query(versionQuery, versionValues);
+  
+        let Version: string | null = null;
+  
+        // Check if there is at least one row in the result
+        if (versionResult.rows.length > 0) {
+          // Extract the version from the last row
+          Version = versionResult.rows[versionResult.rows.length - 1].version;
+        }
+  
+        // Add the modified row to the final result
+        finalResult.push({
+            Version,
+            Name: result.rows.find((row) => row.id === packageFamilyId).name,
+            ID: result.rows.find((row) => row.id === packageFamilyId).id,
+          });
+      }
+  
+      return finalResult;
     } catch (error) {
-        console.error('Error retrieving package families:', error);
-        return [];
+      console.error('Error retrieving package families:', error);
+      return [];
     }
-}
+  }
 
 export async function getPackagesFromPackageFamilyAG(packageFamilyID: number): Promise<string []> {
     try {
@@ -198,20 +231,48 @@ export async function getPackagesFromPackageFamilyAG(packageFamilyID: number): P
     }
 }
 
-export async function getPackageDetailsFromPackageFamilyAG(packageFamilyID: number): Promise<string []> {
+  
+interface PackageContent {
+    metadata: {
+      Version: string;
+      Name: string;
+      ID: number;
+    };
+    data: {
+      Content: string;
+    };
+  }
+export async function getPackageDetailsFromPackageFamilyAG(packageFamilyID: number, userID: string): Promise<PackageContent> {
     try {
-        // console.log(pool);
         const query = `
-            SELECT package_name, version, zipped_file FROM packages WHERE package_family_id = $1;
+            SELECT package_name as name, version as version, package_id as id, zipped_file FROM packages WHERE package_id = $1;
         `;
         const values = [packageFamilyID];
         const result = await pool.query(query, values);
-        return result.rows;
+        const object1 = 
+        {
+            Version: result.rows.find((row) => row.id === packageFamilyID).version,
+            Name: result.rows.find((row) => row.id === packageFamilyID).name,
+            ID: result.rows.find((row) => row.id === packageFamilyID).id
+        };
+        const object2 = 
+        {
+            Content: result.rows.find((row) => row.id === packageFamilyID).zipped_file
+        };
+        console.log(result);
+        console.log(object1);
+        const mergeObjects: PackageContent = {
+            metadata: object1,
+            data: object2,
+          };
+        return mergeObjects;
     } catch (error) {
         console.error('Error retrieving packages:', error);
-        return [];
+        throw error;
+
     }
 }
+
 export async function getPackageFamilyNameAG(packageFamilyID: number): Promise<string []> {
     try {
         // console.log(pool);
