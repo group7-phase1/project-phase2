@@ -514,6 +514,51 @@ app.post('/package', multerUpload.single('zipFile'), async (req: Request, res: R
     }
 });
 
+app.get('/package/:id/rate', async (req: Request, res: Response) => {
+    try {
+
+        const packageId = parseInt(req.params.id, 10); // Retrieve the package ID from the URL parameter
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        // console.log("Token", token);
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
+        const packageFamilyName = req.body.packageFamilyName;
+        console.log("Package Family Name", packageFamilyName);
+        const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
+        console.log("packageFamilyID", packageFamilyID);
+        const version = req.body.version;
+        console.log("Version", version);
+        const secret = req.body.secret;
+        console.log("Secret", secret);
+
+        if (!packageFamilyID) {
+            res.status(400).send({ success: false, message: 'Invalid package family name' });
+            return;
+        }
+
+        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
+
+        if (result) {
+            res.send({ success: true, message: 'File uploaded successfully' });
+        } else {
+            res.send({ success: false, message: 'File failed to upload' });
+        }
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
 
