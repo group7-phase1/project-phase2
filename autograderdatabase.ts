@@ -2,6 +2,7 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import { GenerateCalculations } from './calculations';
 import { module} from './fileio';
+import { integer } from 'aws-sdk/clients/cloudfront';
 
 console.log(process.env.DB_HOST)
 dotenv.config();
@@ -242,22 +243,23 @@ interface PackageContent {
       Content: string;
     };
   }
-export async function getPackageDetailsFromPackageFamilyAG(packageFamilyID: number, userID: string): Promise<PackageContent> {
+export async function getPackageDetailsFromPackageFamilyAG(packageID: number, userID: string): Promise<PackageContent> {
     try {
         const query = `
             SELECT package_name as name, version as version, package_id as id, zipped_file FROM packages WHERE package_id = $1;
         `;
-        const values = [packageFamilyID];
+        const values = [packageID];
         const result = await pool.query(query, values);
+        console.log("RESULT",result)
         const object1 = 
         {
-            Version: result.rows.find((row) => row.id === packageFamilyID).version,
-            Name: result.rows.find((row) => row.id === packageFamilyID).name,
-            ID: result.rows.find((row) => row.id === packageFamilyID).id
+            Version: result.rows.find((row) => row.id === packageID).version,
+            Name: result.rows.find((row) => row.id === packageID).name,
+            ID: result.rows.find((row) => row.id === packageID).id
         };
         const object2 = 
         {
-            Content: result.rows.find((row) => row.id === packageFamilyID).zipped_file
+            Content: result.rows.find((row) => row.id === packageID).zipped_file
         };
         console.log(result);
         console.log(object1);
@@ -398,4 +400,43 @@ export async function clearSinglePackageAG(ID: string): Promise<boolean> {
     }
 }
 
+export async function getRatesAG(userID: string, packageID: integer): Promise<string[] > {
+    try {
+        console.log("packageID", packageID);
+        const package_family = getPackageFamilyID(userID);
+        console.log(package_family);
+        const query = `
+            SELECT ramp_up_score, bus_factor_score, correctness_score, responsive_maintainer_score, license_score, net_score, dependency_pinning_score, code_review_coverage_score FROM package_family WHERE user_id = $1 and package_family_id = $2;
+        `;
+        const values = [userID, package_family];
+        const result = await pool.query(query, values);
+        console.log(result)
+        return result.rows[0];
+    } catch (error) {
+        console.error('Error retrieving package families:', error);
+        return [];
+    }
+}
 
+//keep getting null for some reason
+export async function getPackageFamilyID(packageID: string): Promise<string | null> {
+    try {
+        let result;
+        const query = `
+            SELECT package_family_id FROM packages WHERE package_id = $1;
+        `;
+        const values = [packageID];
+        result = await pool.query(query, values);
+        console.log(result.rows);
+        // Assuming that the query will return at least one row and that we're interested in the first row only.
+        if (result.rows.length > 0) {
+            return result.rows[0].package_family_id;
+        } else {
+            console.error('No package family found for the given user ID');
+            return null; // or you could throw an error, depending on how you want to handle this case
+        }
+    } catch (error) {
+        console.error('Error retrieving package families:', error);
+        throw error; // Rethrowing the error or handling it as per your application's error handling policy
+    }
+}
