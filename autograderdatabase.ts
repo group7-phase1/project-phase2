@@ -440,3 +440,11 @@ export async function getPackageFamilyID(packageID: string): Promise<string | nu
         throw error; // Rethrowing the error or handling it as per your application's error handling policy
     }
 }
+
+
+export async function getNameAG(userID: string, packageName: string): Promise<string []> {
+    return [];
+}
+export async function deleteAllNameVersionsAG(userID: string, packageName: string): Promise<string []> {
+    return [];
+}

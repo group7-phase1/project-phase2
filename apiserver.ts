@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
-import { getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG } from './autograderdatabase';
+import { deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -450,7 +450,7 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
     }
 });
 
-//Delete this version of the package WORKS
+//Delete this version of the package 
 app.delete('/package/:id', async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -561,6 +561,114 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         res.status(500).send({ success: false, message: error });
     }
 });
+
+app.put('/authenticate', async (req: Request, res: Response) => {
+    try {
+        return;
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+
+app.get('/package/byName/:name', async (req: Request, res: Response) => {
+    try {
+
+        const packageName = req.params.name // Retrieve the package ID from the URL parameter
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        // console.log("Token", token);
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+        const packageHistory = await getNameAG(userID.toString(), packageName);
+        
+        if (!packageHistory) {
+            res.status(400).send({ success: false, message: 'Invalid' });
+            return;
+        }
+        console.log(packageHistory);
+        return res.status(200).send({ packageHistory });
+
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+app.delete('/package/byName/:name', async (req: Request, res: Response) => {
+    try {
+
+        const packageName = req.params.name // Retrieve the package ID from the URL parameter
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        // console.log("Token", token);
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+        const result = await deleteAllNameVersionsAG(userID.toString(), packageName);
+        if(result) {
+            res.status(200).send({message: 'Package is deleted' });
+            return;
+        }
+        if (!result) {
+            res.status(400).send({ success: false, message: 'Invalid' });
+            return;
+        }
+
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
+app.post('/package/byRegEx', async (req: Request, res: Response) => {
+    try {
+
+        const packageName = req.params.name // Retrieve the package ID from the URL parameter
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(400).send({ success: false, message: 'No token provided' });
+        }
+        // console.log("Token", token);
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(400).send({ success: false, message: 'Invalid token' });
+        }
+        const packages = await deleteAllNameVersionsAG(userID.toString(), packageName);
+        
+        if (!packages) {
+            res.status(400).send({ success: false, message: 'Invalid' });
+            return;
+        }
+        console.log(packages);
+        return res.status(200).send({ packages });
+
+    } catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+});
+
 
 // Catch all handler to serve index.html for any request that doesn't match an API route
 // This should come after your API routes
