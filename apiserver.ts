@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
-import { getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG } from './autograderdatabase';
+import { getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -13,7 +13,7 @@ import { version } from 'isomorphic-git';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build'));
+app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -364,31 +364,7 @@ app.delete('/reset', async (req: Request, res: Response) => {
 }
 );
 
-// package/{id}
-// app.get('/package/:id', async (req: Request, res: Response) => {
-//     try {
-//         const packageFamilyID = parseInt(req.params.id, 10);
-
-//         const token = req.headers.authorization;
-
-//         if (isNaN(packageFamilyID)) {
-//             return res.status(400).send({ success: false, message: 'Invalid package ID' });
-//         }
-//         if (!token) {
-//             return res.status(400).send({ success: false, message: 'No token provided' });
-//         }
-//         const packages = await getPackageDetailsFromPackageFamily(packageFamilyID);
-//         res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
-//         if (!packages) {
-//             return res.status(404).send({ success: false, message: 'Package does not exist' });
-//         }
-
-//         res.status(200).send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
-//     }
-//     catch (error) {
-//         res.status(500).send({ success: false, message: error });
-//     }
-// });
+//
 app.get('/package/:id', async (req: Request, res: Response) => {
     try {
         const packageFamilyID = parseInt(req.params.id, 10);
@@ -427,7 +403,7 @@ app.get('/package/:id', async (req: Request, res: Response) => {
     }
 });
 
-
+//
 app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
     console.log("update function");
     try {
@@ -474,6 +450,7 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
     }
 });
 
+//Delete this version of the package WORKS
 app.delete('/package/:id', async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -555,7 +532,8 @@ app.post('/package', multerUpload.single('zipFile'), async (req: Request, res: R
 app.get('/package/:id/rate', async (req: Request, res: Response) => {
     try {
 
-        const packageId = parseInt(req.params.id, 10); // Retrieve the package ID from the URL parameter
+        const packageId = parseInt(req.params.id, 10) // Retrieve the package ID from the URL parameter
+        console.log("PACKAGEID", packageId);
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -570,28 +548,15 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         if (!userID) {
             return res.status(400).send({ success: false, message: 'Invalid token' });
         }
-        console.log("Cognito userID", userID);
-        const packageFamilyName = req.body.packageFamilyName;
-        console.log("Package Family Name", packageFamilyName);
-        const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
-        console.log("packageFamilyID", packageFamilyID);
-        const version = req.body.version;
-        console.log("Version", version);
-        const secret = req.body.secret;
-        console.log("Secret", secret);
-
+        const packageFamilyID = await getRatesAG(userID.toString(), packageId);
+        
         if (!packageFamilyID) {
             res.status(400).send({ success: false, message: 'Invalid package family name' });
             return;
         }
+        console.log(packageFamilyID);
+        return res.status(200).send({ packageFamilyID });
 
-        // const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
-
-        // if (result) {
-        //     res.send({ success: true, message: 'File uploaded successfully' });
-        // } else {
-        //     res.send({ success: false, message: 'File failed to upload' });
-        // }
     } catch (error) {
         res.status(500).send({ success: false, message: error });
     }
@@ -603,7 +568,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build/index.html');
+    const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
     res.sendFile(indexPath);
 });
 
