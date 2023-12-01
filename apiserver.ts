@@ -225,22 +225,6 @@ app.post('/api_get_package_family_name', async (req: Request, res: Response) => 
     }
 }
 );
-// app.post('/api_reset', async (req: Request, res: Response) => {
-//     try {
-
-//         const username = req.body.username;
-//         const password = req.body.password;
-//         const packages = await deleteUser(username, password);
-//         res.send({ success: true, message: 'Account Deleted Successfully', packages: packages });
-
-
-
-//     }
-//     catch (error) {
-//         res.status(500).send({ success: false, message: error });
-//     }
-// }
-// );
 
 app.post('/api_reset', async (req: Request, res: Response) => {
     try {
@@ -303,7 +287,7 @@ app.post('/api_clear_packages', async (req: Request, res: Response) => {
 );
 
 // AUTOGRADER API CALLS
-//Packages list
+//Packages list WORKS
 app.post('/packages', async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -335,7 +319,7 @@ app.post('/packages', async (req: Request, res: Response) => {
 }
 );
 
-//Deletes all packages of the user
+//Deletes all packages of the user WORKS
 app.delete('/reset', async (req: Request, res: Response) => {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -364,10 +348,10 @@ app.delete('/reset', async (req: Request, res: Response) => {
 }
 );
 
-//
+//get package details WORKS
 app.get('/package/:id', async (req: Request, res: Response) => {
     try {
-        const packageFamilyID = parseInt(req.params.id, 10);
+        const packageID = parseInt(req.params.id, 10);
 
         const token = req.headers.authorization?.split(' ')[1];
         const offset = req.headers.offset;
@@ -390,7 +374,7 @@ app.get('/package/:id', async (req: Request, res: Response) => {
             return res.status(401).send({ success: false, message: 'Invalid token' });
         }
 
-        const packages = await getPackageDetailsFromPackageFamilyAG(packageFamilyID, userID.toString());
+        const packages = await getPackageDetailsFromPackageFamilyAG(packageID, userID.toString());
 
         if (!packages) {
             return res.status(404).send({ message: 'Package does not exist' });
