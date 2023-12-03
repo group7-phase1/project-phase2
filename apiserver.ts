@@ -13,7 +13,7 @@ import { version } from 'isomorphic-git';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build'));
+app.use(express.static('/home/ec2-user/react-frontend/build'));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -547,13 +547,26 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
     }
 });
 
-app.put('/authenticate', async (req, res) => {
-    const { username, password } = req.body;
+// {
+//     "User": {
+//       "name": "ece30861defaultadminuser",
+//       "isAdmin": true
+//     },
+//     "Secret": {
+//       "password": "correcthorsebatterystaple123(!__+@**(A'\"`;DROP TABLE packages;"
+//     }
+//   }
 
-    if (!username || !password) {
+app.put('/authenticate', async (req, res) => {
+    // const { username, password } = req.body;
+    const username = req.body.User.name;
+    const password = req.body.Secret.password;
+    const isAdmin = req.body.User.isAdmin;
+
+    if (!username || !password || !isAdmin) {
         return res.status(400).send({
             success: false,
-            message: 'Username and password are required'
+            message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.'
         });
     }
 
@@ -569,14 +582,14 @@ app.put('/authenticate', async (req, res) => {
         } else {
             return res.status(401).send({
                 success: false,
-                message: 'Authentication failed'
+                message: 'The user or password is invalid.'
             });
         }
     } catch (error) {
         // Respond with a 500 status code for any other errors
         return res.status(500).send({
             success: false,
-            message: 'Internal Server Error'
+            message: 'This system does not support authentication.'
         });
     }
 });
@@ -686,7 +699,7 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/Users/mahamgodil/Desktop/ece-461/project-phase2-frontend-maham/build/index.html');
+    const indexPath = path.resolve(__dirname, '/home/ec2-user/react-frontend/build/index.html');
     res.sendFile(indexPath);
 });
 
