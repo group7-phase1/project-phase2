@@ -546,14 +546,40 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
     }
 });
 
-app.put('/authenticate', async (req: Request, res: Response) => {
-    try {
-        return;
+app.put('/authenticate', async (req, res) => {
+    const { username, password } = req.body;
+
+    if (!username || !password) {
+        return res.status(400).send({
+            success: false,
+            message: 'Username and password are required'
+        });
     }
-    catch (error) {
-        res.status(500).send({ success: false, message: error });
+
+    try {
+        const authResult = await login(username, password);
+
+        if (authResult) {
+            return res.send({
+                success: true,
+                message: 'User logged in successfully',
+                token: authResult.IdToken
+            });
+        } else {
+            return res.status(401).send({
+                success: false,
+                message: 'Authentication failed'
+            });
+        }
+    } catch (error) {
+        // Respond with a 500 status code for any other errors
+        return res.status(500).send({
+            success: false,
+            message: 'Internal Server Error'
+        });
     }
 });
+
 
 
 app.get('/package/byName/:name', async (req: Request, res: Response) => {
