@@ -559,18 +559,18 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
 
 app.put('/authenticate', async (req, res) => {
     // const { username, password } = req.body;
-    const username = req.body.User.name;
-    const password = req.body.Secret.password;
-    const isAdmin = req.body.User.isAdmin;
-
-    if (!username || !password || !isAdmin) {
-        return res.status(400).send({
-            success: false,
-            message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.'
-        });
-    }
 
     try {
+        const username = req.body.User.name;
+        const password = req.body.Secret.password;
+        const isAdmin = req.body.User.isAdmin;
+    
+        if (!username || !password || !isAdmin) {
+            return res.status(400).send({
+                success: false,
+                message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.'
+            });
+        }
         const authResult = await login(username, password);
 
         if (authResult) {
