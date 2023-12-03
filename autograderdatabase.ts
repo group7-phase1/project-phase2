@@ -130,12 +130,14 @@ export async function insertUploadedFileAG(userID: string, packageName: string, 
 export async function getPackageFamilyIDAG(packageFamilyName: string): Promise<number | null> {
     try {
         // console.log(pool);
+        console.log("package family name", packageFamilyName);
         const query = `
             SELECT package_family_id FROM package_family WHERE package_family_name = $1;
         `;
         const values = [packageFamilyName];
         const result = await pool.query(query, values);
         if (result.rows.length > 0) {
+            console.log("value", result.rows[0].package_family_id);
             return result.rows[0].package_family_id;
         } else {
             return null;
@@ -339,31 +341,6 @@ export async function getUserIdByCognitoIDAG(cognitoID: string): Promise<number 
     }
 }
 
-// export async function deleteUserAG(username: string, password: string): Promise<boolean> {
-//     try {
-//         // Validate the username and password
-//         //const user = await validateUser(username, password);
-
-//         if (1) {
-//             // If the user exists and the password is correct, proceed with deletion
-//             const query = `
-//                 DELETE FROM users
-//                 WHERE name = $1;
-//             `;
-//             console.log(username);
-//             const values = [username];
-//             const result = await pool.query(query, values);
-//             console.log(result);
-//             return true; // User deleted successfully
-//         } else {
-//             return false; // Invalid username or password
-//         }
-//     } catch (error) {
-//         console.error('Error deleting user from database:', error);
-//         return false;
-//     }
-// }
-
 export async function validateUserAG(username: string, password: string): Promise<boolean> {
     const query = `
         SELECT * FROM users
@@ -441,10 +418,82 @@ export async function getPackageFamilyID(packageID: string): Promise<string | nu
     }
 }
 
-
-export async function getNameAG(userID: string, packageName: string): Promise<string []> {
-    return [];
+interface SearchNameContent {
+    User: {
+        name: string;
+        isAdmin: boolean;
+    };
+    Date: string;
+    PackageMetadata: {
+      Name: string;
+      Version: string;
+      ID: number;
+    };
+    Action: string;
 }
+
+export async function getNameAG(userID: string, packageName: string): Promise<SearchNameContent[] | null> {
+    let userInfo: { name: any; is_admin: any; };
+    
+    // First, retrieve user information
+    try {
+        const userQuery = `SELECT name, is_admin FROM users WHERE id = $1;`; // Ensure the column names match your database schema
+        const userValues = [userID];
+        const userResult = await pool.query(userQuery, userValues);
+        console.log("USER RESULT",userResult);
+
+        if (userResult.rows.length > 0) {
+            userInfo = userResult.rows[0]; // Assuming you are interested in the first row
+        } else {
+            console.error('No user found with the given userID');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error retrieving user information:', error);
+        return null; // or throw the error, depending on your error handling policy
+    }
+    try {
+        const family_id = await getPackageFamilyIDAG(packageName);
+        const query = `SELECT package_id, version FROM packages WHERE package_family_id = $1;`;
+        const values = [family_id];
+        const result = await pool.query(query, values);
+
+        if (result.rows.length > 0) {
+            const searchNameContents: SearchNameContent[] = result.rows.map(row => {
+                // Replace these with actual user data for each package
+                const userName = "tempUserName"; // should be the user's name for the current package
+                const isAdmin = false; // should be the user's admin status for the current package
+                const date = "tempDate"; // should be a string representing a date
+                const action = "tempAction"; // the action taken
+
+                return {
+                    User: {
+                        name: userInfo.name,
+                        isAdmin: userInfo.is_admin
+                    },
+                    Date: date,
+                    PackageMetadata: {
+                        Name: packageName,
+                        Version: row.version,
+                        ID: row.package_id
+                    },
+                    Action: action
+                };
+            });
+
+            return searchNameContents;
+        } else {
+            console.error('No packages found for the given package Name');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error retrieving package families:', error);
+        throw error;
+    }
+}
+
+
+
 export async function deleteAllNameVersionsAG(userID: string, packageName: string): Promise<string []> {
     return [];
 }

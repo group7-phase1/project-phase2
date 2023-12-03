@@ -513,6 +513,7 @@ app.post('/package', multerUpload.single('zipFile'), async (req: Request, res: R
     }
 });
 
+//Get Rates
 app.get('/package/:id/rate', async (req: Request, res: Response) => {
     try {
 
@@ -580,8 +581,6 @@ app.put('/authenticate', async (req, res) => {
     }
 });
 
-
-
 app.get('/package/byName/:name', async (req: Request, res: Response) => {
     try {
 
@@ -614,6 +613,7 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
     }
 });
 
+// Delete all packages with this name
 app.delete('/package/byName/:name', async (req: Request, res: Response) => {
     try {
 
@@ -646,7 +646,7 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
         res.status(500).send({ success: false, message: error });
     }
 });
-
+// Search for a package using regular expression over package names and READMEs
 app.post('/package/byRegEx', async (req: Request, res: Response) => {
     try {
 
