@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
-import { deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG } from './autograderdatabase';
+import { deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG, packageRegexAG } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -16,7 +16,7 @@ import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/home/ec2-user/react-frontend/build'));
+app.use(express.static('/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build'));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -668,10 +668,10 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
     }
 });
 // Search for a package using regular expression over package names and READMEs
-app.post('/package/byRegEx', async (req: Request, res: Response) => {
+app.post('/package/byRegEx/:regex', async (req: Request, res: Response) => {
     try {
-
-        const packageName = req.params.name // Retrieve the package ID from the URL parameter
+        const regex = req.params.regex;
+        console.log("regex:", regex);
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -686,14 +686,14 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
         if (!userID) {
             return res.status(400).send({ success: false, message: 'Invalid token' });
         }
-        const packages = await deleteAllNameVersionsAG(userID.toString(), packageName);
+        const packages = await packageRegexAG(userID.toString(), regex);
         
         if (!packages) {
             res.status(400).send({ success: false, message: 'Invalid' });
             return;
         }
         console.log(packages);
-        return res.status(200).send({ packages });
+        return res.status(200).send(packages);
 
     } catch (error) {
         res.status(500).send({ success: false, message: error });
@@ -707,7 +707,7 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/home/ec2-user/react-frontend/build/index.html');
+    const indexPath = path.resolve(__dirname, '/Users/shivamsharma/Documents/GitHub/project-phase2-frontend/build/index.html');
     res.sendFile(indexPath);
 });
 
