@@ -1,8 +1,11 @@
+import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import { GenerateCalculations } from './calculations';
 import { module} from './fileio';
 import { integer } from 'aws-sdk/clients/cloudfront';
+import { Credentials } from '@aws-sdk/types';
+import * as fs from 'fs';
 
 console.log(process.env.DB_HOST)
 dotenv.config();
@@ -242,7 +245,7 @@ interface PackageContent {
       ID: number;
     };
     data: {
-      Content: string;
+      Content: any;
     };
   }
 export async function getPackageDetailsFromPackageFamilyAG(packageID: number, userID: string): Promise<PackageContent> {
@@ -259,12 +262,14 @@ export async function getPackageDetailsFromPackageFamilyAG(packageID: number, us
             Name: result.rows.find((row) => row.id === packageID).name,
             ID: result.rows.find((row) => row.id === packageID).id
         };
+
+
         const object2 = 
         {
-            Content: result.rows.find((row) => row.id === packageID).zipped_file
+           Content: result.rows.find((row) => row.id === packageID).zipped_file
+        //    Content: 
         };
-        console.log(result);
-        console.log(object1);
+        // console.log("Body", Body)
         const mergeObjects: PackageContent = {
             metadata: object1,
             data: object2,
@@ -361,11 +366,9 @@ export async function clearSinglePackageAG(ID: string): Promise<boolean> {
     try {
         console.log('Deleting user and related data from database...');
         await client.query('BEGIN');
-        const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE user_id = $1)';
-        const deletePackageFamilyQuery = 'DELETE FROM package_family WHERE user_id = $1';
+        const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE package_id = $1)';
 
         await client.query(deletePackagesQuery, [ID]);
-        await client.query(deletePackageFamilyQuery, [ID]);
         await client.query('COMMIT');
         return true;
     } catch (error) {
@@ -377,21 +380,21 @@ export async function clearSinglePackageAG(ID: string): Promise<boolean> {
     }
 }
 
-export async function getRatesAG(userID: string, packageID: integer): Promise<string[] > {
+export async function getRatesAG(userID: string, packageID: integer): Promise<string[] | null> {
     try {
         console.log("packageID", packageID);
-        const package_family = getPackageFamilyID(userID);
+        const package_family = await getPackageFamilyID(packageID.toString());
         console.log(package_family);
         const query = `
-            SELECT ramp_up_score, bus_factor_score, correctness_score, responsive_maintainer_score, license_score, net_score, dependency_pinning_score, code_review_coverage_score FROM package_family WHERE user_id = $1 and package_family_id = $2;
+            SELECT ramp_up_score as RampUp, bus_factor_score as BusFactor, correctness_score as Correctness, responsive_maintainer_score as ResponsiveMaintainer, license_score as LicenseScore, net_score as NetScore, dependency_pinning_score as GoodPinningPractice, code_review_coverage_score as PullRequest FROM package_family WHERE user_id = $1 and package_family_id = $2;
         `;
         const values = [userID, package_family];
+        console.log(userID, package_family);
         const result = await pool.query(query, values);
-        console.log(result)
         return result.rows[0];
     } catch (error) {
         console.error('Error retrieving package families:', error);
-        return [];
+        return null;
     }
 }
 

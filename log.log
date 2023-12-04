@@ -498,6 +498,7 @@
 [2023-12-03T19:42:36.768Z] info: Calculating Net Score
 [2023-12-03T19:42:36.768Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-03T19:42:36.768Z] info: Program completed successfully
+<<<<<<< HEAD
 [2023-12-03T22:09:08.081Z] info: Working on link: https://github.com/zeit/arg
 [2023-12-03T22:09:08.651Z] info: Entering fetchIssues function
 [2023-12-03T22:09:09.196Z] info: Entering fetchPulls function
@@ -515,3 +516,56 @@
 [2023-12-03T22:09:15.065Z] info: Calculating Net Score
 [2023-12-03T22:09:15.065Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-03T22:09:15.066Z] info: Program completed successfully
+=======
+[2023-12-03T21:18:15.665Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-03T21:18:16.159Z] info: Entering fetchIssues function
+[2023-12-03T21:18:16.742Z] info: Entering fetchPulls function
+[2023-12-03T21:18:22.485Z] info: Cloning repository...
+[2023-12-03T21:18:22.497Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-03T21:18:22.497Z] info: File deleted successfully
+[2023-12-03T21:18:22.498Z] info: Cloning repository...
+[2023-12-03T21:18:22.498Z] info: Cloned local repo deleted successfully
+[2023-12-03T21:18:22.498Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-03T21:18:22.880Z] info: Fetched Github user data
+[2023-12-03T21:18:22.881Z] info: Calculating Bus Factor
+[2023-12-03T21:18:22.881Z] info: Calculating Correctness
+[2023-12-03T21:18:22.881Z] info: Calculating Ramp Up
+[2023-12-03T21:18:22.881Z] info: Calculating License
+[2023-12-03T21:18:22.881Z] info: Calculating Net Score
+[2023-12-03T21:18:22.881Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-03T21:18:22.881Z] info: Program completed successfully
+[2023-12-03T22:13:45.979Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-03T22:13:46.704Z] info: Entering fetchIssues function
+[2023-12-03T22:13:47.339Z] info: Entering fetchPulls function
+[2023-12-03T22:13:52.402Z] info: Cloning repository...
+[2023-12-03T22:13:52.407Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-03T22:13:52.408Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-03T22:13:52.408Z] info: File deleted successfully
+[2023-12-03T22:13:52.408Z] info: Cloned local repo deleted successfully
+[2023-12-03T22:13:52.408Z] info: Cloning repository...
+[2023-12-03T22:13:53.093Z] info: Fetched Github user data
+[2023-12-03T22:13:53.093Z] info: Calculating Bus Factor
+[2023-12-03T22:13:53.093Z] info: Calculating Correctness
+[2023-12-03T22:13:53.094Z] info: Calculating Ramp Up
+[2023-12-03T22:13:53.094Z] info: Calculating License
+[2023-12-03T22:13:53.094Z] info: Calculating Net Score
+[2023-12-03T22:13:53.094Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-03T22:13:53.094Z] info: Program completed successfully
+[2023-12-03T22:25:05.447Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-03T22:25:06.152Z] info: Entering fetchIssues function
+[2023-12-03T22:25:06.966Z] info: Entering fetchPulls function
+[2023-12-03T22:25:13.258Z] info: Cloning repository...
+[2023-12-03T22:25:13.275Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-03T22:25:13.276Z] info: File deleted successfully
+[2023-12-03T22:25:13.276Z] info: Cloning repository...
+[2023-12-03T22:25:13.277Z] info: Cloned local repo deleted successfully
+[2023-12-03T22:25:13.277Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-03T22:25:13.748Z] info: Fetched Github user data
+[2023-12-03T22:25:13.748Z] info: Calculating Bus Factor
+[2023-12-03T22:25:13.748Z] info: Calculating Correctness
+[2023-12-03T22:25:13.748Z] info: Calculating Ramp Up
+[2023-12-03T22:25:13.749Z] info: Calculating License
+[2023-12-03T22:25:13.749Z] info: Calculating Net Score
+[2023-12-03T22:25:13.749Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-03T22:25:13.749Z] info: Program completed successfully
+>>>>>>> d51ca70f846d9ea44eed65d179ee42f3e4a83b43

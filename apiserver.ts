@@ -8,6 +8,9 @@ import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
 import { version } from 'isomorphic-git';
+import { Credentials } from '@aws-sdk/types';
+import * as fs from 'fs';
+import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
 
 // * CONFIGURATION
 dotenv.config();
@@ -296,25 +299,26 @@ app.post('/packages', async (req: Request, res: Response) => {
             const offset = 1;
         }
         if (!token) {
-            return res.status(401).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ success: false, message: 'No token provided' });
         }
         const decoded = jwt.decode(token);
         if (!decoded || typeof decoded === 'string') {
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ success: false, message: 'Invalid token' });
         }
         const sub = decoded.sub;
         if (!sub || typeof sub !== 'string') {
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ success: false, message: 'Invalid token' });
         }
         const userID = await getUserIdByCognitoID(sub);
         if (!userID) {
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ success: false, message: 'Invalid token' });
         }
-
+       
         const packageFamilies = await getPackageFamiliesAG(userID.toString());
-        res.send({ packageFamilies });
+        console.log(packageFamilies);
+        res.status(200).send(packageFamilies);
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(400).send({ success: false, message: error });
     }
 }
 );
@@ -376,23 +380,36 @@ app.get('/package/:id', async (req: Request, res: Response) => {
 
         const packages = await getPackageDetailsFromPackageFamilyAG(packageID, userID.toString());
 
+        const credentials: Credentials = {
+            accessKeyId: process.env.COGNITO_ACCESS_KEY!,
+            secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY!,
+          };
+        
+          const client = new S3Client({
+            region: 'us-east-2',
+            credentials
+          });
+        
+          const bucketName = 'ece461team';
+          const command = new GetObjectCommand({Bucket: bucketName, Key: packages.data.Content})
+
+          const { Body } = await client.send(command);
+          
         if (!packages) {
             return res.status(404).send({ message: 'Package does not exist' });
         }
 
-        res.status(200).send({ packages: packages});
+        res.status(200).send({packages});
     }
     catch (error) {
         res.status(500).send({ message: error });
     }
 });
 
-//
+//Update package
 app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
     console.log("update function");
     try {
-        const zipFile = (req as any).file;
-        const zipFileName = req.body.zipFileName;
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
             return res.status(401).send({ success: false, message: 'No token provided' });
@@ -406,31 +423,22 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         if (!userID) {
             return res.status(401).send({ success: false, message: 'Invalid token' });
         }
-        console.log("Cognito userID", userID);
-        console.log(zipFileName);
-        const packageFamilyID = req.body.packageFamilyID;
-        console.log(packageFamilyID);
-        const version = req.body.version;
-        console.log(version);
-        if (packageFamilyID) {
-            console.log(packageFamilyID);
-            const result = await upload(zipFile.buffer, zipFileName, userID.toString(), packageFamilyID, version);
+        const file = req.body.data.Content;
+        const zipFile = Buffer.from(file, 'base64');
+        const zipFileName = "test.zip"
+        const name = req.body.metadata.Name;
+        const version = req.body.metadata.Version;
+        const ID = req.body.metadata.ID;
+        const result = await upload(zipFile, zipFileName, userID.toString(), ID, version);
+        if (result) {
             console.log(result);
-            if (result) {
-                console.log(result);
-                res.send({ success: true, message: 'File updated successfully' });
-            } else {
-                console.log(result);
-                res.send({ success: false, message: 'File updated to upload' });
-            }
+            res.status(200).send({ message: 'Version is updated' });
         } else {
-            res.send({ success: false, message: 'Invalid package family name' });
-            return;
+            res.status(400).send({ message: 'Package does not exist' });
         }
 
-
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(400).send({message: "There is missing field(s)" });
     }
 });
 
@@ -451,14 +459,14 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
             return res.status(400).send({ success: false, message: 'Invalid token' });
         }
 
-        const result = await clearSinglePackageAG(userID.toString());
+        const result = await clearSinglePackageAG(req.params.id);
         if (result) {
-            res.status(200).send({ success: true, message: 'Package deleted successfully' });
+            res.status(200).send({message: 'Package deleted successfully' });
         } else {
-            res.status(400).send({ success: false, message: 'User failed to delete' });
+            res.status(404).send({ success: false, message: 'Package does not exist' });
         }
     } catch (error) {
-        res.status(404).send({ success: false, message: error });
+        res.status(400).send({ message: "There are missing fields" });
     }
 }
 );
@@ -540,7 +548,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
             return;
         }
         console.log(packageFamilyID);
-        return res.status(200).send({ packageFamilyID });
+        return res.status(200).send(packageFamilyID);
 
     } catch (error) {
         res.status(500).send({ success: false, message: error });
@@ -619,7 +627,7 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
             return;
         }
         console.log(packageHistory);
-        return res.status(200).send({ packageHistory });
+        return res.status(200).send(packageHistory);
 
     } catch (error) {
         res.status(500).send({ success: false, message: error });
