@@ -404,15 +404,13 @@ interface RegEx {
   }
 export async function packageRegexAG(userID: string, regex: string): Promise<RegEx[] > {
     try {
-        console.log("in");
         const query = `
-            SELECT package_family_name FROM package_family WHERE user_id = $1 and package_family_name ~ $2;
+            SELECT package_family_id, package_family_name FROM package_family WHERE user_id = $1 and package_family_name ~ $2;
         `;
         const values = [userID, regex];
         const result = await pool.query(query, values);
-        console.log(result);
-        const packageFamilyIds = result.rows.map((row) => row.id);
-  
+        const packageFamilyIds = result.rows.map((row) => row.package_family_id);
+        console.log(packageFamilyIds);
         const finalResult: RegEx[] = [];
         for (const packageFamilyId of packageFamilyIds) {
             const versionQuery = `
@@ -420,7 +418,6 @@ export async function packageRegexAG(userID: string, regex: string): Promise<Reg
             `;
             const versionValues = [packageFamilyId];
             const versionResult = await pool.query(versionQuery, versionValues);
-      
             let Version: string | null = null;
       
             // Check if there is at least one row in the result
@@ -432,7 +429,7 @@ export async function packageRegexAG(userID: string, regex: string): Promise<Reg
             // Add the modified row to the final result
             finalResult.push({
                 Version,
-                Name: result.rows.find((row) => row.id === packageFamilyId).name,
+                Name: result.rows.find((row) => row.package_family_id === packageFamilyId).package_family_name,
               });
           }
         return finalResult;
