@@ -538,6 +538,30 @@ export async function getNameAG(userID: string, packageName: string): Promise<Se
 
 
 
-export async function deleteAllNameVersionsAG(userID: string, packageName: string): Promise<string []> {
-    return [];
-}
+export async function deleteAllNameVersionsAG(userID: string, packageName: string): Promise<any> {
+    const client = await pool.connect();
+    try {
+        await client.query('BEGIN');
+        const getPackageID = "Select package_family_id FROM package_family WHERE package_family_name = $1"
+        const packageFamilyID = await client.query(getPackageID, [packageName]);
+        console.log(packageFamilyID.rows[0].package_family_id);
+
+
+        const deletePackageFamilyQuery = 'DELETE FROM packages WHERE package_family_id = $1';
+        await client.query(deletePackageFamilyQuery, [packageFamilyID.rows[0].package_family_id]);
+
+        const deletePackagesQuery = 'DELETE FROM package_family WHERE package_family_id = $1';
+        await client.query(deletePackagesQuery, [packageFamilyID.rows[0].package_family_id]);
+
+        await client.query('COMMIT');
+        
+    } catch (error) {
+        await client.query('ROLLBACK');
+        console.error('Error deleting user and related data from database:', error);
+        return false;
+    } finally {
+        client.release();
+    }
+    return true;
+    }
+    
