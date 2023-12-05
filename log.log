@@ -586,6 +586,25 @@
 [2023-12-04T17:10:57.557Z] info: Calculating Net Score
 [2023-12-04T17:10:57.557Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-04T17:10:57.557Z] info: Program completed successfully
+<<<<<<< HEAD
+[2023-12-05T19:58:36.523Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:58:37.289Z] info: Entering fetchIssues function
+[2023-12-05T19:58:38.197Z] info: Entering fetchPulls function
+[2023-12-05T19:58:44.282Z] info: Cloning repository...
+[2023-12-05T19:58:44.305Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-05T19:58:44.305Z] info: File deleted successfully
+[2023-12-05T19:58:44.306Z] info: Cloning repository...
+[2023-12-05T19:58:44.306Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:58:44.307Z] info: ENOENT: no such file or directory, stat './local-repo'
+[2023-12-05T19:58:45.051Z] info: Fetched Github user data
+[2023-12-05T19:58:45.051Z] info: Calculating Bus Factor
+[2023-12-05T19:58:45.052Z] info: Calculating Correctness
+[2023-12-05T19:58:45.052Z] info: Calculating Ramp Up
+[2023-12-05T19:58:45.053Z] info: Calculating License
+[2023-12-05T19:58:45.053Z] info: Calculating Net Score
+[2023-12-05T19:58:45.053Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:58:45.054Z] info: Program completed successfully
+=======
 [2023-12-05T18:38:51.189Z] info: Working on link: https://github.com/zeit/arg
 [2023-12-05T18:38:51.937Z] info: Entering fetchIssues function
 [2023-12-05T18:38:52.756Z] info: Entering fetchPulls function
@@ -705,3 +724,4 @@
 [2023-12-05T19:07:39.530Z] info: Calculating Net Score
 [2023-12-05T19:07:39.531Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-05T19:07:39.531Z] info: Program completed successfully
+>>>>>>> acceaf3943c538405e540bdb75ce250c9f367f19
