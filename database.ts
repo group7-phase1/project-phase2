@@ -84,6 +84,7 @@ export async function updateFamilyScores(packageFamilyID: string, scores: module
 }
 
 export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string, gitHubLink: string): Promise<boolean> {
+//export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string): Promise<boolean> {
     try {
         const currModule: module = {
             URL: gitHubLink,
@@ -106,7 +107,7 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
             console.error('Failed to update family scores.');
             return false;
         }
-        // console.log(pool);
+        console.log(pool);
         const query = `
             INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file)
             VALUES($1, $2, $3, $4, $5)

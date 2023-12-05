@@ -472,14 +472,19 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
 );
 
 // /package Upload package
-app.post('/package', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
+app.post('/package', async (req: Request, res: Response) => {
     try {
-        if (!req.file) {
+        const content = req.body.Content;
+        if (!content) {
             return res.status(400).send({ success: false, message: 'No file uploaded.' });
         }
+
         console.log("creating a new package family");
-        const zipFileBuffer = req.file.buffer;
-        const zipFileName = req.body.zipFileName;
+        const binaryString = Buffer.from(content, 'base64').toString('binary');
+
+        const zipFileBuffer = Buffer.from(content, 'base64');
+        const zipFileName = "exceptions.zip";
+        
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -494,15 +499,10 @@ app.post('/package', multerUpload.single('zipFile'), async (req: Request, res: R
         if (!userID) {
             return res.status(400).send({ success: false, message: 'Invalid token' });
         }
-        console.log("Cognito userID", userID);
-        const packageFamilyName = req.body.packageFamilyName;
-        console.log("Package Family Name", packageFamilyName);
+        const packageFamilyName = "family name 7";
         const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
         console.log("packageFamilyID", packageFamilyID);
-        const version = req.body.version;
-        console.log("Version", version);
-        const secret = req.body.secret;
-        console.log("Secret", secret);
+        const version = "1.0";
 
         if (!packageFamilyID) {
             res.status(400).send({ success: false, message: 'Invalid package family name' });
