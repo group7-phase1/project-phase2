@@ -586,3 +586,122 @@
 [2023-12-04T17:10:57.557Z] info: Calculating Net Score
 [2023-12-04T17:10:57.557Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-04T17:10:57.557Z] info: Program completed successfully
+[2023-12-05T18:38:51.189Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T18:38:51.937Z] info: Entering fetchIssues function
+[2023-12-05T18:38:52.756Z] info: Entering fetchPulls function
+[2023-12-05T18:38:59.091Z] info: Cloning repository...
+[2023-12-05T18:38:59.101Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-05T18:38:59.102Z] info: File deleted successfully
+[2023-12-05T18:38:59.104Z] info: Cloning repository...
+[2023-12-05T18:38:59.105Z] info: Cloned local repo deleted successfully
+[2023-12-05T18:38:59.105Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-05T18:38:59.593Z] info: Fetched Github user data
+[2023-12-05T18:38:59.594Z] info: Calculating Bus Factor
+[2023-12-05T18:38:59.594Z] info: Calculating Correctness
+[2023-12-05T18:38:59.594Z] info: Calculating Ramp Up
+[2023-12-05T18:38:59.594Z] info: Calculating License
+[2023-12-05T18:38:59.594Z] info: Calculating Net Score
+[2023-12-05T18:38:59.594Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T18:38:59.594Z] info: Program completed successfully
+[2023-12-05T19:02:35.711Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:02:36.851Z] info: Entering fetchIssues function
+[2023-12-05T19:02:37.829Z] info: Entering fetchPulls function
+[2023-12-05T19:02:46.766Z] info: Cloning repository...
+[2023-12-05T19:02:46.786Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
+[2023-12-05T19:02:46.787Z] info: File deleted successfully
+[2023-12-05T19:02:46.787Z] info: Cloning repository...
+[2023-12-05T19:02:46.788Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:02:46.788Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-05T19:02:48.117Z] info: Fetched Github user data
+[2023-12-05T19:02:48.117Z] info: Calculating Bus Factor
+[2023-12-05T19:02:48.117Z] info: Calculating Correctness
+[2023-12-05T19:02:48.117Z] info: Calculating Ramp Up
+[2023-12-05T19:02:48.117Z] info: Calculating License
+[2023-12-05T19:02:48.117Z] info: Calculating Net Score
+[2023-12-05T19:02:48.118Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:02:48.118Z] info: Program completed successfully
+[2023-12-05T19:03:19.271Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:03:20.011Z] info: Entering fetchIssues function
+[2023-12-05T19:03:21.065Z] info: Entering fetchPulls function
+[2023-12-05T19:03:29.942Z] info: Cloning repository...
+[2023-12-05T19:03:29.951Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
+[2023-12-05T19:03:29.952Z] info: File deleted successfully
+[2023-12-05T19:03:29.952Z] info: Cloning repository...
+[2023-12-05T19:03:29.952Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:03:29.952Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-05T19:03:30.481Z] info: Fetched Github user data
+[2023-12-05T19:03:30.481Z] info: Calculating Bus Factor
+[2023-12-05T19:03:30.481Z] info: Calculating Correctness
+[2023-12-05T19:03:30.481Z] info: Calculating Ramp Up
+[2023-12-05T19:03:30.481Z] info: Calculating License
+[2023-12-05T19:03:30.481Z] info: Calculating Net Score
+[2023-12-05T19:03:30.481Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:03:30.481Z] info: Program completed successfully
+[2023-12-05T19:04:36.919Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:04:37.694Z] info: Entering fetchIssues function
+[2023-12-05T19:04:38.584Z] info: Entering fetchPulls function
+[2023-12-05T19:04:47.456Z] info: Cloning repository...
+[2023-12-05T19:04:47.467Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-05T19:04:47.467Z] info: File deleted successfully
+[2023-12-05T19:04:47.468Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:04:47.468Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:04:47.468Z] info: Cloning repository...
+[2023-12-05T19:04:48.300Z] info: Fetched Github user data
+[2023-12-05T19:04:48.300Z] info: Calculating Bus Factor
+[2023-12-05T19:04:48.300Z] info: Calculating Correctness
+[2023-12-05T19:04:48.300Z] info: Calculating Ramp Up
+[2023-12-05T19:04:48.300Z] info: Calculating License
+[2023-12-05T19:04:48.300Z] info: Calculating Net Score
+[2023-12-05T19:04:48.300Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:04:48.301Z] info: Program completed successfully
+[2023-12-05T19:04:59.443Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:05:00.493Z] info: Entering fetchIssues function
+[2023-12-05T19:05:01.418Z] info: Entering fetchPulls function
+[2023-12-05T19:05:09.190Z] info: Cloning repository...
+[2023-12-05T19:05:09.201Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-05T19:05:09.201Z] info: File deleted successfully
+[2023-12-05T19:05:09.202Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:05:09.202Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:05:09.202Z] info: Cloning repository...
+[2023-12-05T19:05:10.034Z] info: Fetched Github user data
+[2023-12-05T19:05:10.034Z] info: Calculating Bus Factor
+[2023-12-05T19:05:10.034Z] info: Calculating Correctness
+[2023-12-05T19:05:10.034Z] info: Calculating Ramp Up
+[2023-12-05T19:05:10.034Z] info: Calculating License
+[2023-12-05T19:05:10.034Z] info: Calculating Net Score
+[2023-12-05T19:05:10.034Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:05:10.034Z] info: Program completed successfully
+[2023-12-05T19:07:08.028Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:07:09.108Z] info: Entering fetchIssues function
+[2023-12-05T19:07:10.129Z] info: Entering fetchPulls function
+[2023-12-05T19:07:17.699Z] info: Cloning repository...
+[2023-12-05T19:07:17.718Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-05T19:07:17.719Z] info: File deleted successfully
+[2023-12-05T19:07:17.719Z] info: Cloning repository...
+[2023-12-05T19:07:17.720Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:07:17.720Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-05T19:07:18.315Z] info: Fetched Github user data
+[2023-12-05T19:07:18.315Z] info: Calculating Bus Factor
+[2023-12-05T19:07:18.315Z] info: Calculating Correctness
+[2023-12-05T19:07:18.315Z] info: Calculating Ramp Up
+[2023-12-05T19:07:18.315Z] info: Calculating License
+[2023-12-05T19:07:18.315Z] info: Calculating Net Score
+[2023-12-05T19:07:18.316Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:07:18.316Z] info: Program completed successfully
+[2023-12-05T19:07:27.961Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-05T19:07:29.012Z] info: Entering fetchIssues function
+[2023-12-05T19:07:29.926Z] info: Entering fetchPulls function
+[2023-12-05T19:07:38.890Z] info: Cloning repository...
+[2023-12-05T19:07:38.900Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
+[2023-12-05T19:07:38.901Z] info: File deleted successfully
+[2023-12-05T19:07:38.901Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:07:38.901Z] info: Cloned local repo deleted successfully
+[2023-12-05T19:07:38.901Z] info: Cloning repository...
+[2023-12-05T19:07:39.530Z] info: Fetched Github user data
+[2023-12-05T19:07:39.530Z] info: Calculating Bus Factor
+[2023-12-05T19:07:39.530Z] info: Calculating Correctness
+[2023-12-05T19:07:39.530Z] info: Calculating Ramp Up
+[2023-12-05T19:07:39.530Z] info: Calculating License
+[2023-12-05T19:07:39.530Z] info: Calculating Net Score
+[2023-12-05T19:07:39.531Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-05T19:07:39.531Z] info: Program completed successfully
