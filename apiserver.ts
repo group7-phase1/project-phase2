@@ -91,6 +91,7 @@ app.post('/api_get_package_families', async (req: Request, res: Response) => {
 // CREATE A NEW PACKAGE FAMILY AND UPLOAD FIRST PACKAGE
 app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res: Response) => {
     try {
+        console.log("api_create");
         if (!req.file) {
             return res.status(400).send({ success: false, message: 'No file uploaded.' });
         }
@@ -111,15 +112,10 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
         if (!userID) {
             return res.status(401).send({ success: false, message: 'Invalid token' });
         }
-        console.log("Cognito userID", userID);
         const packageFamilyName = req.body.packageFamilyName;
-        console.log("Package Family Name", packageFamilyName);
         const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
-        console.log("packageFamilyID", packageFamilyID);
         const version = req.body.version;
-        console.log("Version", version);
         const secret = req.body.secret;
-        console.log("Secret", secret);
 
         if (!packageFamilyID) {
             res.send({ success: false, message: 'Invalid package family name' });
@@ -259,6 +255,32 @@ app.post('/api_reset', async (req: Request, res: Response) => {
 }
 );
 
+app.post('/api_delete_package_byName', async (req: Request, res: Response) => {
+    try {
+        const packageFamilyName = req.body.data.familyName;
+        const token = req.headers.authorization?.split(' ')[1];
+        if (!token) {
+            return res.status(401).send({ success: false, message: 'No token provided' });
+        }
+        const sub = decodeToken(token);
+        if (!sub) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+
+        const userID = await getUserIdByCognitoID(sub);
+        if (!userID) {
+            return res.status(401).send({ success: false, message: 'Invalid token' });
+        }
+        console.log("Cognito userID", userID);
+        const packages = await deleteAllNameVersionsAG(userID.toString(), packageFamilyName);
+        res.send({ success: true, message: 'Package Details retrieved successfully', packages: packages });
+
+    }
+    catch (error) {
+        res.status(500).send({ success: false, message: error });
+    }
+}
+);
 app.post('/api_clear_packages', async (req: Request, res: Response) => {
     try {
         console.log("inside try")
@@ -637,8 +659,8 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
 // Delete all packages with this name
 app.delete('/package/byName/:name', async (req: Request, res: Response) => {
     try {
-
         const packageName = req.params.name // Retrieve the package ID from the URL parameter
+        console.log(packageName);
         const token = req.headers.authorization?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
