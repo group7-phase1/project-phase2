@@ -366,7 +366,7 @@ app.delete('/reset', async (req: Request, res: Response) => {
         logger.info("delete reset");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -472,7 +472,7 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         logger.info("put package/:id");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("401 { success: false, message: 'No token provided' }");
             return res.status(401).send({ success: false, message: 'No token provided' });
@@ -517,7 +517,7 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
         logger.info("delete package/:id");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -555,7 +555,7 @@ app.post('/package', async (req: Request, res: Response) => {
         logger.info("post package");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const content = req.body.Content;
+        const content = req.body.data.Content;
         if (!content) {
             logger.info("400 { success: false, message: 'No file uploaded.' }");
             return res.status(400).send({ success: false, message: 'No file uploaded.' });
@@ -568,7 +568,7 @@ app.post('/package', async (req: Request, res: Response) => {
         const zipFileBuffer = Buffer.from(content, 'base64');
         const zipFileName = "exceptions.zip";
         
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -587,7 +587,7 @@ app.post('/package', async (req: Request, res: Response) => {
             logger.info("400 { success: false, message: 'Invalid token' }");
             return res.status(400).send({ success: false, message: 'Invalid token' });
         }
-        const packageFamilyName = "family name 7";
+        const packageFamilyName = req.body.metadata["Name"]
         const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
         console.log("packageFamilyID", packageFamilyID);
         logger.info("packageFamilyID", packageFamilyID);
@@ -623,7 +623,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         const packageId = parseInt(req.params.id, 10) // Retrieve the package ID from the URL parameter
         console.log("PACKAGEID", packageId);
         logger.info("PACKAGEID", packageId);
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ success: false, message: 'No token provided' });
@@ -717,7 +717,7 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
     try {
 
         const packageName = req.params.name // Retrieve the package ID from the URL parameter
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
         }
@@ -750,7 +750,7 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
     try {
         const packageName = req.params.name // Retrieve the package ID from the URL parameter
         console.log(packageName);
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
         }
@@ -783,7 +783,7 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
     try {
         const regex = req.body.RegEx;
 
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ success: false, message: 'No token provided' });
         }

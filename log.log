@@ -1,968 +1,211 @@
-[2023-10-15T17:15:46.472Z] error: Error creating user:  Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
-[2023-10-15T17:21:18.184Z] error: Error creating user:  Missing credentials in config, if using AWS_CONFIG_FILE, set AWS_SDK_LOAD_CONFIG=1
-[2023-10-15T17:25:51.827Z] error: Error creating user:  Could not load credentials from any providers
-[2023-10-15T17:32:22.336Z] error: Error creating user:  Could not load credentials from any providers
-[2023-10-15T17:34:25.835Z] error: Error creating user:  Could not load credentials from any providers
-[2023-10-15T17:34:56.120Z] error: Error creating user:  Could not load credentials from any providers
-[2023-10-15T17:36:26.234Z] error: Error creating user:  Could not load credentials from any providers
-[2023-10-15T17:37:40.486Z] error: Error creating user:  Could not load credentials from any providers
-[2023-10-15T17:43:21.793Z] error: Error creating user:  Resolved credential object is not valid
-[2023-10-15T17:43:43.401Z] error: Error creating user:  User pool us-east-2_7JGGXByhl does not exist.
-[2023-10-15T17:44:01.646Z] error: Error creating user:  Password did not conform with password policy: Password not long enough
-[2023-10-16T17:09:45.621Z] error: Error creating user:  User account already exists
-[2023-10-16T17:43:06.022Z] error: Error creating user:  Password did not conform with password policy: Password must have symbol characters
-[2023-10-16T17:44:45.781Z] error: Error creating user:  User account already exists
-[2023-10-16T17:57:39.070Z] error: Error creating user:  1 validation error detected: Value at 'temporaryPassword' failed to satisfy constraint: Member must satisfy regular expression pattern: ^[\S]+.*[\S]+$
-[2023-10-22T18:22:00.565Z] error: Error creating user:  Password did not conform with password policy: Password must have uppercase characters
-[2023-10-22T18:28:58.582Z] error: Error creating user:  Username cannot be of email format, since user pool is configured for email alias.
-[2023-11-10T01:27:08.916Z] error: Error logging in:  Incorrect username or password.
-[2023-11-10T01:29:11.004Z] error: Error creating user:  Username cannot be of email format, since user pool is configured for email alias.
-[2023-11-10T01:30:17.656Z] error: Error creating user:  Username cannot be of email format, since user pool is configured for email alias.
-[2023-11-12T20:55:34.757Z] error: Error logging in:  Incorrect username or password.
-[2023-11-12T20:55:35.880Z] error: Error logging in:  Incorrect username or password.
-[2023-11-14T19:33:16.693Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-14T19:33:17.001Z] info: Error: Request failed with status code 401
-[2023-11-14T19:33:17.002Z] info: Cloning repository...
-[2023-11-14T19:33:17.524Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-11-14T19:33:17.524Z] info: File deleted successfully
-[2023-11-14T19:33:17.526Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:33:17.527Z] info: Cloning repository...
-[2023-11-14T19:33:17.738Z] info: Fetched Github user data
-[2023-11-14T19:33:17.738Z] info: Calculating Bus Factor
-[2023-11-14T19:33:17.738Z] info: Calculating Correctness
-[2023-11-14T19:33:17.738Z] info: Calculating Ramp Up
-[2023-11-14T19:33:17.738Z] info: Calculating License
-[2023-11-14T19:33:17.738Z] info: Calculating Net Score
-[2023-11-14T19:33:17.738Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-14T19:33:17.739Z] info: Program completed successfully
-[2023-11-14T19:36:38.589Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-14T19:36:39.686Z] info: Entering fetchIssues function
-[2023-11-14T19:36:40.688Z] info: Entering fetchPulls function
-[2023-11-14T19:36:48.544Z] info: Cloning repository...
-[2023-11-14T19:36:48.554Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-14T19:36:48.554Z] info: File deleted successfully
-[2023-11-14T19:36:48.554Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:36:48.554Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:36:48.554Z] info: Cloning repository...
-[2023-11-14T19:36:49.201Z] info: Fetched Github user data
-[2023-11-14T19:36:49.201Z] info: Calculating Bus Factor
-[2023-11-14T19:36:49.201Z] info: Calculating Correctness
-[2023-11-14T19:36:49.201Z] info: Calculating Ramp Up
-[2023-11-14T19:36:49.201Z] info: Calculating License
-[2023-11-14T19:36:49.201Z] info: Calculating Net Score
-[2023-11-14T19:36:49.201Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-14T19:36:49.202Z] info: Program completed successfully
-[2023-11-14T19:45:03.783Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-14T19:45:04.344Z] info: Entering fetchIssues function
-[2023-11-14T19:45:05.400Z] info: Entering fetchPulls function
-[2023-11-14T19:45:12.453Z] info: Cloning repository...
-[2023-11-14T19:45:12.460Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-11-14T19:45:13.490Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-11-14T19:45:13.490Z] info: File deleted successfully
-[2023-11-14T19:45:13.492Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:45:13.492Z] info: Cloning repository...
-[2023-11-14T19:45:14.012Z] info: Fetched Github user data
-[2023-11-14T19:45:14.012Z] info: Calculating Bus Factor
-[2023-11-14T19:45:14.012Z] info: Calculating Correctness
-[2023-11-14T19:45:14.012Z] info: Calculating Ramp Up
-[2023-11-14T19:45:14.012Z] info: Calculating License
-[2023-11-14T19:45:14.012Z] info: Calculating Net Score
-[2023-11-14T19:45:14.013Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-14T19:45:14.013Z] info: Program completed successfully
-[2023-11-14T19:46:25.040Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-14T19:46:25.678Z] info: Entering fetchIssues function
-[2023-11-14T19:46:26.283Z] info: Entering fetchPulls function
-[2023-11-14T19:46:31.463Z] info: Cloning repository...
-[2023-11-14T19:46:31.471Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-14T19:46:31.471Z] info: File deleted successfully
-[2023-11-14T19:46:31.471Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:46:31.471Z] info: Cloning repository...
-[2023-11-14T19:46:31.472Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:46:31.933Z] info: Fetched Github user data
-[2023-11-14T19:46:31.933Z] info: Calculating Bus Factor
-[2023-11-14T19:46:31.933Z] info: Calculating Correctness
-[2023-11-14T19:46:31.933Z] info: Calculating Ramp Up
-[2023-11-14T19:46:31.933Z] info: Calculating License
-[2023-11-14T19:46:31.933Z] info: Calculating Net Score
-[2023-11-14T19:46:31.933Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-14T19:46:31.934Z] info: Program completed successfully
-[2023-11-14T19:51:15.873Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-14T19:51:16.456Z] info: Entering fetchIssues function
-[2023-11-14T19:51:17.252Z] info: Entering fetchPulls function
-[2023-11-14T19:51:23.391Z] info: Cloning repository...
-[2023-11-14T19:51:23.401Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-14T19:51:23.401Z] info: File deleted successfully
-[2023-11-14T19:51:23.401Z] info: Cloning repository...
-[2023-11-14T19:51:23.401Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:51:23.401Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-11-14T19:51:23.796Z] info: Fetched Github user data
-[2023-11-14T19:51:23.796Z] info: Calculating Bus Factor
-[2023-11-14T19:51:23.796Z] info: Calculating Correctness
-[2023-11-14T19:51:23.796Z] info: Calculating Ramp Up
-[2023-11-14T19:51:23.796Z] info: Calculating License
-[2023-11-14T19:51:23.796Z] info: Calculating Net Score
-[2023-11-14T19:51:23.796Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-14T19:51:23.796Z] info: Program completed successfully
-[2023-11-14T19:52:45.214Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-14T19:52:45.793Z] info: Entering fetchIssues function
-[2023-11-14T19:52:46.611Z] info: Entering fetchPulls function
-[2023-11-14T19:52:52.551Z] info: Cloning repository...
-[2023-11-14T19:52:52.555Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-14T19:52:52.555Z] info: File deleted successfully
-[2023-11-14T19:52:52.555Z] info: Cloning repository...
-[2023-11-14T19:52:52.555Z] info: Cloned local repo deleted successfully
-[2023-11-14T19:52:52.555Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-11-14T19:52:53.011Z] info: Fetched Github user data
-[2023-11-14T19:52:53.011Z] info: Calculating Bus Factor
-[2023-11-14T19:52:53.011Z] info: Calculating Correctness
-[2023-11-14T19:52:53.011Z] info: Calculating Ramp Up
-[2023-11-14T19:52:53.011Z] info: Calculating License
-[2023-11-14T19:52:53.011Z] info: Calculating Net Score
-[2023-11-14T19:52:53.011Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-14T19:52:53.011Z] info: Program completed successfully
-[2023-11-20T21:41:49.369Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-20T21:41:49.890Z] info: Entering fetchIssues function
-[2023-11-20T21:41:50.414Z] info: Entering fetchPulls function
-[2023-11-20T21:41:55.506Z] info: Cloning repository...
-[2023-11-20T21:41:55.511Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-11-20T21:41:55.933Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-11-20T21:41:55.933Z] info: File deleted successfully
-[2023-11-20T21:41:55.936Z] info: Cloned local repo deleted successfully
-[2023-11-20T21:41:55.936Z] info: Cloning repository...
-[2023-11-20T21:41:56.159Z] info: Fetched Github user data
-[2023-11-20T21:41:56.160Z] info: Calculating Bus Factor
-[2023-11-20T21:41:56.160Z] info: Calculating Correctness
-[2023-11-20T21:41:56.160Z] info: Calculating Ramp Up
-[2023-11-20T21:41:56.160Z] info: Calculating License
-[2023-11-20T21:41:56.160Z] info: Calculating Net Score
-[2023-11-20T21:41:56.160Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-20T21:41:56.160Z] info: Program completed successfully
-[2023-11-20T21:45:42.095Z] error: Error creating user:  User account already exists
-[2023-11-20T22:00:07.518Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-20T22:00:08.126Z] info: Entering fetchIssues function
-[2023-11-20T22:00:08.806Z] info: Entering fetchPulls function
-[2023-11-20T22:00:13.937Z] info: Cloning repository...
-[2023-11-20T22:00:13.944Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-20T22:00:13.944Z] info: File deleted successfully
-[2023-11-20T22:00:13.945Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-11-20T22:00:13.945Z] info: Cloned local repo deleted successfully
-[2023-11-20T22:00:13.945Z] info: An error occurred:Error: ENOENT: no such file or directory, lstat './local-repo'
-[2023-11-20T22:00:13.945Z] info: Fetched Github user data
-[2023-11-20T22:00:13.945Z] info: Calculating Bus Factor
-[2023-11-20T22:00:13.945Z] info: Calculating Correctness
-[2023-11-20T22:00:13.946Z] info: Calculating Ramp Up
-[2023-11-20T22:00:13.946Z] info: Calculating License
-[2023-11-20T22:00:13.946Z] info: Calculating Net Score
-[2023-11-20T22:00:13.946Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-20T22:00:13.946Z] info: Program completed successfully
-[2023-11-20T22:03:01.952Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-20T22:03:02.411Z] info: Entering fetchIssues function
-[2023-11-20T22:03:02.977Z] info: Entering fetchPulls function
-[2023-11-20T22:03:07.793Z] info: Cloning repository...
-[2023-11-20T22:03:08.206Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-11-20T22:03:08.207Z] info: File deleted successfully
-[2023-11-20T22:03:08.213Z] info: Cloned local repo deleted successfully
-[2023-11-20T22:03:08.213Z] info: Cloning repository...
-[2023-11-20T22:03:08.418Z] info: Fetched Github user data
-[2023-11-20T22:03:08.418Z] info: Calculating Bus Factor
-[2023-11-20T22:03:08.418Z] info: Calculating Correctness
-[2023-11-20T22:03:08.418Z] info: Calculating Ramp Up
-[2023-11-20T22:03:08.418Z] info: Calculating License
-[2023-11-20T22:03:08.418Z] info: Calculating Net Score
-[2023-11-20T22:03:08.418Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-20T22:03:08.418Z] info: Program completed successfully
-[2023-11-20T22:04:39.174Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-20T22:04:39.804Z] info: Entering fetchIssues function
-[2023-11-20T22:04:40.573Z] info: Entering fetchPulls function
-[2023-11-20T22:04:46.094Z] info: Cloning repository...
-[2023-11-20T22:04:46.108Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-20T22:04:46.110Z] info: File deleted successfully
-[2023-11-20T22:04:46.110Z] info: Cloning repository...
-[2023-11-20T22:04:46.110Z] info: Cloned local repo deleted successfully
-[2023-11-20T22:04:46.112Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-11-20T22:04:46.462Z] info: Fetched Github user data
-[2023-11-20T22:04:46.462Z] info: Calculating Bus Factor
-[2023-11-20T22:04:46.462Z] info: Calculating Correctness
-[2023-11-20T22:04:46.462Z] info: Calculating Ramp Up
-[2023-11-20T22:04:46.462Z] info: Calculating License
-[2023-11-20T22:04:46.462Z] info: Calculating Net Score
-[2023-11-20T22:04:46.462Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-20T22:04:46.462Z] info: Program completed successfully
-[2023-11-20T22:05:39.803Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-20T22:05:40.296Z] info: Entering fetchIssues function
-[2023-11-20T22:05:40.881Z] info: Entering fetchPulls function
-[2023-11-20T22:05:46.280Z] info: Cloning repository...
-[2023-11-20T22:05:46.284Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-20T22:05:46.284Z] info: File deleted successfully
-[2023-11-20T22:05:46.284Z] info: Cloned local repo deleted successfully
-[2023-11-20T22:05:46.284Z] info: Cloning repository...
-[2023-11-20T22:05:46.284Z] info: Cloned local repo deleted successfully
-[2023-11-20T22:05:46.639Z] info: Fetched Github user data
-[2023-11-20T22:05:46.639Z] info: Calculating Bus Factor
-[2023-11-20T22:05:46.639Z] info: Calculating Correctness
-[2023-11-20T22:05:46.639Z] info: Calculating Ramp Up
-[2023-11-20T22:05:46.639Z] info: Calculating License
-[2023-11-20T22:05:46.639Z] info: Calculating Net Score
-[2023-11-20T22:05:46.640Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-20T22:05:46.640Z] info: Program completed successfully
-[2023-11-22T21:09:50.006Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:09:50.729Z] info: Entering fetchIssues function
-[2023-11-22T21:09:51.481Z] info: Entering fetchPulls function
-[2023-11-22T21:09:57.994Z] info: Cloning repository...
-[2023-11-22T21:09:58.004Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-11-22T21:09:58.704Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-11-22T21:09:58.704Z] info: File deleted successfully
-[2023-11-22T21:09:58.708Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:09:58.708Z] info: Cloning repository...
-[2023-11-22T21:09:59.928Z] info: Fetched Github user data
-[2023-11-22T21:09:59.928Z] info: Calculating Bus Factor
-[2023-11-22T21:09:59.929Z] info: Calculating Correctness
-[2023-11-22T21:09:59.929Z] info: Calculating Ramp Up
-[2023-11-22T21:09:59.929Z] info: Calculating License
-[2023-11-22T21:09:59.929Z] info: Calculating Net Score
-[2023-11-22T21:09:59.930Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:09:59.932Z] info: Program completed successfully
-[2023-11-22T21:33:23.134Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:33:23.812Z] info: Entering fetchIssues function
-[2023-11-22T21:33:24.613Z] info: Entering fetchPulls function
-[2023-11-22T21:33:30.342Z] info: Cloning repository...
-[2023-11-22T21:33:30.355Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
-[2023-11-22T21:33:30.355Z] info: File deleted successfully
-[2023-11-22T21:33:30.356Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:33:30.356Z] info: Cloning repository...
-[2023-11-22T21:33:30.357Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:33:31.058Z] info: Fetched Github user data
-[2023-11-22T21:33:31.058Z] info: Calculating Bus Factor
-[2023-11-22T21:33:31.058Z] info: Calculating Correctness
-[2023-11-22T21:33:31.059Z] info: Calculating Ramp Up
-[2023-11-22T21:33:31.059Z] info: Calculating License
-[2023-11-22T21:33:31.059Z] info: Calculating Net Score
-[2023-11-22T21:33:31.059Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:33:31.060Z] info: Program completed successfully
-[2023-11-22T21:38:24.892Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:38:25.557Z] info: Entering fetchIssues function
-[2023-11-22T21:38:26.196Z] info: Entering fetchPulls function
-[2023-11-22T21:38:33.456Z] info: Cloning repository...
-[2023-11-22T21:38:33.467Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-22T21:38:33.467Z] info: File deleted successfully
-[2023-11-22T21:38:33.468Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:38:33.468Z] info: Cloning repository...
-[2023-11-22T21:38:33.468Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:38:34.132Z] info: Fetched Github user data
-[2023-11-22T21:38:34.132Z] info: Calculating Bus Factor
-[2023-11-22T21:38:34.132Z] info: Calculating Correctness
-[2023-11-22T21:38:34.133Z] info: Calculating Ramp Up
-[2023-11-22T21:38:34.133Z] info: Calculating License
-[2023-11-22T21:38:34.133Z] info: Calculating Net Score
-[2023-11-22T21:38:34.133Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:38:34.134Z] info: Program completed successfully
-[2023-11-22T21:39:59.333Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:39:59.959Z] info: Entering fetchIssues function
-[2023-11-22T21:40:00.612Z] info: Entering fetchPulls function
-[2023-11-22T21:40:07.033Z] info: Cloning repository...
-[2023-11-22T21:40:07.067Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-22T21:40:07.067Z] info: File deleted successfully
-[2023-11-22T21:40:07.067Z] info: Cloning repository...
-[2023-11-22T21:40:07.068Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:40:07.068Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-11-22T21:40:08.600Z] info: Fetched Github user data
-[2023-11-22T21:40:08.601Z] info: Calculating Bus Factor
-[2023-11-22T21:40:08.601Z] info: Calculating Correctness
-[2023-11-22T21:40:08.601Z] info: Calculating Ramp Up
-[2023-11-22T21:40:08.601Z] info: Calculating License
-[2023-11-22T21:40:08.601Z] info: Calculating Net Score
-[2023-11-22T21:40:08.601Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:40:08.602Z] info: Program completed successfully
-[2023-11-22T21:42:05.225Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:42:05.869Z] info: Entering fetchIssues function
-[2023-11-22T21:42:07.378Z] info: Entering fetchPulls function
-[2023-11-22T21:42:13.408Z] info: Cloning repository...
-[2023-11-22T21:42:13.424Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-22T21:42:13.424Z] info: File deleted successfully
-[2023-11-22T21:42:13.425Z] info: Cloning repository...
-[2023-11-22T21:42:13.425Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:42:13.425Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-11-22T21:42:14.124Z] info: Fetched Github user data
-[2023-11-22T21:42:14.124Z] info: Calculating Bus Factor
-[2023-11-22T21:42:14.124Z] info: Calculating Correctness
-[2023-11-22T21:42:14.124Z] info: Calculating Ramp Up
-[2023-11-22T21:42:14.124Z] info: Calculating License
-[2023-11-22T21:42:14.124Z] info: Calculating Net Score
-[2023-11-22T21:42:14.125Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:42:14.125Z] info: Program completed successfully
-[2023-11-22T21:44:35.038Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:44:35.700Z] info: Entering fetchIssues function
-[2023-11-22T21:44:36.380Z] info: Entering fetchPulls function
-[2023-11-22T21:44:42.304Z] info: Cloning repository...
-[2023-11-22T21:44:42.313Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-22T21:44:42.313Z] info: File deleted successfully
-[2023-11-22T21:44:42.314Z] info: Cloning repository...
-[2023-11-22T21:44:42.314Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:44:42.314Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-11-22T21:44:43.174Z] info: Fetched Github user data
-[2023-11-22T21:44:43.174Z] info: Calculating Bus Factor
-[2023-11-22T21:44:43.174Z] info: Calculating Correctness
-[2023-11-22T21:44:43.175Z] info: Calculating Ramp Up
-[2023-11-22T21:44:43.175Z] info: Calculating License
-[2023-11-22T21:44:43.175Z] info: Calculating Net Score
-[2023-11-22T21:44:43.175Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:44:43.176Z] info: Program completed successfully
-[2023-11-22T21:50:13.073Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:50:13.746Z] info: Entering fetchIssues function
-[2023-11-22T21:50:14.375Z] info: Entering fetchPulls function
-[2023-11-22T21:50:20.156Z] info: Cloning repository...
-[2023-11-22T21:50:20.167Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-22T21:50:20.167Z] info: File deleted successfully
-[2023-11-22T21:50:20.167Z] info: Cloning repository...
-[2023-11-22T21:50:20.168Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:50:20.168Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-11-22T21:50:20.845Z] info: Fetched Github user data
-[2023-11-22T21:50:20.845Z] info: Calculating Bus Factor
-[2023-11-22T21:50:20.845Z] info: Calculating Correctness
-[2023-11-22T21:50:20.845Z] info: Calculating Ramp Up
-[2023-11-22T21:50:20.845Z] info: Calculating License
-[2023-11-22T21:50:20.845Z] info: Calculating Net Score
-[2023-11-22T21:50:20.846Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:50:20.846Z] info: Program completed successfully
-[2023-11-22T21:50:33.596Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-22T21:50:34.260Z] info: Entering fetchIssues function
-[2023-11-22T21:50:34.891Z] info: Entering fetchPulls function
-[2023-11-22T21:50:41.408Z] info: Cloning repository...
-[2023-11-22T21:50:41.413Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-22T21:50:41.413Z] info: File deleted successfully
-[2023-11-22T21:50:41.413Z] info: Cloning repository...
-[2023-11-22T21:50:41.414Z] info: Cloned local repo deleted successfully
-[2023-11-22T21:50:41.414Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-11-22T21:50:42.061Z] info: Fetched Github user data
-[2023-11-22T21:50:42.061Z] info: Calculating Bus Factor
-[2023-11-22T21:50:42.061Z] info: Calculating Correctness
-[2023-11-22T21:50:42.061Z] info: Calculating Ramp Up
-[2023-11-22T21:50:42.061Z] info: Calculating License
-[2023-11-22T21:50:42.061Z] info: Calculating Net Score
-[2023-11-22T21:50:42.061Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-22T21:50:42.063Z] info: Program completed successfully
-[2023-11-30T19:38:16.710Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-30T19:38:17.515Z] info: Entering fetchIssues function
-[2023-11-30T19:38:18.235Z] info: Entering fetchPulls function
-[2023-11-30T19:38:24.871Z] info: Cloning repository...
-[2023-11-30T19:38:24.884Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-30T19:38:24.885Z] info: File deleted successfully
-[2023-11-30T19:38:24.885Z] info: Cloned local repo deleted successfully
-[2023-11-30T19:38:24.885Z] info: Cloned local repo deleted successfully
-[2023-11-30T19:38:24.885Z] info: Cloning repository...
-[2023-11-30T19:38:25.474Z] info: Fetched Github user data
-[2023-11-30T19:38:25.475Z] info: Calculating Bus Factor
-[2023-11-30T19:38:25.475Z] info: Calculating Correctness
-[2023-11-30T19:38:25.475Z] info: Calculating Ramp Up
-[2023-11-30T19:38:25.475Z] info: Calculating License
-[2023-11-30T19:38:25.475Z] info: Calculating Net Score
-[2023-11-30T19:38:25.475Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-30T19:38:25.476Z] info: Program completed successfully
-[2023-11-30T19:52:12.163Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-30T19:52:12.720Z] info: Entering fetchIssues function
-[2023-11-30T19:52:13.349Z] info: Entering fetchPulls function
-[2023-11-30T19:52:20.335Z] info: Cloning repository...
-[2023-11-30T19:52:20.361Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-30T19:52:20.361Z] info: File deleted successfully
-[2023-11-30T19:52:20.362Z] info: Cloned local repo deleted successfully
-[2023-11-30T19:52:20.362Z] info: Cloned local repo deleted successfully
-[2023-11-30T19:52:20.363Z] info: Cloning repository...
-[2023-11-30T19:52:21.253Z] info: Fetched Github user data
-[2023-11-30T19:52:21.253Z] info: Calculating Bus Factor
-[2023-11-30T19:52:21.253Z] info: Calculating Correctness
-[2023-11-30T19:52:21.253Z] info: Calculating Ramp Up
-[2023-11-30T19:52:21.254Z] info: Calculating License
-[2023-11-30T19:52:21.254Z] info: Calculating Net Score
-[2023-11-30T19:52:21.254Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-30T19:52:21.255Z] info: Program completed successfully
-[2023-11-30T21:14:53.030Z] info: Working on link: https://github.com/zeit/arg
-[2023-11-30T21:14:53.608Z] info: Entering fetchIssues function
-[2023-11-30T21:14:54.205Z] info: Entering fetchPulls function
-[2023-11-30T21:14:59.352Z] info: Cloning repository...
-[2023-11-30T21:14:59.357Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-11-30T21:14:59.358Z] info: File deleted successfully
-[2023-11-30T21:14:59.358Z] info: Cloning repository...
-[2023-11-30T21:14:59.358Z] info: Cloned local repo deleted successfully
-[2023-11-30T21:14:59.358Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-11-30T21:14:59.732Z] info: Fetched Github user data
-[2023-11-30T21:14:59.733Z] info: Calculating Bus Factor
-[2023-11-30T21:14:59.733Z] info: Calculating Correctness
-[2023-11-30T21:14:59.733Z] info: Calculating Ramp Up
-[2023-11-30T21:14:59.733Z] info: Calculating License
-[2023-11-30T21:14:59.733Z] info: Calculating Net Score
-[2023-11-30T21:14:59.733Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-11-30T21:14:59.733Z] info: Program completed successfully
-[2023-12-01T03:28:33.889Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-01T03:28:34.553Z] info: Entering fetchIssues function
-[2023-12-01T03:28:35.227Z] info: Entering fetchPulls function
-[2023-12-01T03:28:40.712Z] info: Cloning repository...
-[2023-12-01T03:28:40.720Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-01T03:28:40.720Z] info: File deleted successfully
-[2023-12-01T03:28:40.720Z] info: Cloning repository...
-[2023-12-01T03:28:40.720Z] info: Cloned local repo deleted successfully
-[2023-12-01T03:28:40.720Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-01T03:28:41.279Z] info: Fetched Github user data
-[2023-12-01T03:28:41.279Z] info: Calculating Bus Factor
-[2023-12-01T03:28:41.279Z] info: Calculating Correctness
-[2023-12-01T03:28:41.279Z] info: Calculating Ramp Up
-[2023-12-01T03:28:41.279Z] info: Calculating License
-[2023-12-01T03:28:41.279Z] info: Calculating Net Score
-[2023-12-01T03:28:41.280Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-01T03:28:41.280Z] info: Program completed successfully
-[2023-12-01T03:40:45.937Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-01T03:40:46.614Z] info: Entering fetchIssues function
-[2023-12-01T03:40:47.238Z] info: Entering fetchPulls function
-[2023-12-01T03:40:52.793Z] info: Cloning repository...
-[2023-12-01T03:40:52.803Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-01T03:40:52.803Z] info: File deleted successfully
-[2023-12-01T03:40:52.803Z] info: Cloning repository...
-[2023-12-01T03:40:52.804Z] info: Cloned local repo deleted successfully
-[2023-12-01T03:40:52.804Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-01T03:40:53.242Z] info: Fetched Github user data
-[2023-12-01T03:40:53.242Z] info: Calculating Bus Factor
-[2023-12-01T03:40:53.242Z] info: Calculating Correctness
-[2023-12-01T03:40:53.242Z] info: Calculating Ramp Up
-[2023-12-01T03:40:53.242Z] info: Calculating License
-[2023-12-01T03:40:53.242Z] info: Calculating Net Score
-[2023-12-01T03:40:53.242Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-01T03:40:53.243Z] info: Program completed successfully
-[2023-12-01T04:09:31.592Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-01T04:09:32.347Z] info: Entering fetchIssues function
-[2023-12-01T04:09:33.125Z] info: Entering fetchPulls function
-[2023-12-01T04:09:39.277Z] info: Cloning repository...
-[2023-12-01T04:09:39.284Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-01T04:09:39.285Z] info: File deleted successfully
-[2023-12-01T04:09:39.285Z] info: Cloning repository...
-[2023-12-01T04:09:39.285Z] info: Cloned local repo deleted successfully
-[2023-12-01T04:09:39.285Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-01T04:09:39.863Z] info: Fetched Github user data
-[2023-12-01T04:09:39.863Z] info: Calculating Bus Factor
-[2023-12-01T04:09:39.863Z] info: Calculating Correctness
-[2023-12-01T04:09:39.863Z] info: Calculating Ramp Up
-[2023-12-01T04:09:39.863Z] info: Calculating License
-[2023-12-01T04:09:39.863Z] info: Calculating Net Score
-[2023-12-01T04:09:39.863Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-01T04:09:39.863Z] info: Program completed successfully
-[2023-12-03T19:40:58.040Z] error: Error logging in:  Incorrect username or password.
-[2023-12-03T19:40:59.439Z] error: Error logging in:  Incorrect username or password.
-[2023-12-03T19:41:03.051Z] error: Error logging in:  Incorrect username or password.
-[2023-12-03T19:41:26.833Z] error: Error creating user:  User account already exists
-[2023-12-03T19:41:55.118Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T19:41:55.763Z] info: Entering fetchIssues function
-[2023-12-03T19:41:56.500Z] info: Entering fetchPulls function
-[2023-12-03T19:42:02.064Z] info: Cloning repository...
-[2023-12-03T19:42:02.072Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T19:42:02.072Z] info: File deleted successfully
-[2023-12-03T19:42:02.072Z] info: Cloning repository...
-[2023-12-03T19:42:02.073Z] info: Cloned local repo deleted successfully
-[2023-12-03T19:42:02.073Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-03T19:42:02.724Z] info: Fetched Github user data
-[2023-12-03T19:42:02.725Z] info: Calculating Bus Factor
-[2023-12-03T19:42:02.725Z] info: Calculating Correctness
-[2023-12-03T19:42:02.725Z] info: Calculating Ramp Up
-[2023-12-03T19:42:02.725Z] info: Calculating License
-[2023-12-03T19:42:02.725Z] info: Calculating Net Score
-[2023-12-03T19:42:02.725Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T19:42:02.726Z] info: Program completed successfully
-[2023-12-03T19:42:24.685Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T19:42:25.366Z] info: Entering fetchIssues function
-[2023-12-03T19:42:26.088Z] info: Entering fetchPulls function
-[2023-12-03T19:42:29.608Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T19:42:30.245Z] info: Entering fetchIssues function
-[2023-12-03T19:42:30.997Z] info: Entering fetchPulls function
-[2023-12-03T19:42:32.231Z] info: Cloning repository...
-[2023-12-03T19:42:32.235Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T19:42:32.235Z] info: File deleted successfully
-[2023-12-03T19:42:32.235Z] info: Cloned local repo deleted successfully
-[2023-12-03T19:42:32.235Z] info: Cloned local repo deleted successfully
-[2023-12-03T19:42:32.235Z] info: Cloning repository...
-[2023-12-03T19:42:32.746Z] info: Fetched Github user data
-[2023-12-03T19:42:32.747Z] info: Calculating Bus Factor
-[2023-12-03T19:42:32.747Z] info: Calculating Correctness
-[2023-12-03T19:42:32.747Z] info: Calculating Ramp Up
-[2023-12-03T19:42:32.747Z] info: Calculating License
-[2023-12-03T19:42:32.747Z] info: Calculating Net Score
-[2023-12-03T19:42:32.747Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T19:42:32.747Z] info: Program completed successfully
-[2023-12-03T19:42:36.437Z] info: Cloning repository...
-[2023-12-03T19:42:36.444Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T19:42:36.444Z] info: File deleted successfully
-[2023-12-03T19:42:36.444Z] info: Cloning repository...
-[2023-12-03T19:42:36.445Z] info: Cloned local repo deleted successfully
-[2023-12-03T19:42:36.445Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-03T19:42:36.768Z] info: Fetched Github user data
-[2023-12-03T19:42:36.768Z] info: Calculating Bus Factor
-[2023-12-03T19:42:36.768Z] info: Calculating Correctness
-[2023-12-03T19:42:36.768Z] info: Calculating Ramp Up
-[2023-12-03T19:42:36.768Z] info: Calculating License
-[2023-12-03T19:42:36.768Z] info: Calculating Net Score
-[2023-12-03T19:42:36.768Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T19:42:36.768Z] info: Program completed successfully
-<<<<<<< HEAD
-[2023-12-03T22:09:08.081Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T22:09:08.651Z] info: Entering fetchIssues function
-[2023-12-03T22:09:09.196Z] info: Entering fetchPulls function
-[2023-12-03T22:09:14.540Z] info: Cloning repository...
-[2023-12-03T22:09:14.558Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T22:09:14.558Z] info: File deleted successfully
-[2023-12-03T22:09:14.558Z] info: Cloning repository...
-[2023-12-03T22:09:14.559Z] info: Cloned local repo deleted successfully
-[2023-12-03T22:09:14.559Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-12-03T22:09:15.064Z] info: Fetched Github user data
-[2023-12-03T22:09:15.064Z] info: Calculating Bus Factor
-[2023-12-03T22:09:15.065Z] info: Calculating Correctness
-[2023-12-03T22:09:15.065Z] info: Calculating Ramp Up
-[2023-12-03T22:09:15.065Z] info: Calculating License
-[2023-12-03T22:09:15.065Z] info: Calculating Net Score
-[2023-12-03T22:09:15.065Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T22:09:15.066Z] info: Program completed successfully
-=======
-[2023-12-03T21:18:15.665Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T21:18:16.159Z] info: Entering fetchIssues function
-[2023-12-03T21:18:16.742Z] info: Entering fetchPulls function
-[2023-12-03T21:18:22.485Z] info: Cloning repository...
-[2023-12-03T21:18:22.497Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T21:18:22.497Z] info: File deleted successfully
-[2023-12-03T21:18:22.498Z] info: Cloning repository...
-[2023-12-03T21:18:22.498Z] info: Cloned local repo deleted successfully
-[2023-12-03T21:18:22.498Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-03T21:18:22.880Z] info: Fetched Github user data
-[2023-12-03T21:18:22.881Z] info: Calculating Bus Factor
-[2023-12-03T21:18:22.881Z] info: Calculating Correctness
-[2023-12-03T21:18:22.881Z] info: Calculating Ramp Up
-[2023-12-03T21:18:22.881Z] info: Calculating License
-[2023-12-03T21:18:22.881Z] info: Calculating Net Score
-[2023-12-03T21:18:22.881Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T21:18:22.881Z] info: Program completed successfully
-[2023-12-03T22:13:45.979Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T22:13:46.704Z] info: Entering fetchIssues function
-[2023-12-03T22:13:47.339Z] info: Entering fetchPulls function
-[2023-12-03T22:13:52.402Z] info: Cloning repository...
-[2023-12-03T22:13:52.407Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-12-03T22:13:52.408Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T22:13:52.408Z] info: File deleted successfully
-[2023-12-03T22:13:52.408Z] info: Cloned local repo deleted successfully
-[2023-12-03T22:13:52.408Z] info: Cloning repository...
-[2023-12-03T22:13:53.093Z] info: Fetched Github user data
-[2023-12-03T22:13:53.093Z] info: Calculating Bus Factor
-[2023-12-03T22:13:53.093Z] info: Calculating Correctness
-[2023-12-03T22:13:53.094Z] info: Calculating Ramp Up
-[2023-12-03T22:13:53.094Z] info: Calculating License
-[2023-12-03T22:13:53.094Z] info: Calculating Net Score
-[2023-12-03T22:13:53.094Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T22:13:53.094Z] info: Program completed successfully
-[2023-12-03T22:25:05.447Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-03T22:25:06.152Z] info: Entering fetchIssues function
-[2023-12-03T22:25:06.966Z] info: Entering fetchPulls function
-[2023-12-03T22:25:13.258Z] info: Cloning repository...
-[2023-12-03T22:25:13.275Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-03T22:25:13.276Z] info: File deleted successfully
-[2023-12-03T22:25:13.276Z] info: Cloning repository...
-[2023-12-03T22:25:13.277Z] info: Cloned local repo deleted successfully
-[2023-12-03T22:25:13.277Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-03T22:25:13.748Z] info: Fetched Github user data
-[2023-12-03T22:25:13.748Z] info: Calculating Bus Factor
-[2023-12-03T22:25:13.748Z] info: Calculating Correctness
-[2023-12-03T22:25:13.748Z] info: Calculating Ramp Up
-[2023-12-03T22:25:13.749Z] info: Calculating License
-[2023-12-03T22:25:13.749Z] info: Calculating Net Score
-[2023-12-03T22:25:13.749Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-03T22:25:13.749Z] info: Program completed successfully
->>>>>>> d51ca70f846d9ea44eed65d179ee42f3e4a83b43
-[2023-12-04T17:10:49.083Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-04T17:10:49.874Z] info: Entering fetchIssues function
-[2023-12-04T17:10:50.576Z] info: Entering fetchPulls function
-[2023-12-04T17:10:57.029Z] info: Cloning repository...
-[2023-12-04T17:10:57.035Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-04T17:10:57.035Z] info: File deleted successfully
-[2023-12-04T17:10:57.035Z] info: Cloning repository...
-[2023-12-04T17:10:57.036Z] info: Cloned local repo deleted successfully
-[2023-12-04T17:10:57.036Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-04T17:10:57.556Z] info: Fetched Github user data
-[2023-12-04T17:10:57.556Z] info: Calculating Bus Factor
-[2023-12-04T17:10:57.556Z] info: Calculating Correctness
-[2023-12-04T17:10:57.557Z] info: Calculating Ramp Up
-[2023-12-04T17:10:57.557Z] info: Calculating License
-[2023-12-04T17:10:57.557Z] info: Calculating Net Score
-[2023-12-04T17:10:57.557Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-04T17:10:57.557Z] info: Program completed successfully
-<<<<<<< HEAD
-[2023-12-05T19:58:36.523Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:58:37.289Z] info: Entering fetchIssues function
-[2023-12-05T19:58:38.197Z] info: Entering fetchPulls function
-[2023-12-05T19:58:44.282Z] info: Cloning repository...
-[2023-12-05T19:58:44.305Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-05T19:58:44.305Z] info: File deleted successfully
-[2023-12-05T19:58:44.306Z] info: Cloning repository...
-[2023-12-05T19:58:44.306Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:58:44.307Z] info: ENOENT: no such file or directory, stat './local-repo'
-[2023-12-05T19:58:45.051Z] info: Fetched Github user data
-[2023-12-05T19:58:45.051Z] info: Calculating Bus Factor
-[2023-12-05T19:58:45.052Z] info: Calculating Correctness
-[2023-12-05T19:58:45.052Z] info: Calculating Ramp Up
-[2023-12-05T19:58:45.053Z] info: Calculating License
-[2023-12-05T19:58:45.053Z] info: Calculating Net Score
-[2023-12-05T19:58:45.053Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:58:45.054Z] info: Program completed successfully
-=======
-[2023-12-05T18:38:51.189Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T18:38:51.937Z] info: Entering fetchIssues function
-[2023-12-05T18:38:52.756Z] info: Entering fetchPulls function
-[2023-12-05T18:38:59.091Z] info: Cloning repository...
-[2023-12-05T18:38:59.101Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-05T18:38:59.102Z] info: File deleted successfully
-[2023-12-05T18:38:59.104Z] info: Cloning repository...
-[2023-12-05T18:38:59.105Z] info: Cloned local repo deleted successfully
-[2023-12-05T18:38:59.105Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-05T18:38:59.593Z] info: Fetched Github user data
-[2023-12-05T18:38:59.594Z] info: Calculating Bus Factor
-[2023-12-05T18:38:59.594Z] info: Calculating Correctness
-[2023-12-05T18:38:59.594Z] info: Calculating Ramp Up
-[2023-12-05T18:38:59.594Z] info: Calculating License
-[2023-12-05T18:38:59.594Z] info: Calculating Net Score
-[2023-12-05T18:38:59.594Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T18:38:59.594Z] info: Program completed successfully
-[2023-12-05T19:02:35.711Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:02:36.851Z] info: Entering fetchIssues function
-[2023-12-05T19:02:37.829Z] info: Entering fetchPulls function
-[2023-12-05T19:02:46.766Z] info: Cloning repository...
-[2023-12-05T19:02:46.786Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
-[2023-12-05T19:02:46.787Z] info: File deleted successfully
-[2023-12-05T19:02:46.787Z] info: Cloning repository...
-[2023-12-05T19:02:46.788Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:02:46.788Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-05T19:02:48.117Z] info: Fetched Github user data
-[2023-12-05T19:02:48.117Z] info: Calculating Bus Factor
-[2023-12-05T19:02:48.117Z] info: Calculating Correctness
-[2023-12-05T19:02:48.117Z] info: Calculating Ramp Up
-[2023-12-05T19:02:48.117Z] info: Calculating License
-[2023-12-05T19:02:48.117Z] info: Calculating Net Score
-[2023-12-05T19:02:48.118Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:02:48.118Z] info: Program completed successfully
-[2023-12-05T19:03:19.271Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:03:20.011Z] info: Entering fetchIssues function
-[2023-12-05T19:03:21.065Z] info: Entering fetchPulls function
-[2023-12-05T19:03:29.942Z] info: Cloning repository...
-[2023-12-05T19:03:29.951Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
-[2023-12-05T19:03:29.952Z] info: File deleted successfully
-[2023-12-05T19:03:29.952Z] info: Cloning repository...
-[2023-12-05T19:03:29.952Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:03:29.952Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-05T19:03:30.481Z] info: Fetched Github user data
-[2023-12-05T19:03:30.481Z] info: Calculating Bus Factor
-[2023-12-05T19:03:30.481Z] info: Calculating Correctness
-[2023-12-05T19:03:30.481Z] info: Calculating Ramp Up
-[2023-12-05T19:03:30.481Z] info: Calculating License
-[2023-12-05T19:03:30.481Z] info: Calculating Net Score
-[2023-12-05T19:03:30.481Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:03:30.481Z] info: Program completed successfully
-[2023-12-05T19:04:36.919Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:04:37.694Z] info: Entering fetchIssues function
-[2023-12-05T19:04:38.584Z] info: Entering fetchPulls function
-[2023-12-05T19:04:47.456Z] info: Cloning repository...
-[2023-12-05T19:04:47.467Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-05T19:04:47.467Z] info: File deleted successfully
-[2023-12-05T19:04:47.468Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:04:47.468Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:04:47.468Z] info: Cloning repository...
-[2023-12-05T19:04:48.300Z] info: Fetched Github user data
-[2023-12-05T19:04:48.300Z] info: Calculating Bus Factor
-[2023-12-05T19:04:48.300Z] info: Calculating Correctness
-[2023-12-05T19:04:48.300Z] info: Calculating Ramp Up
-[2023-12-05T19:04:48.300Z] info: Calculating License
-[2023-12-05T19:04:48.300Z] info: Calculating Net Score
-[2023-12-05T19:04:48.300Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:04:48.301Z] info: Program completed successfully
-[2023-12-05T19:04:59.443Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:05:00.493Z] info: Entering fetchIssues function
-[2023-12-05T19:05:01.418Z] info: Entering fetchPulls function
-[2023-12-05T19:05:09.190Z] info: Cloning repository...
-[2023-12-05T19:05:09.201Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-05T19:05:09.201Z] info: File deleted successfully
-[2023-12-05T19:05:09.202Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:05:09.202Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:05:09.202Z] info: Cloning repository...
-[2023-12-05T19:05:10.034Z] info: Fetched Github user data
-[2023-12-05T19:05:10.034Z] info: Calculating Bus Factor
-[2023-12-05T19:05:10.034Z] info: Calculating Correctness
-[2023-12-05T19:05:10.034Z] info: Calculating Ramp Up
-[2023-12-05T19:05:10.034Z] info: Calculating License
-[2023-12-05T19:05:10.034Z] info: Calculating Net Score
-[2023-12-05T19:05:10.034Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:05:10.034Z] info: Program completed successfully
-[2023-12-05T19:07:08.028Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:07:09.108Z] info: Entering fetchIssues function
-[2023-12-05T19:07:10.129Z] info: Entering fetchPulls function
-[2023-12-05T19:07:17.699Z] info: Cloning repository...
-[2023-12-05T19:07:17.718Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-05T19:07:17.719Z] info: File deleted successfully
-[2023-12-05T19:07:17.719Z] info: Cloning repository...
-[2023-12-05T19:07:17.720Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:07:17.720Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-05T19:07:18.315Z] info: Fetched Github user data
-[2023-12-05T19:07:18.315Z] info: Calculating Bus Factor
-[2023-12-05T19:07:18.315Z] info: Calculating Correctness
-[2023-12-05T19:07:18.315Z] info: Calculating Ramp Up
-[2023-12-05T19:07:18.315Z] info: Calculating License
-[2023-12-05T19:07:18.315Z] info: Calculating Net Score
-[2023-12-05T19:07:18.316Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:07:18.316Z] info: Program completed successfully
-[2023-12-05T19:07:27.961Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-05T19:07:29.012Z] info: Entering fetchIssues function
-[2023-12-05T19:07:29.926Z] info: Entering fetchPulls function
-[2023-12-05T19:07:38.890Z] info: Cloning repository...
-[2023-12-05T19:07:38.900Z] info: An error occurred:TypeError: Cannot read properties of null (reading 'split')
-[2023-12-05T19:07:38.901Z] info: File deleted successfully
-[2023-12-05T19:07:38.901Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:07:38.901Z] info: Cloned local repo deleted successfully
-[2023-12-05T19:07:38.901Z] info: Cloning repository...
-[2023-12-05T19:07:39.530Z] info: Fetched Github user data
-[2023-12-05T19:07:39.530Z] info: Calculating Bus Factor
-[2023-12-05T19:07:39.530Z] info: Calculating Correctness
-[2023-12-05T19:07:39.530Z] info: Calculating Ramp Up
-[2023-12-05T19:07:39.530Z] info: Calculating License
-[2023-12-05T19:07:39.530Z] info: Calculating Net Score
-[2023-12-05T19:07:39.531Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-05T19:07:39.531Z] info: Program completed successfully
->>>>>>> acceaf3943c538405e540bdb75ce250c9f367f19
-[2023-12-07T14:37:05.078Z] info: login()
-[2023-12-07T14:37:05.086Z] info: Attempting to log in user: 
-[2023-12-07T14:37:05.768Z] info: User logged in successfully: 
-[2023-12-07T14:40:29.039Z] info: put authenticate
-[2023-12-07T14:40:29.039Z] info: body
-[2023-12-07T14:40:29.039Z] info: headers
-[2023-12-07T14:40:29.040Z] info: 500 { success: false, message: error }
-[2023-12-07T14:40:59.352Z] info: post packages
-[2023-12-07T14:40:59.353Z] info: body
-[2023-12-07T14:40:59.353Z] info: headers
-[2023-12-07T14:40:59.353Z] info: 400 { success: false, message: 'No token provided' }
-[2023-12-07T14:41:08.174Z] info: post packages
-[2023-12-07T14:41:08.175Z] info: body
-[2023-12-07T14:41:08.175Z] info: headers
-[2023-12-07T14:41:08.175Z] info: decoded
-[2023-12-07T14:41:08.175Z] info: sub
-[2023-12-07T14:41:08.301Z] info: userID
-[2023-12-07T14:41:08.301Z] info: 400 { success: false, message: 'Invalid token' }
-[2023-12-07T14:41:28.805Z] info: post packages
-[2023-12-07T14:41:28.806Z] info: body
-[2023-12-07T14:41:28.806Z] info: headers
-[2023-12-07T14:41:28.806Z] info: decoded
-[2023-12-07T14:41:28.806Z] info: sub
-[2023-12-07T14:41:28.925Z] info: userID
-[2023-12-07T14:41:28.925Z] info: 400 { success: false, message: 'Invalid token' }
-[2023-12-07T14:42:15.423Z] info: post packages
-[2023-12-07T14:42:15.423Z] info: body
-[2023-12-07T14:42:15.423Z] info: headers
-[2023-12-07T14:42:15.424Z] info: decoded
-[2023-12-07T14:42:15.424Z] info: sub
-[2023-12-07T14:42:15.550Z] info: userID
-[2023-12-07T14:42:15.551Z] info: 400 { success: false, message: 'Invalid token' }
-[2023-12-07T14:43:21.166Z] info: post packages
-[2023-12-07T14:43:21.167Z] info: body
-[2023-12-07T14:43:21.167Z] info: headers
-[2023-12-07T14:43:21.167Z] info: token
-[2023-12-07T14:43:21.167Z] info: decoded
-[2023-12-07T14:43:21.167Z] info: sub
-[2023-12-07T14:43:21.324Z] info: userID
-[2023-12-07T14:43:21.325Z] info: 400 { success: false, message: 'Invalid token' }
-[2023-12-07T14:44:00.830Z] info: post packages
-[2023-12-07T14:44:00.830Z] info: body
-[2023-12-07T14:44:00.831Z] info: headers
-[2023-12-07T14:44:00.831Z] info: token
-[2023-12-07T14:44:00.831Z] info: decoded
-[2023-12-07T14:44:00.831Z] info: sub
-[2023-12-07T14:44:00.986Z] info: userID
-[2023-12-07T14:44:00.987Z] info: 400 { success: false, message: 'Invalid token' }
-[2023-12-07T15:34:17.478Z] info: post packages
-[2023-12-07T15:34:17.481Z] info: body {}
-[2023-12-07T15:34:17.481Z] info: headers {
-  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
-  "content-type": "text/plain",
+[2023-12-07T19:18:13.997Z] info: post package
+[2023-12-07T19:18:13.999Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-07T19:18:13.999Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "content-type": "application/json",
   "user-agent": "PostmanRuntime/7.35.0",
   "accept": "*/*",
-  "cache-control": "no-cache",
-  "postman-token": "11872960-ea9a-4c3f-b784-9f693ebabcec",
+  "postman-token": "2f538208-5c06-4c13-b10a-15cd61bc45f4",
   "host": "localhost:3000",
   "accept-encoding": "gzip, deflate, br",
   "connection": "keep-alive",
-  "content-length": "174"
+  "content-length": "5674"
 }
-[2023-12-07T15:34:17.482Z] info: token "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
-[2023-12-07T15:34:17.483Z] info: decoded {
-  "sub": "1234567890",
-  "name": "John Doe",
-  "iat": 1516239022
+[2023-12-07T19:18:13.999Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-07T19:19:56.045Z] info: post package
+[2023-12-07T19:19:56.046Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
 }
-[2023-12-07T15:34:17.484Z] info: sub "1234567890"
-[2023-12-07T15:34:17.742Z] info: userID null
-[2023-12-07T15:34:17.743Z] info: 400 { success: false, message: 'Invalid token' }
-[2023-12-07T15:43:53.850Z] info: login()
-[2023-12-07T15:43:53.855Z] info: Attempting to log in user:  "TestAccount2"
-[2023-12-07T15:43:54.395Z] info: User logged in successfully:  "TestAccount2"
-[2023-12-07T15:44:43.861Z] info: upload()
-[2023-12-07T15:44:43.888Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963883862"
-[2023-12-07T15:44:43.889Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963883862/arg changed/package.json"
-[2023-12-07T15:44:43.889Z] error: package.json not found.
-[2023-12-07T15:45:16.592Z] info: upload()
-[2023-12-07T15:45:16.609Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963916593"
-[2023-12-07T15:45:16.610Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963916593/arg_changed/package.json"
-[2023-12-07T15:45:16.611Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:45:16.804Z] info: Inserting into database...
-[2023-12-07T15:45:16.804Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:45:17.318Z] info: Entering fetchIssues function
-[2023-12-07T15:45:17.934Z] info: Entering fetchPulls function
-[2023-12-07T15:45:25.046Z] info: Cloning repository...
-[2023-12-07T15:45:25.085Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-07T15:45:25.086Z] info: File deleted successfully
-[2023-12-07T15:45:25.086Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:45:25.086Z] info: Cloning repository...
-[2023-12-07T15:45:25.086Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:45:25.448Z] info: Fetched Github user data
-[2023-12-07T15:45:25.448Z] info: Calculating Bus Factor
-[2023-12-07T15:45:25.448Z] info: Calculating Correctness
-[2023-12-07T15:45:25.448Z] info: Calculating Ramp Up
-[2023-12-07T15:45:25.449Z] info: Calculating License
-[2023-12-07T15:45:25.449Z] info: Calculating Net Score
-[2023-12-07T15:45:25.449Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:45:25.449Z] info: Program completed successfully
-[2023-12-07T15:45:25.580Z] info: [object Object]
-[2023-12-07T15:47:36.977Z] info: upload()
-[2023-12-07T15:47:37.014Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964056980"
-[2023-12-07T15:47:37.015Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964056980/arg_changed/package.json"
-[2023-12-07T15:47:37.016Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:47:37.280Z] info: Inserting into database...
-[2023-12-07T15:47:37.282Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:47:38.856Z] info: Entering fetchIssues function
-[2023-12-07T15:47:39.437Z] info: Entering fetchPulls function
-[2023-12-07T15:47:45.069Z] info: Cloning repository...
-[2023-12-07T15:47:45.076Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-12-07T15:47:45.482Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-12-07T15:47:45.482Z] info: File deleted successfully
-[2023-12-07T15:47:45.485Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:47:45.485Z] info: Cloning repository...
-[2023-12-07T15:47:45.683Z] info: Fetched Github user data
-[2023-12-07T15:47:45.683Z] info: Calculating Bus Factor
-[2023-12-07T15:47:45.683Z] info: Calculating Correctness
-[2023-12-07T15:47:45.684Z] info: Calculating Ramp Up
-[2023-12-07T15:47:45.684Z] info: Calculating License
-[2023-12-07T15:47:45.684Z] info: Calculating Net Score
-[2023-12-07T15:47:45.684Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:47:45.684Z] info: Program completed successfully
-[2023-12-07T15:47:45.847Z] info: [object Object]
-[2023-12-07T15:51:01.444Z] info: upload()
-[2023-12-07T15:51:01.469Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964261446"
-[2023-12-07T15:51:01.469Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964261446/arg_changed/package.json"
-[2023-12-07T15:51:01.470Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:51:01.723Z] info: Inserting into database...
-[2023-12-07T15:51:01.725Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:51:02.260Z] info: Entering fetchIssues function
-[2023-12-07T15:51:02.866Z] info: Entering fetchPulls function
-[2023-12-07T15:51:09.359Z] info: Cloning repository...
-[2023-12-07T15:51:09.372Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-07T15:51:09.372Z] info: File deleted successfully
-[2023-12-07T15:51:09.372Z] info: Cloning repository...
-[2023-12-07T15:51:09.372Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:51:09.373Z] info: ENOENT: no such file or directory, lstat './local-repo'
-[2023-12-07T15:51:09.757Z] info: Fetched Github user data
-[2023-12-07T15:51:09.757Z] info: Calculating Bus Factor
-[2023-12-07T15:51:09.758Z] info: Calculating Correctness
-[2023-12-07T15:51:09.758Z] info: Calculating Ramp Up
-[2023-12-07T15:51:09.758Z] info: Calculating License
-[2023-12-07T15:51:09.758Z] info: Calculating Net Score
-[2023-12-07T15:51:09.758Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:51:09.758Z] info: Program completed successfully
-[2023-12-07T15:51:09.898Z] info: [object Object]
-[2023-12-07T15:51:09.956Z] info: upload()
-[2023-12-07T15:51:09.971Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964269956"
-[2023-12-07T15:51:09.971Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964269956/arg_changed/package.json"
-[2023-12-07T15:51:09.972Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:51:10.219Z] info: Inserting into database...
-[2023-12-07T15:51:10.220Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:51:10.616Z] info: Entering fetchIssues function
-[2023-12-07T15:51:11.210Z] info: Entering fetchPulls function
-[2023-12-07T15:51:17.591Z] info: Cloning repository...
-[2023-12-07T15:51:17.596Z] info: An error occurred:NotFoundError: Could not find HEAD.
-[2023-12-07T15:51:17.596Z] info: File deleted successfully
-[2023-12-07T15:51:17.597Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:51:17.597Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:51:17.597Z] info: Cloning repository...
-[2023-12-07T15:51:17.917Z] info: Fetched Github user data
-[2023-12-07T15:51:17.917Z] info: Calculating Bus Factor
-[2023-12-07T15:51:17.917Z] info: Calculating Correctness
-[2023-12-07T15:51:17.917Z] info: Calculating Ramp Up
-[2023-12-07T15:51:17.917Z] info: Calculating License
-[2023-12-07T15:51:17.917Z] info: Calculating Net Score
-[2023-12-07T15:51:17.917Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:51:17.917Z] info: Program completed successfully
-[2023-12-07T15:51:17.951Z] info: [object Object]
-[2023-12-07T15:51:46.088Z] info: upload()
-[2023-12-07T15:51:46.109Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964306088"
-[2023-12-07T15:51:46.109Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964306088/arg_changed/package.json"
-[2023-12-07T15:51:46.111Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:51:46.368Z] info: Inserting into database...
-[2023-12-07T15:51:46.369Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:51:46.849Z] info: Entering fetchIssues function
-[2023-12-07T15:51:47.440Z] info: Entering fetchPulls function
-[2023-12-07T15:51:52.791Z] info: Cloning repository...
-[2023-12-07T15:51:52.797Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-12-07T15:51:53.131Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-12-07T15:51:53.131Z] info: File deleted successfully
-[2023-12-07T15:51:53.134Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:51:53.134Z] info: Cloning repository...
-[2023-12-07T15:51:53.330Z] info: Fetched Github user data
-[2023-12-07T15:51:53.331Z] info: Calculating Bus Factor
-[2023-12-07T15:51:53.331Z] info: Calculating Correctness
-[2023-12-07T15:51:53.331Z] info: Calculating Ramp Up
-[2023-12-07T15:51:53.331Z] info: Calculating License
-[2023-12-07T15:51:53.331Z] info: Calculating Net Score
-[2023-12-07T15:51:53.331Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:51:53.331Z] info: Program completed successfully
-[2023-12-07T15:51:53.509Z] info: [object Object]
-[2023-12-07T15:57:53.335Z] info: Clearing packages from database...
-[2023-12-07T15:57:53.451Z] info: Packages cleared from database.
-[2023-12-07T15:58:14.748Z] info: upload()
-[2023-12-07T15:58:14.787Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964694749"
-[2023-12-07T15:58:14.788Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964694749/arg_changed/package.json"
-[2023-12-07T15:58:14.789Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:58:15.096Z] info: Inserting into database...
-[2023-12-07T15:58:15.097Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:58:15.578Z] info: Entering fetchIssues function
-[2023-12-07T15:58:16.189Z] info: Entering fetchPulls function
-[2023-12-07T15:58:21.670Z] info: Cloning repository...
-[2023-12-07T15:58:21.674Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-12-07T15:58:22.037Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-12-07T15:58:22.037Z] info: File deleted successfully
-[2023-12-07T15:58:22.039Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:58:22.039Z] info: Cloning repository...
-[2023-12-07T15:58:22.241Z] info: Fetched Github user data
-[2023-12-07T15:58:22.241Z] info: Calculating Bus Factor
-[2023-12-07T15:58:22.242Z] info: Calculating Correctness
-[2023-12-07T15:58:22.242Z] info: Calculating Ramp Up
-[2023-12-07T15:58:22.242Z] info: Calculating License
-[2023-12-07T15:58:22.242Z] info: Calculating Net Score
-[2023-12-07T15:58:22.242Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:58:22.242Z] info: Program completed successfully
-[2023-12-07T15:58:22.391Z] info: [object Object]
-[2023-12-07T15:59:50.330Z] info: upload()
-[2023-12-07T15:59:50.352Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964790330"
-[2023-12-07T15:59:50.352Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964790330/arg_changed/package.json"
-[2023-12-07T15:59:50.352Z] info: GitHub link: "https://github.com/zeit/arg"
-[2023-12-07T15:59:50.662Z] info: Inserting into database...
-[2023-12-07T15:59:50.663Z] info: Working on link: https://github.com/zeit/arg
-[2023-12-07T15:59:51.314Z] info: Entering fetchIssues function
-[2023-12-07T15:59:52.243Z] info: Entering fetchPulls function
-[2023-12-07T15:59:57.736Z] info: Cloning repository...
-[2023-12-07T15:59:57.738Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
-[2023-12-07T15:59:58.081Z] info: Readme data gathered for https://github.com/zeit/arg
-[2023-12-07T15:59:58.081Z] info: File deleted successfully
-[2023-12-07T15:59:58.084Z] info: Cloned local repo deleted successfully
-[2023-12-07T15:59:58.084Z] info: Cloning repository...
-[2023-12-07T15:59:58.316Z] info: Fetched Github user data
-[2023-12-07T15:59:58.316Z] info: Calculating Bus Factor
-[2023-12-07T15:59:58.316Z] info: Calculating Correctness
-[2023-12-07T15:59:58.316Z] info: Calculating Ramp Up
-[2023-12-07T15:59:58.316Z] info: Calculating License
-[2023-12-07T15:59:58.316Z] info: Calculating Net Score
-[2023-12-07T15:59:58.316Z] info: Completed calculation for module: https://github.com/zeit/arg
-[2023-12-07T15:59:58.316Z] info: Program completed successfully
-[2023-12-07T15:59:58.548Z] info: [object Object]
+[2023-12-07T19:19:56.046Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "postman-token": "d90c2ff0-cd60-4af1-9562-ae4346f875b9",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5674"
+}
+[2023-12-07T19:19:56.047Z] info: creating a new package family
+[2023-12-07T19:19:56.047Z] info: sub "c9ac60ee-9474-4ea7-9b52-05f924adc5af"
+[2023-12-07T19:19:56.677Z] info: userID 20
+[2023-12-07T19:19:57.067Z] info: packageFamilyID null
+[2023-12-07T19:19:57.068Z] info: 400 { success: false, message: 'Invalid package family name' }
+[2023-12-07T19:21:03.435Z] info: post package
+[2023-12-07T19:21:03.436Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-07T19:21:03.436Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "postman-token": "17a36aad-fe42-4cc7-acd6-6615694d05d0",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5674"
+}
+[2023-12-07T19:21:03.437Z] info: creating a new package family
+[2023-12-07T19:21:03.437Z] info: sub "c9ac60ee-9474-4ea7-9b52-05f924adc5af"
+[2023-12-07T19:21:03.689Z] info: userID 20
+[2023-12-07T19:21:03.760Z] info: packageFamilyID null
+[2023-12-07T19:21:03.761Z] info: 400 { success: false, message: 'Invalid package family name' }
+[2023-12-07T19:21:49.173Z] info: post package
+[2023-12-07T19:21:49.174Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-07T19:21:49.174Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "postman-token": "1ed847bf-36d4-4cce-9276-20c32110c6dd",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5674"
+}
+[2023-12-07T19:21:49.174Z] info: creating a new package family
+[2023-12-07T19:21:49.174Z] info: sub "c9ac60ee-9474-4ea7-9b52-05f924adc5af"
+[2023-12-07T19:21:50.924Z] info: userID 20
+[2023-12-07T19:21:50.954Z] info: packageFamilyID 121
+[2023-12-07T19:21:50.955Z] info: upload()
+[2023-12-07T19:21:50.982Z] error: An error occurred: FILE_ENDED {}
+[2023-12-07T19:21:50.982Z] info: 400 { success: false, message: 'File failed to upload' }
+[2023-12-07T19:25:34.868Z] info: post package
+[2023-12-07T19:25:34.868Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-07T19:25:34.868Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "postman-token": "7e530a1d-f24d-476d-969f-4d9c930018a3",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5711"
+}
+[2023-12-07T19:25:34.868Z] info: creating a new package family
+[2023-12-07T19:25:34.869Z] info: sub "c9ac60ee-9474-4ea7-9b52-05f924adc5af"
+[2023-12-07T19:25:35.104Z] info: userID 20
+[2023-12-07T19:25:35.140Z] info: packageFamilyID null
+[2023-12-07T19:25:35.140Z] info: 400 { success: false, message: 'Invalid package family name' }
+[2023-12-07T19:25:51.865Z] info: delete reset
+[2023-12-07T19:25:51.865Z] info: body {}
+[2023-12-07T19:25:51.865Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "postman-token": "ec7a56d9-31c0-4656-af3f-05411ce6fa98",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-07T19:25:51.865Z] info: sub "c9ac60ee-9474-4ea7-9b52-05f924adc5af"
+[2023-12-07T19:25:52.194Z] info: userID 20
+[2023-12-07T19:25:52.195Z] info: Clearing packages from database...
+[2023-12-07T19:25:52.414Z] info: Packages cleared from database.
+[2023-12-07T19:25:52.414Z] info: result true
+[2023-12-07T19:25:52.414Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-07T19:25:58.152Z] info: post package
+[2023-12-07T19:25:58.152Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-07T19:25:58.152Z] info: headers {
+  "x-authorization": "Bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiZDU2NzUxZWMtNDJhZS00Nzg3LTllOGMtOTFmYTQ2MzEwMTg3Iiwic3ViIjoiYzlhYzYwZWUtOTQ3NC00ZWE3LTliNTItMDVmOTI0YWRjNWFmIiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6ImRlNGM2YTI4LTk4YTYtNDgyOS05YzA2LTU4M2JmMjA1ZDBmOSIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAxOTc1MDAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoiZWNlNDYxZGVmYXVsdGFkbWluIiwiZXhwIjoxNzAxOTc4NjAzLCJpYXQiOjE3MDE5NzUwMDMsImp0aSI6IjQ4YmYyZjc0LTg0MTMtNDY5Yi05MTI1LTQwN2IwYmVjNTAxNSJ9.FAUQLV8729tHe4mDCKiUBtbumJoakQch45cWhp01H4F6MQBG1Ep6T2GHvMYLbrB76khv6EOmkF19JkLzVXV00tigXoeXfvTWE0M4Ko3QA4SGO5WpiO4BLPd1l49lQ7Onfyn6S3XBiRN2ge-ZIvmLUeOe1GTmwgLrTNGWT-GJ8rz_DDm4MpGeXST0lRKRWAIZj1OG582cl5Iy8A66iWKzxu4KOHrmfDburmzINIaadDcYi08_GPcR9YHgC-lqyLsqxF8k1V7rNDtFMNR9ooPXI1AQjDTZNTIHpw3hya8b_oV0NSgvlBjtL1z2I-Ya-M3YB0UuRdceuHlee_hr79akTA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "postman-token": "d8d42bad-20d6-4883-88ea-f3055f819f6e",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5711"
+}
+[2023-12-07T19:25:58.152Z] info: creating a new package family
+[2023-12-07T19:25:58.153Z] info: sub "c9ac60ee-9474-4ea7-9b52-05f924adc5af"
+[2023-12-07T19:25:58.181Z] info: userID 20
+[2023-12-07T19:25:58.227Z] info: packageFamilyID 123
+[2023-12-07T19:25:58.227Z] info: upload()
+[2023-12-07T19:25:58.255Z] info: Unzipped to: "/var/folders/_r/grg9xdhx6134vv7cf71x5yg00000gn/T/upload-1701977158229"
+[2023-12-07T19:25:58.255Z] info: GitHub link: "https://github.com/vercel/arg"
+[2023-12-07T19:25:59.020Z] info: Inserting into database...
+[2023-12-07T19:25:59.021Z] info: Working on link: https://github.com/vercel/arg
+[2023-12-07T19:25:59.478Z] info: Entering fetchIssues function
+[2023-12-07T19:26:00.162Z] info: Entering fetchPulls function
+[2023-12-07T19:26:04.629Z] info: Cloning repository...
+[2023-12-07T19:26:04.636Z] info: An error occurred:AlreadyExistsError: Failed to create remote at origin because it already exists. (Hint: use 'force: true' parameter to overwrite existing remote.)
+[2023-12-07T19:26:04.637Z] info: File deleted successfully
+[2023-12-07T19:26:04.637Z] info: Cloned local repo deleted successfully
+[2023-12-07T19:26:04.637Z] info: Cloned local repo deleted successfully
+[2023-12-07T19:26:04.637Z] info: Cloning repository...
+[2023-12-07T19:26:05.258Z] info: Fetched Github user data
+[2023-12-07T19:26:05.258Z] info: Calculating Bus Factor
+[2023-12-07T19:26:05.258Z] info: Calculating Correctness
+[2023-12-07T19:26:05.258Z] info: Calculating Ramp Up
+[2023-12-07T19:26:05.258Z] info: Calculating License
+[2023-12-07T19:26:05.258Z] info: Calculating Net Score
+[2023-12-07T19:26:05.258Z] info: Completed calculation for module: https://github.com/vercel/arg
+[2023-12-07T19:26:05.258Z] info: Program completed successfully
+[2023-12-07T19:26:05.504Z] info: [object Object]
+[2023-12-07T19:26:05.504Z] info: 200 { success: true, message: 'File uploaded successfully' }
