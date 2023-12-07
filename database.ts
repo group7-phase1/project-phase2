@@ -2,6 +2,7 @@ import { Pool } from 'pg';
 import dotenv from 'dotenv';
 import { GenerateCalculations } from './calculations';
 import { module} from './fileio';
+import { logger } from './logging_cfg';
 
 console.log(process.env.DB_HOST)
 dotenv.config();
@@ -43,6 +44,7 @@ export async function deleteUser(userID: string): Promise<boolean> {
 export async function clearPackages(userID: string): Promise<boolean> {
     const client = await pool.connect();
     try {
+        logger.info('Clearing packages from database...');
         console.log('Deleting user and related data from database...');
         await client.query('BEGIN');
         const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE user_id = $1)';
@@ -51,9 +53,11 @@ export async function clearPackages(userID: string): Promise<boolean> {
         await client.query(deletePackagesQuery, [userID]);
         await client.query(deletePackageFamilyQuery, [userID]);
         await client.query('COMMIT');
+        logger.info('Packages cleared from database.');
         return true;
     } catch (error) {
         await client.query('ROLLBACK');
+        logger.error('Error deleting user and related data from database:', error);
         console.error('Error deleting user and related data from database:', error);
         return false;
     } finally {
@@ -99,9 +103,11 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
         };
 
         console.log('Inserting into database...');
+        logger.info('Inserting into database...');
         await GenerateCalculations(currModule, false);
 
         console.log(currModule);
+        // logger.info(currModule);
         const resultScores = updateFamilyScores(packageFamilyID.toString(), currModule);
         if (!resultScores) {
             console.error('Failed to update family scores.');
@@ -115,6 +121,7 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
         const values = [packageFamilyID, packageName, userID, version, zipFileName];
         const result = await pool.query(query, values);
         console.log(result);
+        logger.info(result);
         if (result.rowCount > 0) {
             return true;
         } else {
@@ -123,6 +130,7 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
         
     } catch (error) {
         console.error('Error inserting into database:', error);
+        logger.error('Error inserting into database:', error);
         return false;
     }
 }

@@ -4,11 +4,10 @@ import {
     AuthFlowType
 } from "@aws-sdk/client-cognito-identity-provider";
 import * as dotenv from "dotenv";
-import { logger } from './logging_cfg';
 import { insertUser } from './database';
 import { MessageActionType } from "@aws-sdk/client-cognito-identity-provider";
 import jwt from 'jsonwebtoken';
-
+import { logger } from "./logging_cfg";
 dotenv.config();
 
 export async function register(username: string, password: string, admin: boolean) {
@@ -78,7 +77,7 @@ export async function register(username: string, password: string, admin: boolea
 }
 
 export async function login(username: string, password: string) {
-    console.log("inside login");
+    logger.info('login()');
     const cognito = new CognitoIdentityProvider({
         region: 'us-east-2',
         credentials: {
@@ -97,12 +96,13 @@ export async function login(username: string, password: string) {
         }
     };
     try {
-        console.log("inside try");
+        logger.info('Attempting to log in user: ', username);
         const data: AdminInitiateAuthCommandOutput = await cognito.adminInitiateAuth(params);
         if (data && data.AuthenticationResult) {
-            logger.log('User logged in successfully: ', data.AuthenticationResult);
+            logger.info('User logged in successfully: ', username);
             return data.AuthenticationResult; // Return the authentication result which contains tokens
         } else {
+            logger.error('Authentication failed');
             throw new Error('Authentication failed');
         }
     } catch (err) {
