@@ -962,3 +962,128 @@
   130
 ]
 [2023-12-07T20:23:50.901Z] info: 200 { success: true, message: 'Package family ID retrieved successfully', packageFamilyID: packageFamilyID }
+[2023-12-07T21:24:07.765Z] info: put authenticate
+[2023-12-07T21:24:07.766Z] info: body {
+  "User": {
+    "name": "ece461defaultadmin",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-07T21:24:07.766Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "beadc9fb-31ca-4e35-835c-27dc3db35819",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "169"
+}
+[2023-12-07T21:24:07.766Z] info: login()
+[2023-12-07T21:24:07.769Z] info: Attempting to log in user:  "ece461defaultadmin"
+[2023-12-07T21:24:08.314Z] info: User logged in successfully:  "ece461defaultadmin"
+[2023-12-07T21:24:08.315Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-07T21:24:45.964Z] info: put authenticate
+[2023-12-07T21:24:45.965Z] info: body {
+  "User": {
+    "name": "ece461defaultadmin",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-07T21:24:45.965Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "a26ca78b-9150-43a3-a056-3a1c077d3492",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "169"
+}
+[2023-12-07T21:24:45.965Z] info: login()
+[2023-12-07T21:24:45.967Z] info: Attempting to log in user:  "ece461defaultadmin"
+[2023-12-07T21:24:46.352Z] info: User logged in successfully:  "ece461defaultadmin"
+[2023-12-07T21:24:46.352Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-07T21:25:43.701Z] info: put authenticate
+[2023-12-07T21:25:43.702Z] info: body {
+  "User": {
+    "name": "ece461defaultadmin",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-07T21:25:43.702Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "15d07728-4b35-4148-89ce-9c8bec4c4f3b",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "169"
+}
+[2023-12-07T21:25:43.702Z] info: login()
+[2023-12-07T21:25:43.704Z] info: Attempting to log in user:  "ece461defaultadmin"
+[2023-12-07T21:25:44.324Z] info: User logged in successfully:  "ece461defaultadmin"
+[2023-12-07T21:25:44.324Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-07T21:27:26.754Z] info: put authenticate
+[2023-12-07T21:27:26.755Z] info: body {
+  "User": {
+    "name": "ece461defaultadmin",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-07T21:27:26.755Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "f9bfef77-fc66-4754-a459-a125c2b48107",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "169"
+}
+[2023-12-07T21:27:26.755Z] info: login()
+[2023-12-07T21:27:26.757Z] info: Attempting to log in user:  "ece461defaultadmin"
+[2023-12-07T21:27:27.238Z] info: User logged in successfully:  "ece461defaultadmin"
+[2023-12-07T21:27:27.238Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-07T21:28:12.382Z] info: put authenticate
+[2023-12-07T21:28:12.382Z] info: body {
+  "User": {
+    "name": "ece461defaultadmin",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-07T21:28:12.383Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "bcd5e504-203e-4d60-b4d8-b03d6cdbee6d",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "169"
+}
+[2023-12-07T21:28:12.383Z] info: login()
+[2023-12-07T21:28:12.384Z] info: Attempting to log in user:  "ece461defaultadmin"
+[2023-12-07T21:28:12.788Z] info: User logged in successfully:  "ece461defaultadmin"
+[2023-12-07T21:28:12.789Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }

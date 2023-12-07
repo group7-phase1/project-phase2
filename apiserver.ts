@@ -705,11 +705,12 @@ app.put('/authenticate', async (req, res) => {
 
         if (authResult) {
             logger.info("200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }");
-            return res.send({
-                success: true,
-                message: 'User logged in successfully',
-                token: authResult.IdToken
-            });
+            // return token as JSON
+            const token = authResult.IdToken;
+            // create response and add json in header
+            res.setHeader('Content-Type', 'application/json');
+            return res.send("bearer " + token);
+
         } else {
             logger.info("401 { success: false, message: 'The user or password is invalid.' }");
             return res.status(401).send({
