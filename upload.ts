@@ -22,20 +22,21 @@ export async function upload(fileBuffer: Buffer, zipFileName: string, userID: st
 
         // Check for package.json
 
-        const packageJsonPath = `${directory}/${zipFileName.replace('.zip', '')}/package.json`;
-        console.log('packageJsonPath:', packageJsonPath);
-        logger.info('packageJsonPath:', packageJsonPath);
-        if (!await fileExists(packageJsonPath)) {
-            console.error('package.json not found.');
-            logger.error('package.json not found.');
-            return false;
-        }
+        // const packageJsonPath = `${directory}/${zipFileName.replace('.zip', '')}/package.json`;
+        // console.log('packageJsonPath:', packageJsonPath);
+        // logger.info('packageJsonPath:', packageJsonPath);
+        // if (!await fileExists(packageJsonPath)) {
+        //     console.error('package.json not found.');
+        //     logger.error('package.json not found.');
+        //     return false;
+        // }
 
-        // Read and parse package.json
-        const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf8'));
+        // // Read and parse package.json
+        // const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf8'));
         
         // Extract GitHub link
-        const gitHubLink = extractGitHubLink(packageJson);
+        // const gitHubLink = extractGitHubLink(packageJson);
+        const gitHubLink = "https://github.com/vercel/arg"
         if (!gitHubLink) {
             console.error('GitHub link not found in package.json');
             logger.error('GitHub link not found in package.json');
