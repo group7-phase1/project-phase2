@@ -128,6 +128,7 @@ export async function GenerateCalculations(currModule: module, npmFlag: boolean)
         const rawData = await API(currModule.URL, npmFlag);    
         //let rawData = data;
         logger.log('debug', 'Raw data for calculation from API: ' + JSON.stringify(rawData));
+        console.log('Raw data for calculation from API: ' + JSON.stringify(rawData));
         // calculate each metric and update module object, round to 5 decimal places
         currModule.BUS_FACTOR_SCORE = +BusFactor(rawData).toFixed(5);
         logger.log('debug', 'Calculated BUS_FACTOR_SCORE: ' + currModule.BUS_FACTOR_SCORE);

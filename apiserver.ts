@@ -17,8 +17,8 @@ import { logger } from './logging_cfg';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/home/ec2-user/react-frontend/build'));
-// app.use(express.static("/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build"));
+// app.use(express.static('/home/ec2-user/react-frontend/build'));
+app.use(express.static("/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build"));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -817,8 +817,8 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/home/ec2-user/react-frontend/build/index.html');
-    // const indexPath = path.resolve(__dirname, "/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build/index.html");
+    // const indexPath = path.resolve(__dirname, '/home/ec2-user/react-frontend/build/index.html');
+    const indexPath = path.resolve(__dirname, "/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build/index.html");
     res.sendFile(indexPath);
 });
 

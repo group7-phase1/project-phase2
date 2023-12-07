@@ -67,6 +67,8 @@ export async function clearPackages(userID: string): Promise<boolean> {
 
 export async function updateFamilyScores(packageFamilyID: string, scores: module): Promise<boolean> {
     try {
+        console.log('Updating family scores...');
+        console.log(scores);
         const query = `
             UPDATE package_family
             SET bus_factor_score = $1, correctness_score = $2, ramp_up_score = $3, responsive_maintainer_score = $4, license_score = $5, net_score = $6, dependency_pinning_score = $7, code_review_coverage_score = $8
@@ -105,7 +107,7 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
         console.log('Inserting into database...');
         logger.info('Inserting into database...');
         await GenerateCalculations(currModule, false);
-
+        console.log("After GenerateCalculations");
         console.log(currModule);
         // logger.info(currModule);
         const resultScores = updateFamilyScores(packageFamilyID.toString(), currModule);
@@ -113,14 +115,14 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
             console.error('Failed to update family scores.');
             return false;
         }
-        console.log(pool);
+        // console.log(pool);
         const query = `
             INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file)
             VALUES($1, $2, $3, $4, $5)
         `;
         const values = [packageFamilyID, packageName, userID, version, zipFileName];
         const result = await pool.query(query, values);
-        console.log(result);
+        // console.log(result);
         logger.info(result);
         if (result.rowCount > 0) {
             return true;
@@ -185,6 +187,7 @@ export async function getPackageFamilies(userID: string): Promise<string []> {
         `;
         const values = [userID];
         const result = await pool.query(query, values);
+        console.log(result.rows);
         return result.rows;
     } catch (error) {
         console.error('Error retrieving package families:', error);
