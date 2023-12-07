@@ -773,3 +773,26 @@
 [2023-12-07T14:44:00.831Z] info: sub
 [2023-12-07T14:44:00.986Z] info: userID
 [2023-12-07T14:44:00.987Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-07T15:34:17.478Z] info: post packages
+[2023-12-07T15:34:17.481Z] info: body {}
+[2023-12-07T15:34:17.481Z] info: headers {
+  "authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "content-type": "text/plain",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "11872960-ea9a-4c3f-b784-9f693ebabcec",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "174"
+}
+[2023-12-07T15:34:17.482Z] info: token "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+[2023-12-07T15:34:17.483Z] info: decoded {
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022
+}
+[2023-12-07T15:34:17.484Z] info: sub "1234567890"
+[2023-12-07T15:34:17.742Z] info: userID null
+[2023-12-07T15:34:17.743Z] info: 400 { success: false, message: 'Invalid token' }
