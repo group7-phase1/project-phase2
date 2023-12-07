@@ -89,7 +89,7 @@ export async function updateFamilyScores(packageFamilyID: string, scores: module
     }
 }
 
-export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string, gitHubLink: string): Promise<boolean> {
+export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string, gitHubLink: string, nameID: string): Promise<boolean> {
 //export async function insertUploadedFile(userID: string, packageName: string, version: string, packageFamilyID: number, zipFileName: string): Promise<boolean> {
     try {
         const currModule: module = {
@@ -117,10 +117,10 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
         }
         // console.log(pool);
         const query = `
-            INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file)
-            VALUES($1, $2, $3, $4, $5)
+            INSERT INTO packages(package_family_id, package_name, user_id, version, zipped_file, name_id)
+            VALUES($1, $2, $3, $4, $5, $6)
         `;
-        const values = [packageFamilyID, packageName, userID, version, zipFileName];
+        const values = [packageFamilyID, packageName, userID, version, zipFileName, nameID];
         const result = await pool.query(query, values);
         // console.log(result);
         logger.info(result);

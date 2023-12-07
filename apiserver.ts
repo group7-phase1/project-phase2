@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
-import { deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG, packageRegexAG } from './autograderdatabase';
+import { getFamilyID, deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG, packageRegexAG, getPackageID } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -123,8 +123,8 @@ app.post('/api_create', multerUpload.single('zipFile'), async (req: Request, res
             res.send({ success: false, message: 'Invalid package family name' });
             return;
         }
-
-        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
+        const nameID = ""
+        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version, nameID);
 
         if (result) {
             res.send({ success: true, message: 'File uploaded successfully' });
@@ -165,7 +165,8 @@ app.post('/api_update_packages', multerUpload.single('zipFile'), async (req: Req
         console.log(version);
         if (packageFamilyID) {
             console.log(packageFamilyID);
-            const result = await upload(zipFile.buffer, zipFileName, userID.toString(), packageFamilyID, version);
+            const nameID = ""
+            const result = await upload(zipFile.buffer, zipFileName, userID.toString(), packageFamilyID, version, nameID);
             console.log(result);
             if (result) {
                 console.log(result);
@@ -407,8 +408,7 @@ app.get('/package/:id', async (req: Request, res: Response) => {
         logger.info("get package/:id");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const packageID = parseInt(req.params.id, 10);
-
+        const packageID = await getPackageID(req.params.id)
         const token = req.headers.authorization?.split(' ')[1];
         const offset = req.headers.offset;
         if(req.headers.offset == null) {
@@ -433,10 +433,9 @@ app.get('/package/:id', async (req: Request, res: Response) => {
             logger.info("400 { success: false, message: 'Invalid token' }");
             return res.status(401).send({ success: false, message: 'Invalid token' });
         }
-
-        const packages = await getPackageDetailsFromPackageFamilyAG(packageID, userID.toString());
-
-        logger.info("packages", packages);
+        if (packageID != null) {
+            const packages = await getPackageDetailsFromPackageFamilyAG(packageID, userID.toString());
+            logger.info("packages", packages);
 
         const credentials: Credentials = {
             accessKeyId: process.env.COGNITO_ACCESS_KEY!,
@@ -459,6 +458,11 @@ app.get('/package/:id', async (req: Request, res: Response) => {
         }
         logger.info("200 { success: true, message: 'Package details retrieved successfully', packages: packages }");
         res.status(200).send({packages});
+        }
+        else {
+            logger.info("packageID is null");
+
+        }
     }
     catch (error) {
         logger.info("500 { success: false, message: error }");
@@ -495,15 +499,22 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         const zipFileName = "test.zip"
         const name = req.body.metadata.Name;
         const version = req.body.metadata.Version;
-        const ID = req.body.metadata.ID;
-        const result = await upload(zipFile, zipFileName, userID.toString(), ID, version);
-        if (result) {
-            logger.info("200 { success: true, message: 'Version is updated' }");
-            res.status(200).send({ message: 'Version is updated' });
-        } else {
-            logger.info("400 { success: false, message: 'Package does not exist' }");
-            res.status(400).send({ message: 'Package does not exist' });
+        const nameID = req.body.metadata.ID;
+        console.log("nameID", nameID);
+        const familyID = await getFamilyID(nameID);
+        console.log("familyID", familyID);
+        if(familyID != null) {
+            const result = await upload(zipFile, zipFileName, userID.toString(), familyID, version, nameID);
+            console.log("result", result);
+            if (result) {
+                logger.info("200 { success: true, message: 'Version is updated' }");
+                res.status(200).send({ message: 'Version is updated' });
+            } else {
+                logger.info("400 { success: false, message: 'Package does not exist' }");
+                res.status(400).send({ message: 'Package does not exist' });
+            }
         }
+        
 
     } catch (error) {
         logger.info("400 { success: false, message: error }");
@@ -598,8 +609,8 @@ app.post('/package', async (req: Request, res: Response) => {
             res.status(400).send({ success: false, message: 'Invalid package family name' });
             return;
         }
-
-        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version);
+        const nameID = req.body.metadata["ID"]
+        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version, nameID);
 
         if (result) {
             logger.info("200 { success: true, message: 'File uploaded successfully' }");
@@ -620,7 +631,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         logger.info("get package/:id/rate");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const packageId = parseInt(req.params.id, 10) // Retrieve the package ID from the URL parameter
+        const packageId = await getPackageID(req.params.id)
         console.log("PACKAGEID", packageId);
         logger.info("PACKAGEID", packageId);
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
@@ -642,16 +653,19 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
             logger.info("400 { success: false, message: 'Invalid token' }");
             return res.status(400).send({ success: false, message: 'Invalid token' });
         }
-        const packageFamilyID = await getRatesAG(userID.toString(), packageId);
+        if (packageId != null) {
+            const packageFamilyID = await getRatesAG(userID.toString(), packageId);
         
-        if (!packageFamilyID) {
-            logger.info("400 { success: false, message: 'Invalid package family name' }");
-            res.status(400).send({ success: false, message: 'Invalid package family name' });
-            return;
+            if (!packageFamilyID) {
+                logger.info("400 { success: false, message: 'Invalid package family name' }");
+                res.status(400).send({ success: false, message: 'Invalid package family name' });
+                return;
+            }
+            console.log(packageFamilyID);
+            logger.info("200 { success: true, message: 'Package family ID retrieved successfully', packageFamilyID: packageFamilyID }");
+            return res.status(200).send(packageFamilyID);
         }
-        console.log(packageFamilyID);
-        logger.info("200 { success: true, message: 'Package family ID retrieved successfully', packageFamilyID: packageFamilyID }");
-        return res.status(200).send(packageFamilyID);
+
 
     } catch (error) {
         logger.info("500 { success: false, message: error }");
