@@ -7,7 +7,7 @@ import { deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, ge
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
-import { version } from 'isomorphic-git';
+import { indexPack, version } from 'isomorphic-git';
 import { Credentials } from '@aws-sdk/types';
 import * as fs from 'fs';
 import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
@@ -17,7 +17,8 @@ import { logger } from './logging_cfg';
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
-app.use(express.static('/home/ec2-user/react-frontend/build'));
+// app.use(express.static('/home/ec2-user/react-frontend/build'));
+app.use(express.static("/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build"));
 app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
@@ -320,6 +321,7 @@ app.post('/packages', async (req: Request, res: Response) => {
         logger.info("body", req.body);
         logger.info("headers", req.headers);
         const token = req.headers.authorization?.split(' ')[1];
+        logger.info("token", token);
         const offset = req.headers.offset;
         if(req.headers.offset == null) {
             const offset = 1;
@@ -815,7 +817,8 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
 // * SERVE FRONTEND
 
 app.get('*', (req, res) => {
-    const indexPath = path.resolve(__dirname, '/home/ec2-user/react-frontend/build/index.html');
+    // const indexPath = path.resolve(__dirname, '/home/ec2-user/react-frontend/build/index.html');
+    const indexPath = path.resolve(__dirname, "/Users/mateusz/Desktop/ECE_461/phase2/project-phase2-frontend-mateusz/build/index.html");
     res.sendFile(indexPath);
 });
 
