@@ -5,7 +5,7 @@ import { insertUploadedFile, getUserIdByCognitoID} from "./database";
 import { unzipFile, fileExists, extractGitHubLink } from "./metric2utils";
 import fs from 'fs-extra';
 import { logger } from "./logging_cfg";
-export async function upload(fileBuffer: Buffer, zipFileName: string, userID: string, packageFamilyID: number, version: string ): Promise<boolean> {
+export async function upload(fileBuffer: Buffer, zipFileName: string, userID: string, packageFamilyID: number, version: string, nameID: string ): Promise<boolean> {
     try {
         logger.info('upload()');
         if (!zipFileName.endsWith('.zip')) {
@@ -55,7 +55,7 @@ export async function upload(fileBuffer: Buffer, zipFileName: string, userID: st
                 logger.error('Failed to retrieve user ID from database.');
                 return false;
             }
-            const dbResult = await insertUploadedFile(userID, packageName, version, packageFamilyID, zipFileName, gitHubLink);
+            const dbResult = await insertUploadedFile(userID, packageName, version, packageFamilyID, zipFileName, gitHubLink, nameID);
             if (!dbResult) {
                 console.error('Failed to update database with uploaded file.');
                 logger.error('Failed to update database with uploaded file.');

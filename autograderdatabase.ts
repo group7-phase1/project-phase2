@@ -369,12 +369,15 @@ export async function validateUserAG(username: string, password: string): Promis
 
 export async function clearSinglePackageAG(ID: string): Promise<boolean> {
     const client = await pool.connect();
+    console.log("nameID", ID);
+    const packageID = await getPackageID(ID);
+    console.log("packageID", packageID);
     try {
         logger.info('clearSinglePackageAG');
         await client.query('BEGIN');
         const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE package_id = $1)';
 
-        await client.query(deletePackagesQuery, [ID]);
+        await client.query(deletePackagesQuery, [packageID]);
         await client.query('COMMIT');
         return true;
     } catch (error) {
@@ -575,3 +578,50 @@ export async function deleteAllNameVersionsAG(userID: string, packageName: strin
     return true;
     }
     
+
+    export async function getFamilyID(nameID: string): Promise<number | null> {
+        const client = await pool.connect();
+        try {
+            await client.query('BEGIN');
+            const getPackageID = "Select package_family_id FROM packages WHERE name_id = $1"
+            const packageFamilyID = await client.query(getPackageID, [nameID]);
+            console.log(packageFamilyID.rows[0].package_family_id);
+            if (packageFamilyID.rows.length > 0) {
+                
+                return packageFamilyID.rows[0].package_family_id;
+            
+            }
+            await client.query('COMMIT');
+        } catch (error) {
+            await client.query('ROLLBACK');
+            console.error('Error deleting user and related data from database:', error);
+            return null;
+        } finally {
+            client.release();
+        }
+        return null;
+        }
+        
+        export async function getPackageID(nameID: string): Promise<number | null> {
+            const client = await pool.connect();
+            try {
+                await client.query('BEGIN');
+                const getPackageID = "Select package_id FROM packages WHERE name_id = $1"
+                const packageFamilyID = await client.query(getPackageID, [nameID]);
+                console.log(packageFamilyID.rows[0].package_id);
+                if (packageFamilyID.rows.length > 0) {
+                    
+                    return packageFamilyID.rows[0].package_id;
+                
+                }
+                await client.query('COMMIT');
+            } catch (error) {
+                await client.query('ROLLBACK');
+                console.error('Error deleting user and related data from database:', error);
+                return null;
+            } finally {
+                client.release();
+            }
+            return null;
+            }
+            
