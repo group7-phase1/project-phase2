@@ -796,3 +796,173 @@
 [2023-12-07T15:34:17.484Z] info: sub "1234567890"
 [2023-12-07T15:34:17.742Z] info: userID null
 [2023-12-07T15:34:17.743Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-07T15:43:53.850Z] info: login()
+[2023-12-07T15:43:53.855Z] info: Attempting to log in user:  "TestAccount2"
+[2023-12-07T15:43:54.395Z] info: User logged in successfully:  "TestAccount2"
+[2023-12-07T15:44:43.861Z] info: upload()
+[2023-12-07T15:44:43.888Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963883862"
+[2023-12-07T15:44:43.889Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963883862/arg changed/package.json"
+[2023-12-07T15:44:43.889Z] error: package.json not found.
+[2023-12-07T15:45:16.592Z] info: upload()
+[2023-12-07T15:45:16.609Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963916593"
+[2023-12-07T15:45:16.610Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701963916593/arg_changed/package.json"
+[2023-12-07T15:45:16.611Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:45:16.804Z] info: Inserting into database...
+[2023-12-07T15:45:16.804Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:45:17.318Z] info: Entering fetchIssues function
+[2023-12-07T15:45:17.934Z] info: Entering fetchPulls function
+[2023-12-07T15:45:25.046Z] info: Cloning repository...
+[2023-12-07T15:45:25.085Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-07T15:45:25.086Z] info: File deleted successfully
+[2023-12-07T15:45:25.086Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:45:25.086Z] info: Cloning repository...
+[2023-12-07T15:45:25.086Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:45:25.448Z] info: Fetched Github user data
+[2023-12-07T15:45:25.448Z] info: Calculating Bus Factor
+[2023-12-07T15:45:25.448Z] info: Calculating Correctness
+[2023-12-07T15:45:25.448Z] info: Calculating Ramp Up
+[2023-12-07T15:45:25.449Z] info: Calculating License
+[2023-12-07T15:45:25.449Z] info: Calculating Net Score
+[2023-12-07T15:45:25.449Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:45:25.449Z] info: Program completed successfully
+[2023-12-07T15:45:25.580Z] info: [object Object]
+[2023-12-07T15:47:36.977Z] info: upload()
+[2023-12-07T15:47:37.014Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964056980"
+[2023-12-07T15:47:37.015Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964056980/arg_changed/package.json"
+[2023-12-07T15:47:37.016Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:47:37.280Z] info: Inserting into database...
+[2023-12-07T15:47:37.282Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:47:38.856Z] info: Entering fetchIssues function
+[2023-12-07T15:47:39.437Z] info: Entering fetchPulls function
+[2023-12-07T15:47:45.069Z] info: Cloning repository...
+[2023-12-07T15:47:45.076Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-07T15:47:45.482Z] info: Readme data gathered for https://github.com/zeit/arg
+[2023-12-07T15:47:45.482Z] info: File deleted successfully
+[2023-12-07T15:47:45.485Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:47:45.485Z] info: Cloning repository...
+[2023-12-07T15:47:45.683Z] info: Fetched Github user data
+[2023-12-07T15:47:45.683Z] info: Calculating Bus Factor
+[2023-12-07T15:47:45.683Z] info: Calculating Correctness
+[2023-12-07T15:47:45.684Z] info: Calculating Ramp Up
+[2023-12-07T15:47:45.684Z] info: Calculating License
+[2023-12-07T15:47:45.684Z] info: Calculating Net Score
+[2023-12-07T15:47:45.684Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:47:45.684Z] info: Program completed successfully
+[2023-12-07T15:47:45.847Z] info: [object Object]
+[2023-12-07T15:51:01.444Z] info: upload()
+[2023-12-07T15:51:01.469Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964261446"
+[2023-12-07T15:51:01.469Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964261446/arg_changed/package.json"
+[2023-12-07T15:51:01.470Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:51:01.723Z] info: Inserting into database...
+[2023-12-07T15:51:01.725Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:51:02.260Z] info: Entering fetchIssues function
+[2023-12-07T15:51:02.866Z] info: Entering fetchPulls function
+[2023-12-07T15:51:09.359Z] info: Cloning repository...
+[2023-12-07T15:51:09.372Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-07T15:51:09.372Z] info: File deleted successfully
+[2023-12-07T15:51:09.372Z] info: Cloning repository...
+[2023-12-07T15:51:09.372Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:51:09.373Z] info: ENOENT: no such file or directory, lstat './local-repo'
+[2023-12-07T15:51:09.757Z] info: Fetched Github user data
+[2023-12-07T15:51:09.757Z] info: Calculating Bus Factor
+[2023-12-07T15:51:09.758Z] info: Calculating Correctness
+[2023-12-07T15:51:09.758Z] info: Calculating Ramp Up
+[2023-12-07T15:51:09.758Z] info: Calculating License
+[2023-12-07T15:51:09.758Z] info: Calculating Net Score
+[2023-12-07T15:51:09.758Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:51:09.758Z] info: Program completed successfully
+[2023-12-07T15:51:09.898Z] info: [object Object]
+[2023-12-07T15:51:09.956Z] info: upload()
+[2023-12-07T15:51:09.971Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964269956"
+[2023-12-07T15:51:09.971Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964269956/arg_changed/package.json"
+[2023-12-07T15:51:09.972Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:51:10.219Z] info: Inserting into database...
+[2023-12-07T15:51:10.220Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:51:10.616Z] info: Entering fetchIssues function
+[2023-12-07T15:51:11.210Z] info: Entering fetchPulls function
+[2023-12-07T15:51:17.591Z] info: Cloning repository...
+[2023-12-07T15:51:17.596Z] info: An error occurred:NotFoundError: Could not find HEAD.
+[2023-12-07T15:51:17.596Z] info: File deleted successfully
+[2023-12-07T15:51:17.597Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:51:17.597Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:51:17.597Z] info: Cloning repository...
+[2023-12-07T15:51:17.917Z] info: Fetched Github user data
+[2023-12-07T15:51:17.917Z] info: Calculating Bus Factor
+[2023-12-07T15:51:17.917Z] info: Calculating Correctness
+[2023-12-07T15:51:17.917Z] info: Calculating Ramp Up
+[2023-12-07T15:51:17.917Z] info: Calculating License
+[2023-12-07T15:51:17.917Z] info: Calculating Net Score
+[2023-12-07T15:51:17.917Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:51:17.917Z] info: Program completed successfully
+[2023-12-07T15:51:17.951Z] info: [object Object]
+[2023-12-07T15:51:46.088Z] info: upload()
+[2023-12-07T15:51:46.109Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964306088"
+[2023-12-07T15:51:46.109Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964306088/arg_changed/package.json"
+[2023-12-07T15:51:46.111Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:51:46.368Z] info: Inserting into database...
+[2023-12-07T15:51:46.369Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:51:46.849Z] info: Entering fetchIssues function
+[2023-12-07T15:51:47.440Z] info: Entering fetchPulls function
+[2023-12-07T15:51:52.791Z] info: Cloning repository...
+[2023-12-07T15:51:52.797Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-07T15:51:53.131Z] info: Readme data gathered for https://github.com/zeit/arg
+[2023-12-07T15:51:53.131Z] info: File deleted successfully
+[2023-12-07T15:51:53.134Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:51:53.134Z] info: Cloning repository...
+[2023-12-07T15:51:53.330Z] info: Fetched Github user data
+[2023-12-07T15:51:53.331Z] info: Calculating Bus Factor
+[2023-12-07T15:51:53.331Z] info: Calculating Correctness
+[2023-12-07T15:51:53.331Z] info: Calculating Ramp Up
+[2023-12-07T15:51:53.331Z] info: Calculating License
+[2023-12-07T15:51:53.331Z] info: Calculating Net Score
+[2023-12-07T15:51:53.331Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:51:53.331Z] info: Program completed successfully
+[2023-12-07T15:51:53.509Z] info: [object Object]
+[2023-12-07T15:57:53.335Z] info: Clearing packages from database...
+[2023-12-07T15:57:53.451Z] info: Packages cleared from database.
+[2023-12-07T15:58:14.748Z] info: upload()
+[2023-12-07T15:58:14.787Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964694749"
+[2023-12-07T15:58:14.788Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964694749/arg_changed/package.json"
+[2023-12-07T15:58:14.789Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:58:15.096Z] info: Inserting into database...
+[2023-12-07T15:58:15.097Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:58:15.578Z] info: Entering fetchIssues function
+[2023-12-07T15:58:16.189Z] info: Entering fetchPulls function
+[2023-12-07T15:58:21.670Z] info: Cloning repository...
+[2023-12-07T15:58:21.674Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-07T15:58:22.037Z] info: Readme data gathered for https://github.com/zeit/arg
+[2023-12-07T15:58:22.037Z] info: File deleted successfully
+[2023-12-07T15:58:22.039Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:58:22.039Z] info: Cloning repository...
+[2023-12-07T15:58:22.241Z] info: Fetched Github user data
+[2023-12-07T15:58:22.241Z] info: Calculating Bus Factor
+[2023-12-07T15:58:22.242Z] info: Calculating Correctness
+[2023-12-07T15:58:22.242Z] info: Calculating Ramp Up
+[2023-12-07T15:58:22.242Z] info: Calculating License
+[2023-12-07T15:58:22.242Z] info: Calculating Net Score
+[2023-12-07T15:58:22.242Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:58:22.242Z] info: Program completed successfully
+[2023-12-07T15:58:22.391Z] info: [object Object]
+[2023-12-07T15:59:50.330Z] info: upload()
+[2023-12-07T15:59:50.352Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964790330"
+[2023-12-07T15:59:50.352Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964790330/arg_changed/package.json"
+[2023-12-07T15:59:50.352Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:59:50.662Z] info: Inserting into database...
+[2023-12-07T15:59:50.663Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:59:51.314Z] info: Entering fetchIssues function
+[2023-12-07T15:59:52.243Z] info: Entering fetchPulls function
+[2023-12-07T15:59:57.736Z] info: Cloning repository...
+[2023-12-07T15:59:57.738Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-07T15:59:58.081Z] info: Readme data gathered for https://github.com/zeit/arg
+[2023-12-07T15:59:58.081Z] info: File deleted successfully
+[2023-12-07T15:59:58.084Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:59:58.084Z] info: Cloning repository...
+[2023-12-07T15:59:58.316Z] info: Fetched Github user data
+[2023-12-07T15:59:58.316Z] info: Calculating Bus Factor
+[2023-12-07T15:59:58.316Z] info: Calculating Correctness
+[2023-12-07T15:59:58.316Z] info: Calculating Ramp Up
+[2023-12-07T15:59:58.316Z] info: Calculating License
+[2023-12-07T15:59:58.316Z] info: Calculating Net Score
+[2023-12-07T15:59:58.316Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:59:58.316Z] info: Program completed successfully
+[2023-12-07T15:59:58.548Z] info: [object Object]
