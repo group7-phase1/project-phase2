@@ -4,6 +4,8 @@ let globalState = {
     username: '',
 };
 
+
+
 // Function to set authentication state
 export function setAuthenticationState(isAuthenticated, username) {
     globalState.isAuthenticated = isAuthenticated;
