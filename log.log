@@ -943,3 +943,26 @@
 [2023-12-07T15:58:22.242Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-07T15:58:22.242Z] info: Program completed successfully
 [2023-12-07T15:58:22.391Z] info: [object Object]
+[2023-12-07T15:59:50.330Z] info: upload()
+[2023-12-07T15:59:50.352Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964790330"
+[2023-12-07T15:59:50.352Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1701964790330/arg_changed/package.json"
+[2023-12-07T15:59:50.352Z] info: GitHub link: "https://github.com/zeit/arg"
+[2023-12-07T15:59:50.662Z] info: Inserting into database...
+[2023-12-07T15:59:50.663Z] info: Working on link: https://github.com/zeit/arg
+[2023-12-07T15:59:51.314Z] info: Entering fetchIssues function
+[2023-12-07T15:59:52.243Z] info: Entering fetchPulls function
+[2023-12-07T15:59:57.736Z] info: Cloning repository...
+[2023-12-07T15:59:57.738Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-07T15:59:58.081Z] info: Readme data gathered for https://github.com/zeit/arg
+[2023-12-07T15:59:58.081Z] info: File deleted successfully
+[2023-12-07T15:59:58.084Z] info: Cloned local repo deleted successfully
+[2023-12-07T15:59:58.084Z] info: Cloning repository...
+[2023-12-07T15:59:58.316Z] info: Fetched Github user data
+[2023-12-07T15:59:58.316Z] info: Calculating Bus Factor
+[2023-12-07T15:59:58.316Z] info: Calculating Correctness
+[2023-12-07T15:59:58.316Z] info: Calculating Ramp Up
+[2023-12-07T15:59:58.316Z] info: Calculating License
+[2023-12-07T15:59:58.316Z] info: Calculating Net Score
+[2023-12-07T15:59:58.316Z] info: Completed calculation for module: https://github.com/zeit/arg
+[2023-12-07T15:59:58.316Z] info: Program completed successfully
+[2023-12-07T15:59:58.548Z] info: [object Object]
