@@ -6,6 +6,7 @@ import { module} from './fileio';
 import { integer } from 'aws-sdk/clients/cloudfront';
 import { Credentials } from '@aws-sdk/types';
 import * as fs from 'fs';
+import { logger } from './logging_cfg';
 
 console.log(process.env.DB_HOST)
 dotenv.config();
@@ -21,6 +22,7 @@ const pool = new Pool({
 });
 
 export async function deleteUserAG(userID: string): Promise<boolean> {
+    logger.info('deleteUserAG');
     const client = await pool.connect();
     try {
         console.log('Deleting user and related data from database...');
@@ -182,11 +184,13 @@ interface PackageFamilyRow {
   
   export async function getPackageFamiliesAG(userID: string): Promise<PackageFamilyRow[]> {
     try {
+        logger.info('getPackageFamiliesAG');
       const query = `
         SELECT package_family_name as Name, package_family_id as ID FROM package_family WHERE user_id = $1;
       `;
       const values = [userID];
       const result = await pool.query(query, values);
+      logger.info('getPackageFamiliesAG result', result);
   
       const packageFamilyIds = result.rows.map((row) => row.id);
   
@@ -213,10 +217,12 @@ interface PackageFamilyRow {
             Name: result.rows.find((row) => row.id === packageFamilyId).name,
             ID: result.rows.find((row) => row.id === packageFamilyId).id,
           });
+          logger.info('getPackageFamiliesAG finalResult', finalResult);
       }
   
       return finalResult;
     } catch (error) {
+        logger.error('Error retrieving package families:', error);
       console.error('Error retrieving package families:', error);
       return [];
     }
@@ -364,7 +370,7 @@ export async function validateUserAG(username: string, password: string): Promis
 export async function clearSinglePackageAG(ID: string): Promise<boolean> {
     const client = await pool.connect();
     try {
-        console.log('Deleting user and related data from database...');
+        logger.info('clearSinglePackageAG');
         await client.query('BEGIN');
         const deletePackagesQuery = 'DELETE FROM packages WHERE package_family_id IN (SELECT package_family_id FROM package_family WHERE package_id = $1)';
 
@@ -373,6 +379,7 @@ export async function clearSinglePackageAG(ID: string): Promise<boolean> {
         return true;
     } catch (error) {
         await client.query('ROLLBACK');
+        logger.error('Error deleting user and related data from database:', error);
         console.error('Error deleting user and related data from database:', error);
         return false;
     } finally {
@@ -382,6 +389,7 @@ export async function clearSinglePackageAG(ID: string): Promise<boolean> {
 
 export async function getRatesAG(userID: string, packageID: integer): Promise<string[] | null> {
     try {
+        logger.info('getRatesAG');
         console.log("packageID", packageID);
         const package_family = await getPackageFamilyID(packageID.toString());
         console.log(package_family);
@@ -390,9 +398,11 @@ export async function getRatesAG(userID: string, packageID: integer): Promise<st
         `;
         const values = [userID, package_family];
         console.log(userID, package_family);
+        logger.info('getRatesAG values', values);
         const result = await pool.query(query, values);
         return result.rows[0];
     } catch (error) {
+        logger.error('Error retrieving rates:', error);
         console.error('Error retrieving package families:', error);
         return null;
     }

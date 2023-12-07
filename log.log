@@ -725,3 +725,51 @@
 [2023-12-05T19:07:39.531Z] info: Completed calculation for module: https://github.com/zeit/arg
 [2023-12-05T19:07:39.531Z] info: Program completed successfully
 >>>>>>> acceaf3943c538405e540bdb75ce250c9f367f19
+[2023-12-07T14:37:05.078Z] info: login()
+[2023-12-07T14:37:05.086Z] info: Attempting to log in user: 
+[2023-12-07T14:37:05.768Z] info: User logged in successfully: 
+[2023-12-07T14:40:29.039Z] info: put authenticate
+[2023-12-07T14:40:29.039Z] info: body
+[2023-12-07T14:40:29.039Z] info: headers
+[2023-12-07T14:40:29.040Z] info: 500 { success: false, message: error }
+[2023-12-07T14:40:59.352Z] info: post packages
+[2023-12-07T14:40:59.353Z] info: body
+[2023-12-07T14:40:59.353Z] info: headers
+[2023-12-07T14:40:59.353Z] info: 400 { success: false, message: 'No token provided' }
+[2023-12-07T14:41:08.174Z] info: post packages
+[2023-12-07T14:41:08.175Z] info: body
+[2023-12-07T14:41:08.175Z] info: headers
+[2023-12-07T14:41:08.175Z] info: decoded
+[2023-12-07T14:41:08.175Z] info: sub
+[2023-12-07T14:41:08.301Z] info: userID
+[2023-12-07T14:41:08.301Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-07T14:41:28.805Z] info: post packages
+[2023-12-07T14:41:28.806Z] info: body
+[2023-12-07T14:41:28.806Z] info: headers
+[2023-12-07T14:41:28.806Z] info: decoded
+[2023-12-07T14:41:28.806Z] info: sub
+[2023-12-07T14:41:28.925Z] info: userID
+[2023-12-07T14:41:28.925Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-07T14:42:15.423Z] info: post packages
+[2023-12-07T14:42:15.423Z] info: body
+[2023-12-07T14:42:15.423Z] info: headers
+[2023-12-07T14:42:15.424Z] info: decoded
+[2023-12-07T14:42:15.424Z] info: sub
+[2023-12-07T14:42:15.550Z] info: userID
+[2023-12-07T14:42:15.551Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-07T14:43:21.166Z] info: post packages
+[2023-12-07T14:43:21.167Z] info: body
+[2023-12-07T14:43:21.167Z] info: headers
+[2023-12-07T14:43:21.167Z] info: token
+[2023-12-07T14:43:21.167Z] info: decoded
+[2023-12-07T14:43:21.167Z] info: sub
+[2023-12-07T14:43:21.324Z] info: userID
+[2023-12-07T14:43:21.325Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-07T14:44:00.830Z] info: post packages
+[2023-12-07T14:44:00.830Z] info: body
+[2023-12-07T14:44:00.831Z] info: headers
+[2023-12-07T14:44:00.831Z] info: token
+[2023-12-07T14:44:00.831Z] info: decoded
+[2023-12-07T14:44:00.831Z] info: sub
+[2023-12-07T14:44:00.986Z] info: userID
+[2023-12-07T14:44:00.987Z] info: 400 { success: false, message: 'Invalid token' }
