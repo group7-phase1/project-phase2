@@ -23,6 +23,9 @@ app.use(express.json());
 const storage = multer.memoryStorage();
 const multerUpload = multer({ storage: storage });
 
+// use logger to log all requests
+logger.info("Starting server");
+
 
 
 
@@ -390,7 +393,7 @@ app.delete('/reset', async (req: Request, res: Response) => {
         logger.info("result", result);
         if (result) {
             logger.info("200 { success: true, message: 'registry is reset' }");
-            res.status(200).send({ message: 'registry is reset' });
+            res.status(200).send();
         } else {
             logger.info("400 { success: false, message: 'registry is not reset' }");
             res.status(400).send({ message: 'registry is not reset' });
