@@ -685,14 +685,15 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
 
 app.put('/authenticate', async (req, res) => {
     // const { username, password } = req.body;
+    const username = req.body.User.name;
+    const password = req.body.Secret.password;
+    const isAdmin = req.body.User.isAdmin;
 
     try {
         logger.info("put authenticate");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const username = req.body.User.name;
-        const password = req.body.Secret.password;
-        const isAdmin = req.body.User.isAdmin;
+
     
         if (!username || !password || !isAdmin) {
             logger.info("400 { success: false, message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.' }");
@@ -702,6 +703,7 @@ app.put('/authenticate', async (req, res) => {
             });
         }
         const authResult = await login(username, password);
+        
 
         if (authResult) {
             logger.info("200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }");
@@ -719,12 +721,32 @@ app.put('/authenticate', async (req, res) => {
             });
         }
     } catch (error) {
+        try {
+        const signUpResult = await register(username, password, isAdmin);
+        if (!signUpResult) {
+            logger.info("400 { success: false, message: 'The user already exists.' }");
+            throw new Error('The user already exists.');
+        }
+        console.log("register complete");
+        logger.info("register complete");
+        const authResult = await login(username, password);
+        if (authResult) {
+            logger.info("200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }");
+            // return token as JSON
+            const token = authResult.IdToken;
+            // create response and add json in header
+            res.setHeader('Content-Type', 'application/json');
+            return res.send("bearer " + token);
+
+        }
+    } catch (error) {
         logger.info("500 { success: false, message: error }");
         // Respond with a 500 status code for any other errors
         return res.status(500).send({
             success: false,
             message: 'This system does not support authentication.'
         });
+    }
     }
 });
 
