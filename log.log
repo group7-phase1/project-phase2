@@ -1087,3 +1087,599 @@
 [2023-12-07T21:28:12.384Z] info: Attempting to log in user:  "ece461defaultadmin"
 [2023-12-07T21:28:12.788Z] info: User logged in successfully:  "ece461defaultadmin"
 [2023-12-07T21:28:12.789Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-08T14:59:05.525Z] info: put authenticate
+[2023-12-08T14:59:05.526Z] info: body {
+  "User": {
+    "name": "ece461defaultadmin",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T14:59:05.526Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "0629c644-9c06-40f6-97ff-0416aaf767cf",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "169"
+}
+[2023-12-08T14:59:05.526Z] info: login()
+[2023-12-08T14:59:05.528Z] info: Attempting to log in user:  "ece461defaultadmin"
+[2023-12-08T14:59:06.109Z] info: User logged in successfully:  "ece461defaultadmin"
+[2023-12-08T14:59:06.378Z] error: Error creating user:  User account already exists {
+  "name": "UsernameExistsException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "a0ee7d5b-11af-4cf7-a630-29627575ba24",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "UsernameExistsException"
+}
+[2023-12-08T14:59:06.379Z] info: 500 { success: false, message: error }
+[2023-12-08T15:09:28.898Z] info: put authenticate
+[2023-12-08T15:09:28.899Z] info: body {
+  "User": {
+    "name": "autograde",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:09:28.899Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "46ea8fa4-3c6c-4d73-a750-64dc9a9567ff",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-08T15:09:28.900Z] info: login()
+[2023-12-08T15:09:28.905Z] info: Attempting to log in user:  "autograde"
+[2023-12-08T15:09:29.274Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "e2f0bcd4-97df-403e-800a-4e8de7556024",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:09:29.274Z] info: 500 { success: false, message: error }
+[2023-12-08T15:10:28.719Z] info: put authenticate
+[2023-12-08T15:10:28.720Z] info: body {
+  "User": {
+    "name": "autograde",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:10:28.720Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "496238aa-1d48-4a53-a883-33b27d2b4d70",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-08T15:10:28.720Z] info: login()
+[2023-12-08T15:10:28.722Z] info: Attempting to log in user:  "autograde"
+[2023-12-08T15:10:29.189Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "585bf7b6-61e0-406b-a7ed-858335ceb287",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:10:29.190Z] info: 500 { success: false, message: error }
+[2023-12-08T15:10:44.198Z] info: put authenticate
+[2023-12-08T15:10:44.198Z] info: body {
+  "User": {
+    "name": "autograden",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:10:44.199Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "ecc2b065-b292-44ab-85c1-1242e5c0d8ab",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "161"
+}
+[2023-12-08T15:10:44.199Z] info: login()
+[2023-12-08T15:10:44.200Z] info: Attempting to log in user:  "autograden"
+[2023-12-08T15:10:44.539Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "2eb55d71-48da-490f-8785-d1d1680949a2",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:10:44.539Z] info: 500 { success: false, message: error }
+[2023-12-08T15:11:43.798Z] info: put authenticate
+[2023-12-08T15:11:43.799Z] info: body {
+  "User": {
+    "name": "autograden",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:11:43.799Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e7d25306-fa12-4db4-8a75-61ca0cb70099",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "161"
+}
+[2023-12-08T15:11:43.799Z] info: login()
+[2023-12-08T15:11:43.801Z] info: Attempting to log in user:  "autograden"
+[2023-12-08T15:11:44.228Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "9c2bfac3-eca1-4905-96dd-de87f18a8b35",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:11:44.232Z] info: 500 { success: false, message: error }
+[2023-12-08T15:11:50.293Z] info: put authenticate
+[2023-12-08T15:11:50.293Z] info: body {
+  "User": {
+    "name": "autograden",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:11:50.293Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "f26a5ec6-6469-4f9e-b745-82c78f033640",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "161"
+}
+[2023-12-08T15:11:50.293Z] info: login()
+[2023-12-08T15:11:50.294Z] info: Attempting to log in user:  "autograden"
+[2023-12-08T15:11:50.692Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "35c8e84a-4920-479a-9386-e9da46dd1081",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:11:50.692Z] info: 500 { success: false, message: error }
+[2023-12-08T15:12:09.263Z] info: put authenticate
+[2023-12-08T15:12:09.264Z] info: body {
+  "User": {
+    "name": "autograden",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:12:09.264Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "f1e97e4b-ac03-4cd7-88a8-5ffe26ca0970",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "161"
+}
+[2023-12-08T15:12:09.264Z] info: login()
+[2023-12-08T15:12:09.266Z] info: Attempting to log in user:  "autograden"
+[2023-12-08T15:12:09.706Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "b2e6aab5-8837-43e5-9e15-801d80adae8a",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:12:09.707Z] info: 500 { success: false, message: error }
+[2023-12-08T15:12:16.536Z] info: put authenticate
+[2023-12-08T15:12:16.536Z] info: body {
+  "User": {
+    "name": "autograde",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:12:16.536Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "01fce1bc-fb70-4307-a6c7-a6e2a345903a",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-08T15:12:16.537Z] info: login()
+[2023-12-08T15:12:16.539Z] info: Attempting to log in user:  "autograde"
+[2023-12-08T15:12:16.915Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "3b8ef523-6d63-4706-92bb-4732a58fef88",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:12:16.915Z] info: 500 { success: false, message: error }
+[2023-12-08T15:12:24.277Z] info: put authenticate
+[2023-12-08T15:12:24.278Z] info: body {
+  "User": {
+    "name": "autogrfdsade",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:12:24.278Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "8b76cdf4-d5f3-424f-825c-743f7433f3d2",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "163"
+}
+[2023-12-08T15:12:24.278Z] info: login()
+[2023-12-08T15:12:24.281Z] info: Attempting to log in user:  "autogrfdsade"
+[2023-12-08T15:12:24.623Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "380e0642-a96b-481f-94e4-45e8abec1e86",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:12:24.624Z] info: 500 { success: false, message: error }
+[2023-12-08T15:13:21.977Z] info: put authenticate
+[2023-12-08T15:13:21.977Z] info: body {
+  "User": {
+    "name": "autogrfdsade",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:13:21.977Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "7bceb972-988f-4df5-a39c-440180256b5d",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "163"
+}
+[2023-12-08T15:13:21.978Z] info: login()
+[2023-12-08T15:13:21.980Z] info: Attempting to log in user:  "autogrfdsade"
+[2023-12-08T15:13:22.360Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "ac39124b-2a62-4f6a-9519-161ac8d10d2c",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:13:22.361Z] info: 500 { success: false, message: error }
+[2023-12-08T15:13:26.835Z] info: put authenticate
+[2023-12-08T15:13:26.835Z] info: body {
+  "User": {
+    "name": "autogrfdsade",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:13:26.835Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "6405934c-95b2-4429-a362-ab57f8294902",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "163"
+}
+[2023-12-08T15:13:26.835Z] info: login()
+[2023-12-08T15:13:26.836Z] info: Attempting to log in user:  "autogrfdsade"
+[2023-12-08T15:13:27.189Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "c538932f-412e-4044-8d3f-0eda0c9d6829",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:13:27.190Z] info: 500 { success: false, message: error }
+[2023-12-08T15:13:56.152Z] info: put authenticate
+[2023-12-08T15:13:56.152Z] info: body {
+  "User": {
+    "name": "autogrfdsade",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:13:56.152Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "6a7b0c6a-6ea1-4da2-9e3d-b9b76806d53c",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "163"
+}
+[2023-12-08T15:13:56.152Z] info: login()
+[2023-12-08T15:13:56.159Z] info: Attempting to log in user:  "autogrfdsade"
+[2023-12-08T15:13:56.540Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "6eacf785-371a-423e-8743-22f9fe13ac2b",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:13:56.541Z] info: 500 { success: false, message: error }
+[2023-12-08T15:14:26.865Z] info: put authenticate
+[2023-12-08T15:14:26.866Z] info: body {
+  "User": {
+    "name": "autogrfdsade",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:14:26.866Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "195eae3c-6df7-4c51-889e-c0f8959c6f18",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "163"
+}
+[2023-12-08T15:14:26.866Z] info: login()
+[2023-12-08T15:14:26.868Z] info: Attempting to log in user:  "autogrfdsade"
+[2023-12-08T15:14:27.255Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "ec84f310-a1ba-4357-989d-ca9b7c2995dd",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:14:27.256Z] info: 500 { success: false, message: error }
+[2023-12-08T15:17:05.190Z] info: put authenticate
+[2023-12-08T15:17:05.191Z] info: body {
+  "User": {
+    "name": "autograde",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:17:05.191Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "0812e74a-c5b5-43ac-94c9-8be3bc32c864",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-08T15:17:05.191Z] info: login()
+[2023-12-08T15:17:05.193Z] info: Attempting to log in user:  "autograde"
+[2023-12-08T15:17:06.163Z] info: login()
+[2023-12-08T15:17:06.170Z] info: Attempting to log in user:  "autograde"
+[2023-12-08T15:17:06.547Z] info: User logged in successfully:  "autograde"
+[2023-12-08T15:17:06.557Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "16c4e3de-d312-4b76-a558-40a6e6cefb93",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:17:06.561Z] info: 500 { success: false, message: error }
+[2023-12-08T15:20:11.655Z] info: put authenticate
+[2023-12-08T15:20:11.655Z] info: body {
+  "User": {
+    "name": "jsklfdjskljld",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:20:11.655Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "7661fdb7-6892-4f3a-af6f-4de06a66ce5b",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "164"
+}
+[2023-12-08T15:20:11.656Z] info: login()
+[2023-12-08T15:20:11.657Z] info: Attempting to log in user:  "jsklfdjskljld"
+[2023-12-08T15:20:12.689Z] info: login()
+[2023-12-08T15:20:12.690Z] info: Attempting to log in user:  "jsklfdjskljld"
+[2023-12-08T15:20:13.038Z] info: User logged in successfully:  "jsklfdjskljld"
+[2023-12-08T15:20:13.048Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "dac60f0a-c400-4d6e-82e4-dce3a841ba1c",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:20:13.049Z] info: 500 { success: false, message: error }
+[2023-12-08T15:24:30.199Z] info: put authenticate
+[2023-12-08T15:24:30.200Z] info: body {
+  "User": {
+    "name": "jsklfdjskldsjld",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:24:30.200Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "6c4334af-56bd-45a8-af1f-7050c30083c5",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "166"
+}
+[2023-12-08T15:24:30.200Z] info: login()
+[2023-12-08T15:24:30.202Z] info: Attempting to log in user:  "jsklfdjskldsjld"
+[2023-12-08T15:24:30.645Z] error: Error logging in:  Incorrect username or password. {
+  "name": "NotAuthorizedException",
+  "$fault": "client",
+  "$metadata": {
+    "httpStatusCode": 400,
+    "requestId": "d1b6e53b-3eea-4832-9222-ebd7f1ab1c70",
+    "attempts": 1,
+    "totalRetryDelay": 0
+  },
+  "__type": "NotAuthorizedException"
+}
+[2023-12-08T15:24:31.216Z] info: register complete
+[2023-12-08T15:24:31.216Z] info: login()
+[2023-12-08T15:24:31.217Z] info: Attempting to log in user:  "jsklfdjskldsjld"
+[2023-12-08T15:24:31.632Z] info: User logged in successfully:  "jsklfdjskldsjld"
+[2023-12-08T15:24:31.632Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-08T15:24:37.569Z] info: put authenticate
+[2023-12-08T15:24:37.569Z] info: body {
+  "User": {
+    "name": "jsklfdjskldsjld",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-08T15:24:37.570Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e131d86e-b5f0-4290-a7de-f88618955fa0",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "166"
+}
+[2023-12-08T15:24:37.570Z] info: login()
+[2023-12-08T15:24:37.571Z] info: Attempting to log in user:  "jsklfdjskldsjld"
+[2023-12-08T15:24:37.953Z] info: User logged in successfully:  "jsklfdjskldsjld"
+[2023-12-08T15:24:37.954Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }

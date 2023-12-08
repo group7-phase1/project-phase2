@@ -33,7 +33,7 @@ export async function register(username: string, password: string, admin: boolea
     try {
         const createUserResponse = await cognito.adminCreateUser(createUserParams);
 
-        console.log("createUserResponse: ", createUserResponse)
+        // console.log("createUserResponse: ", createUserResponse)
         console.log("username: ", username)
 
         const setPasswordParams = {
