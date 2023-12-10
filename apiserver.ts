@@ -608,8 +608,8 @@ app.post('/package', async (req: Request, res: Response) => {
         const version = "1.0";
 
         if (!packageFamilyID) {
-            logger.info("400 { success: false, message: 'Invalid package family name' }");
-            res.status(400).send({ message: 'Invalid package family name' });
+            logger.info("409 { success: false, message: 'Package exists already.' }");
+            res.status(409).send({ message: 'Package exists already.' });
             return;
         }
         const nameID = req.body.metadata["ID"]
@@ -619,12 +619,12 @@ app.post('/package', async (req: Request, res: Response) => {
             logger.info("200 { success: true, message: 'File uploaded successfully' }");
             res.send({ message: 'File uploaded successfully' });
         } else {
-            logger.info("400 { success: false, message: 'File failed to upload' }");
-            res.send({ message: 'File failed to upload' });
+            logger.info("424 { success: false, message: 'Package is not uploaded due to disqualified rating.' }");
+            res.status(424).send({ message: 'Package is not uploaded due to disqualified rating.' });
         }
     } catch (error) {
-        logger.info("500 { success: false, message: error }");
-        res.status(500).send({ message: error });
+        logger.info("400 { success: false, message: error }");
+        res.status(400).send({ message: error });
     }
 });
 
