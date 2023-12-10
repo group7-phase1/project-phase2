@@ -332,25 +332,25 @@ app.post('/packages', async (req: Request, res: Response) => {
         }
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         const decoded = jwt.decode(token);
         logger.info("decoded", decoded);
         if (!decoded || typeof decoded === 'string') {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         const sub = decoded.sub;
         logger.info("sub", sub);
         if (!sub || typeof sub !== 'string') {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         const userID = await getUserIdByCognitoID(sub);
         logger.info("userID", userID);
         if (!userID) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
        
         const packageFamilies = await getPackageFamiliesAG(userID.toString());
@@ -359,7 +359,7 @@ app.post('/packages', async (req: Request, res: Response) => {
         res.status(200).send(packageFamilies);
     } catch (error) {
         logger.info("400 { success: false, message: error }");
-        res.status(400).send({ success: false, message: error });
+        res.status(400).send({ message: error });
     }
 }
 );
@@ -373,20 +373,20 @@ app.delete('/reset', async (req: Request, res: Response) => {
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         const sub = decodeToken(token);
         logger.info("sub", sub);
         if (!sub) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         logger.info("userID", userID);
         if (!userID) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(401).send({ message: 'Invalid token' });
         }
 
         const result = await clearPackages(userID.toString());
@@ -400,7 +400,7 @@ app.delete('/reset', async (req: Request, res: Response) => {
         }
     } catch (error) {
         logger.info("400 { success: false, message: error }");
-        res.status(400).send({ success: false, message: error });
+        res.status(400).send({ message: error });
     }
 }
 );
@@ -419,22 +419,22 @@ app.get('/package/:id', async (req: Request, res: Response) => {
         }
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
-            return res.status(401).send({ success: false, message: 'No token provided' });
+            return res.status(401).send({ message: 'No token provided' });
         }
         const decoded = jwt.decode(token);
         if (!decoded || typeof decoded === 'string') {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(401).send({ message: 'Invalid token' });
         }
         const sub = decoded.sub;
         if (!sub || typeof sub !== 'string') {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(401).send({ message: 'Invalid token' });
         }
         const userID = await getUserIdByCognitoID(sub);
         if (!userID) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(401).send({ message: 'Invalid token' });
         }
         if (packageID != null) {
             const packages = await getPackageDetailsFromPackageFamilyAG(packageID, userID.toString());
@@ -482,20 +482,20 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("401 { success: false, message: 'No token provided' }");
-            return res.status(401).send({ success: false, message: 'No token provided' });
+            return res.status(401).send({ message: 'No token provided' });
         }
         const sub = decodeToken(token);
         logger.info("sub", sub);
         if (!sub) {
             logger.info("401 { success: false, message: 'Invalid token' }");
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(401).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         logger.info("userID", userID);
         if (!userID) {
             logger.info("401 { success: false, message: 'Invalid token' }");
-            return res.status(401).send({ success: false, message: 'Invalid token' });
+            return res.status(401).send({ message: 'Invalid token' });
         }
         const file = req.body.data.Content;
         const zipFile = Buffer.from(file, 'base64');
@@ -534,18 +534,18 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         const sub = decodeToken(token);
         if (!sub) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         if (!userID) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const result = await clearSinglePackageAG(req.params.id);
@@ -554,7 +554,7 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
             res.status(200).send({message: 'Package deleted successfully' });
         } else {
             logger.info("400 { success: false, message: 'Package does not exist' }");
-            res.status(404).send({ success: false, message: 'Package does not exist' });
+            res.status(404).send({ message: 'Package does not exist' });
         }
     } catch (error) {
         logger.info("400 { success: false, message: error }");
@@ -572,7 +572,7 @@ app.post('/package', async (req: Request, res: Response) => {
         const content = req.body.data.Content;
         if (!content) {
             logger.info("400 { success: false, message: 'No file uploaded.' }");
-            return res.status(400).send({ success: false, message: 'No file uploaded.' });
+            return res.status(400).send({ message: 'No file uploaded.' });
         }
 
         console.log("creating a new package family");
@@ -585,21 +585,21 @@ app.post('/package', async (req: Request, res: Response) => {
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         // console.log("Token", token);
         const sub = decodeToken(token);
         logger.info("sub", sub);
         if (!sub) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         logger.info("userID", userID);
         if (!userID) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         const packageFamilyName = req.body.metadata["Name"]
         const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
@@ -609,7 +609,7 @@ app.post('/package', async (req: Request, res: Response) => {
 
         if (!packageFamilyID) {
             logger.info("400 { success: false, message: 'Invalid package family name' }");
-            res.status(400).send({ success: false, message: 'Invalid package family name' });
+            res.status(400).send({ message: 'Invalid package family name' });
             return;
         }
         const nameID = req.body.metadata["ID"]
@@ -617,14 +617,14 @@ app.post('/package', async (req: Request, res: Response) => {
 
         if (result) {
             logger.info("200 { success: true, message: 'File uploaded successfully' }");
-            res.send({ success: true, message: 'File uploaded successfully' });
+            res.send({ message: 'File uploaded successfully' });
         } else {
             logger.info("400 { success: false, message: 'File failed to upload' }");
-            res.send({ success: false, message: 'File failed to upload' });
+            res.send({ message: 'File failed to upload' });
         }
     } catch (error) {
         logger.info("500 { success: false, message: error }");
-        res.status(500).send({ success: false, message: error });
+        res.status(500).send({ message: error });
     }
 });
 
@@ -640,28 +640,28 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         // console.log("Token", token);
         const sub = decodeToken(token);
         logger.info("sub", sub);
         if (!sub) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         logger.info("userID", userID);
         if (!userID) {
             logger.info("400 { success: false, message: 'Invalid token' }");
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         if (packageId != null) {
             const packageFamilyID = await getRatesAG(userID.toString(), packageId);
         
             if (!packageFamilyID) {
                 logger.info("400 { success: false, message: 'Invalid package family name' }");
-                res.status(400).send({ success: false, message: 'Invalid package family name' });
+                res.status(400).send({ message: 'Invalid package family name' });
                 return;
             }
             console.log(packageFamilyID);
@@ -672,7 +672,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
 
     } catch (error) {
         logger.info("500 { success: false, message: error }");
-        res.status(500).send({ success: false, message: error });
+        res.status(500).send({ message: error });
     }
 });
 
@@ -691,14 +691,12 @@ app.put('/authenticate', async (req, res) => {
     if (!req.body.User || !req.body.Secret) {
         logger.info("400 { success: false, message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.' }");
         return res.status(400).send({
-            success: false,
             message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.'
         });
     }
     if (!req.body.User.name || !req.body.Secret.password || !req.body.User.isAdmin) {
         logger.info("400 { success: false, message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.' }");
         return res.status(400).send({
-            success: false,
             message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.'
         });
     }
@@ -715,7 +713,6 @@ app.put('/authenticate', async (req, res) => {
         if (!username || !password || !isAdmin) {
             logger.info("400 { success: false, message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.' }");
             return res.status(400).send({
-                success: false,
                 message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.'
             });
         }
@@ -733,7 +730,6 @@ app.put('/authenticate', async (req, res) => {
         } else {
             logger.info("401 { success: false, message: 'The user or password is invalid.' }");
             return res.status(401).send({
-                success: false,
                 message: 'The user or password is invalid.'
             });
         }
@@ -760,7 +756,6 @@ app.put('/authenticate', async (req, res) => {
         logger.info("500 { success: false, message: error }");
         // Respond with a 500 status code for any other errors
         return res.status(500).send({
-            success: false,
             message: 'This system does not support authentication.'
         });
     }
@@ -773,29 +768,29 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
         const packageName = req.params.name // Retrieve the package ID from the URL parameter
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         // console.log("Token", token);
         const sub = decodeToken(token);
         if (!sub) {
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         if (!userID) {
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         const packageHistory = await getNameAG(userID.toString(), packageName);
         
         if (!packageHistory) {
-            res.status(400).send({ success: false, message: 'Invalid' });
+            res.status(400).send({ message: 'Invalid' });
             return;
         }
         console.log(packageHistory);
         return res.status(200).send(packageHistory);
 
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(500).send({ message: error });
     }
 });
 
@@ -806,17 +801,17 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
         console.log(packageName);
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         // console.log("Token", token);
         const sub = decodeToken(token);
         if (!sub) {
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         if (!userID) {
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         const result = await deleteAllNameVersionsAG(userID.toString(), packageName);
         if(result) {
@@ -824,12 +819,12 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
             return;
         }
         if (!result) {
-            res.status(400).send({ success: false, message: 'Invalid' });
+            res.status(400).send({ message: 'Invalid' });
             return;
         }
 
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(500).send({ message: error });
     }
 });
 // Search for a package using regular expression over package names and READMEs
@@ -839,28 +834,28 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
 
         const token = (req.headers['x-authorization']as string)?.split(' ')[1];
         if (!token) {
-            return res.status(400).send({ success: false, message: 'No token provided' });
+            return res.status(400).send({ message: 'No token provided' });
         }
         // console.log("Token", token);
         const sub = decodeToken(token);
         if (!sub) {
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
 
         const userID = await getUserIdByCognitoID(sub);
         if (!userID) {
-            return res.status(400).send({ success: false, message: 'Invalid token' });
+            return res.status(400).send({ message: 'Invalid token' });
         }
         const packages = await packageRegexAG(userID.toString(), regex);
         
         if (packages.length === 0) {
-            return res.status(404).send({message: 'No packages found' });
+            return res.status(404).send({ message: 'No packages found' });
         }
 
         return res.status(200).send(packages);
 
     } catch (error) {
-        res.status(500).send({ success: false, message: error });
+        res.status(500).send({ message: error });
     }
 });
 
