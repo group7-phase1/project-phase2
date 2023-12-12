@@ -628,7 +628,7 @@ app.post('/package', async (req: Request, res: Response) => {
     }
 });
 
-//Get Rates
+//Get Rates Function
 app.get('/package/:id/rate', async (req: Request, res: Response) => {
     try {
         logger.info("get package/:id/rate");
