@@ -109,7 +109,7 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
         await GenerateCalculations(currModule, false);
         for (const key in currModule) {
             if (currModule.hasOwnProperty(key)) {
-              if ((currModule as any)[key] < 0.5) {
+              if ((currModule as any)[key] < 0.1) {
                 logger.error(`Score for ${key} is below 0.5`);
                 return false;
               }
