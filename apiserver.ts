@@ -643,8 +643,10 @@ app.post('/package', async (req: Request, res: Response) => {
         logger.info("headers", req.headers);
         const content = req.body.data.Content;
         if (!content) {
+            if (!req.body.data.URL) {
             logger.info("400 { success: false, message: 'No file uploaded.' }");
             return res.status(400).send({ message: 'No file uploaded.' });
+            }
         }
 
         console.log("creating a new package family");

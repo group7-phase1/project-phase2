@@ -15,27 +15,28 @@ export async function upload(fileBuffer: Buffer, zipFileName: string, userID: st
         }
 
         // Unzip the file
-        const directory = await unzipFile(fileBuffer);
-
-        console.log('Unzipped to:', directory);
-        logger.info('Unzipped to:', directory);
-
-        // Check for package.json
-
-        const packageJsonPath = `${directory}/${zipFileName.replace('.zip', '')}/package.json`;
-        console.log('packageJsonPath:', packageJsonPath);
-        logger.info('packageJsonPath:', packageJsonPath);
-        if (!await fileExists(packageJsonPath)) {
-            console.error('package.json not found.');
-            logger.error('package.json not found.');
-            return false;
-        }
-
-        // Read and parse package.json
-        const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf8'));
-
-        //Extract GitHub link
         if (gitHubLink == "") {
+            const directory = await unzipFile(fileBuffer);
+
+            console.log('Unzipped to:', directory);
+            logger.info('Unzipped to:', directory);
+
+            // Check for package.json
+
+            const packageJsonPath = `${directory}/${zipFileName.replace('.zip', '')}/package.json`;
+            console.log('packageJsonPath:', packageJsonPath);
+            logger.info('packageJsonPath:', packageJsonPath);
+            if (!await fileExists(packageJsonPath)) {
+                console.error('package.json not found.');
+                logger.error('package.json not found.');
+                return false;
+            }
+
+            // Read and parse package.json
+            const packageJson = JSON.parse(await fs.readFile(packageJsonPath, 'utf8'));
+
+            //Extract GitHub link
+        
             gitHubLink = (extractGitHubLink(packageJson) as string);
         }
         //const gitHubLink = "https://github.com/vercel/arg"

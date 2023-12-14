@@ -223,3 +223,274 @@
 }
 [2023-12-14T02:56:01.274Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
 [2023-12-14T02:56:01.444Z] info: userID 31
+[2023-12-14T19:31:42.920Z] info: Starting server
+[2023-12-14T19:33:47.301Z] info: put package/:id
+[2023-12-14T19:33:47.301Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:33:47.301Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiNTlmNTdjMTMtZDU0Mi00NjgzLThiMzYtMjNkYmYyNzMwZGI4Iiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjJmYTA2NzU5LWMyZGQtNDQ4Yy04YTdmLWRiZTgwZmQyMTBiMyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTIyNTAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTI2MTAzLCJpYXQiOjE3MDI1MjI1MDMsImp0aSI6IjAyYjdlYjgxLWM1NTgtNGI0MC1iOTczLTU1M2RmNjc4MGExNSJ9.y30WAt8FR0CJsNOjTd8A49Lw5qlu3jwRHkyGXWxErMNov-leHKh2PWcO3pfO1gbhVt-sLQNF_-ZS7haW5fi24d0c6anUBlogl25LrTD_NGhceuLZ9zi8hvVFHkM9eTzVu2nQblnT_vHOssyXZd-lp8mpUtS98vvkjpZTLEPK5u7PfajuIsxx_Tp9uJW1PyFUb1mja-lGk2dL8tpL4f_lRnK3FTroqof6HvaKfUva-xUpWr0I0UmXF5GrJmHHk3jRF9cabcoiYVMjmSehEwDmPA5BPBbh3gJ6CkAwW7yM-SvumT3fQTYV_HO6gJ5jZaSxk8BF7pmbp1uqf0I8sV9Qtw",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "a8da6944-7a54-461d-bf21-64aea14d1358",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5705"
+}
+[2023-12-14T19:33:47.302Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:33:47.530Z] info: userID 31
+[2023-12-14T19:34:06.576Z] info: post package
+[2023-12-14T19:34:06.576Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:34:06.578Z] info: headers {
+  "x-authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "95023982-6327-481d-a491-5417ed118002",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "2470"
+}
+[2023-12-14T19:34:06.578Z] info: creating a new package family
+[2023-12-14T19:34:06.580Z] info: sub "1234567890"
+[2023-12-14T19:34:06.754Z] info: userID null
+[2023-12-14T19:34:06.755Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-14T19:38:15.793Z] info: put authenticate
+[2023-12-14T19:38:15.794Z] info: body {
+  "User": {
+    "name": "mateusz50",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-14T19:38:15.794Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "5b9775ba-99e4-4b34-bd1d-152c22980a8a",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-14T19:38:15.795Z] info: login()
+[2023-12-14T19:38:15.803Z] info: Attempting to log in user:  "mateusz50"
+[2023-12-14T19:38:16.394Z] info: User logged in successfully:  "mateusz50"
+[2023-12-14T19:38:16.395Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-14T19:38:23.342Z] info: post package
+[2023-12-14T19:38:23.342Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:38:23.342Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "5fdd0ffe-9322-402d-b6fe-f2a6a2cf6625",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "2470"
+}
+[2023-12-14T19:38:23.342Z] info: creating a new package family
+[2023-12-14T19:38:23.342Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:38:23.535Z] info: userID 31
+[2023-12-14T19:38:23.573Z] info: packageFamilyID 141
+[2023-12-14T19:38:23.573Z] info: upload()
+[2023-12-14T19:38:23.605Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1702582703574"
+[2023-12-14T19:38:23.606Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1702582703574/exceptions/package.json"
+[2023-12-14T19:38:23.606Z] error: package.json not found.
+[2023-12-14T19:38:23.606Z] info: 424 { success: false, message: 'Package is not uploaded due to disqualified rating.' }
+[2023-12-14T19:39:13.781Z] info: post package
+[2023-12-14T19:39:13.781Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:39:13.783Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "81c82c80-e5a9-428c-960d-d7552a7298f3",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:39:13.783Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-14T19:40:04.633Z] info: Starting server
+[2023-12-14T19:40:07.346Z] info: post package
+[2023-12-14T19:40:07.346Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:40:07.346Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "a4a43be7-a4fc-476c-97f1-775dd23b04fa",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:40:07.347Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-14T19:40:11.288Z] info: post package
+[2023-12-14T19:40:11.288Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:40:11.288Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e2061efa-7eda-4067-9c29-23f84846bf15",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:40:11.288Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-14T19:43:38.673Z] info: Starting server
+[2023-12-14T19:43:41.361Z] info: post package
+[2023-12-14T19:43:41.361Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:43:41.361Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "24917f51-8dcb-40c4-9238-d45d18adef9f",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:43:41.362Z] info: creating a new package family
+[2023-12-14T19:43:41.362Z] info: 400 { success: false, message: error }
+[2023-12-14T19:46:55.203Z] info: put package/:id
+[2023-12-14T19:46:55.204Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:46:55.205Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiNTlmNTdjMTMtZDU0Mi00NjgzLThiMzYtMjNkYmYyNzMwZGI4Iiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjJmYTA2NzU5LWMyZGQtNDQ4Yy04YTdmLWRiZTgwZmQyMTBiMyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTIyNTAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTI2MTAzLCJpYXQiOjE3MDI1MjI1MDMsImp0aSI6IjAyYjdlYjgxLWM1NTgtNGI0MC1iOTczLTU1M2RmNjc4MGExNSJ9.y30WAt8FR0CJsNOjTd8A49Lw5qlu3jwRHkyGXWxErMNov-leHKh2PWcO3pfO1gbhVt-sLQNF_-ZS7haW5fi24d0c6anUBlogl25LrTD_NGhceuLZ9zi8hvVFHkM9eTzVu2nQblnT_vHOssyXZd-lp8mpUtS98vvkjpZTLEPK5u7PfajuIsxx_Tp9uJW1PyFUb1mja-lGk2dL8tpL4f_lRnK3FTroqof6HvaKfUva-xUpWr0I0UmXF5GrJmHHk3jRF9cabcoiYVMjmSehEwDmPA5BPBbh3gJ6CkAwW7yM-SvumT3fQTYV_HO6gJ5jZaSxk8BF7pmbp1uqf0I8sV9Qtw",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "c86cee8e-4ca6-45fb-a234-587404887fb0",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5705"
+}
+[2023-12-14T19:46:55.207Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:46:55.405Z] info: userID 31
+[2023-12-14T19:47:34.066Z] info: put package/:id
+[2023-12-14T19:47:34.067Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:47:34.067Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e6798565-2dba-4acc-8e6d-65e8efd9a5e8",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "343"
+}
+[2023-12-14T19:47:34.067Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:47:34.265Z] info: userID 31
+[2023-12-14T19:47:35.003Z] info: 400 { success: false, message: error }
