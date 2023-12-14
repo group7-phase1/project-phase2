@@ -13,6 +13,11 @@ import * as fs from 'fs';
 import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
 import { logger } from './logging_cfg';
 
+
+const git = require('isomorphic-git');
+const http = require('isomorphic-git/http/node');
+
+const archiver = require('archiver');
 // * CONFIGURATION
 dotenv.config();
 const app = express();
@@ -496,6 +501,73 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         if (!userID) {
             logger.info("401 { success: false, message: 'Invalid token' }");
             return res.status(401).send({ message: 'Invalid token' });
+        }
+        if (!req.body.data.Content) {
+            const gitHubLink: string = req.body.data.URL;
+            const dir: string = '/tmp/test';
+            const url: string = gitHubLink;
+            const branch: string = 'master';
+            const filepath: string = '/tmp/test.zip';
+            const githubToken: string | undefined = process.env.GITHUB_TOKEN;
+            
+            try {
+                // Clone the repository
+                await git.clone({
+                    fs,
+                    http,
+                    dir,
+                    url,
+                    ref: branch,
+                    singleBranch: true,
+                    depth: 1,
+                    onAuth: () => ({ username: githubToken }),
+                });
+    
+                // Create a zip file of the cloned repository
+                const output = fs.createWriteStream(filepath);
+                const archive = archiver('zip', { zlib: { level: 9 } });
+    
+                output.on('close', async function () {
+                    console.log(archive.pointer() + ' total bytes');
+                    console.log('Archiver has been finalized and the output file descriptor has closed.');
+    
+                    // Read the zip file into a buffer
+                    const zipFileBuffer: Buffer = fs.readFileSync(filepath);
+    
+                    // Rest of your upload logic
+                    const zipFileName: string = "test.zip";
+                    const name: string = req.body.metadata.Name;
+                    const version: string = req.body.metadata.Version;
+                    const nameID: string = req.body.metadata.ID;
+                    console.log("nameID", nameID);
+    
+                    const familyID = await getFamilyID(nameID); 
+                    console.log("familyID", familyID);
+    
+                    if (familyID != null) {
+                        const result = await upload(zipFileBuffer, zipFileName, userID.toString(), familyID, version, nameID, gitHubLink);
+                        console.log("result", result);
+                        if (result) {
+                            logger.info("200 { success: true, message: 'Version is updated' }");
+                            res.status(200).send({ message: 'Version is updated' });
+                        } else {
+                            logger.info("400 { success: false, message: 'Package does not exist' }");
+                            res.status(400).send({ message: 'Package does not exist' });
+                        }
+                    }
+                });
+    
+                archive.on('error', function(err: Error) {
+                    throw err;
+                });
+    
+                archive.pipe(output);
+                archive.directory(dir, false);
+                archive.finalize();
+            } catch (error) {
+                console.error("Error occurred:", error);
+                res.status(500).send({ message: 'Internal Server Error' });
+            }
         }
         const file = req.body.data.Content;
         const zipFile = Buffer.from(file, 'base64');
