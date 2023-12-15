@@ -3,7 +3,7 @@ import multer from 'multer';
 import path from 'path';  // Add this import at the top
 import { upload } from './upload';
 import { getPackageFamilyID, getPackageFamilyName, getPackageFamilies, getPackagesFromPackageFamily, getPackageDetailsFromPackageFamily, insertUploadedFile, createPackageFamily, getUserIdByCognitoID, deleteUser, clearPackages } from './database';
-import { getFamilyID, deleteAllNameVersionsAG, getNameAG,getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG, packageRegexAG, getPackageID } from './autograderdatabase';
+import { getFamilyID, deleteAllNameVersionsAG, getNameAG, getRatesAG, getPackageFamilyIDAG, getPackageFamilyNameAG, getPackageFamiliesAG, getPackagesFromPackageFamilyAG, getPackageDetailsFromPackageFamilyAG, insertUploadedFileAG, createPackageFamilyAG, getUserIdByCognitoIDAG, deleteUserAG, clearPackagesAG, clearSinglePackageAG, packageRegexAG, getPackageID } from './autograderdatabase';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
@@ -332,7 +332,7 @@ app.post('/packages', async (req: Request, res: Response) => {
         const token = req.headers.authorization?.split(' ')[1];
         logger.info("token", token);
         const offset = req.headers.offset;
-        if(req.headers.offset == null) {
+        if (req.headers.offset == null) {
             const offset = 1;
         }
         if (!token) {
@@ -357,7 +357,7 @@ app.post('/packages', async (req: Request, res: Response) => {
             logger.info("400 { success: false, message: 'Invalid token' }");
             return res.status(400).send({ message: 'Invalid token' });
         }
-       
+
         const packageFamilies = await getPackageFamiliesAG(userID.toString());
 
         logger.info("200 { success: true, message: 'Package families retrieved successfully', packageFamilies: packageFamilies }");
@@ -375,7 +375,7 @@ app.delete('/reset', async (req: Request, res: Response) => {
         logger.info("delete reset");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ message: 'No token provided' });
@@ -419,7 +419,7 @@ app.get('/package/:id', async (req: Request, res: Response) => {
         const packageID = await getPackageID(req.params.id)
         const token = req.headers.authorization?.split(' ')[1];
         const offset = req.headers.offset;
-        if(req.headers.offset == null) {
+        if (req.headers.offset == null) {
             const offset = 1;
         }
         if (!token) {
@@ -445,27 +445,27 @@ app.get('/package/:id', async (req: Request, res: Response) => {
             const packages = await getPackageDetailsFromPackageFamilyAG(packageID, userID.toString());
             logger.info("packages", packages);
 
-        const credentials: Credentials = {
-            accessKeyId: process.env.COGNITO_ACCESS_KEY!,
-            secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY!,
-          };
-        
-          const client = new S3Client({
-            region: 'us-east-2',
-            credentials
-          });
-        
-          const bucketName = 'ece461team';
-          const command = new GetObjectCommand({Bucket: bucketName, Key: packages.data.Content})
+            const credentials: Credentials = {
+                accessKeyId: process.env.COGNITO_ACCESS_KEY!,
+                secretAccessKey: process.env.COGNITO_SECRET_ACCESS_KEY!,
+            };
 
-          const { Body } = await client.send(command);
-          
-        if (!packages) {
-            logger.info("404 { success: false, message: 'Package does not exist' }");
-            return res.status(404).send({ message: 'Package does not exist' });
-        }
-        logger.info("200 { success: true, message: 'Package details retrieved successfully', packages: packages }");
-        res.status(200).send({packages});
+            const client = new S3Client({
+                region: 'us-east-2',
+                credentials
+            });
+
+            const bucketName = 'ece461team';
+            const command = new GetObjectCommand({ Bucket: bucketName, Key: packages.data.Content })
+
+            const { Body } = await client.send(command);
+
+            if (!packages) {
+                logger.info("404 { success: false, message: 'Package does not exist' }");
+                return res.status(404).send({ message: 'Package does not exist' });
+            }
+            logger.info("200 { success: true, message: 'Package details retrieved successfully', packages: packages }");
+            res.status(200).send({ packages });
         }
         else {
             logger.info("packageID is null");
@@ -484,7 +484,7 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         logger.info("put package/:id");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             logger.info("401 { success: false, message: 'No token provided' }");
             return res.status(401).send({ message: 'No token provided' });
@@ -504,12 +504,13 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         }
         if (!req.body.data.Content) {
             const gitHubLink: string = req.body.data.URL;
+            console.log("gitHubLink", gitHubLink);
             const dir: string = '/tmp/test';
             const url: string = gitHubLink;
             const branch: string = 'master';
             const filepath: string = '/tmp/test.zip';
             const githubToken: string | undefined = process.env.GITHUB_TOKEN;
-            
+
             try {
                 // Clone the repository
                 await git.clone({
@@ -522,28 +523,28 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
                     depth: 1,
                     onAuth: () => ({ username: githubToken }),
                 });
-    
+
                 // Create a zip file of the cloned repository
                 const output = fs.createWriteStream(filepath);
                 const archive = archiver('zip', { zlib: { level: 9 } });
-    
+
                 output.on('close', async function () {
                     console.log(archive.pointer() + ' total bytes');
                     console.log('Archiver has been finalized and the output file descriptor has closed.');
-    
+
                     // Read the zip file into a buffer
                     const zipFileBuffer: Buffer = fs.readFileSync(filepath);
-    
+
                     // Rest of your upload logic
                     const zipFileName: string = "test.zip";
                     const name: string = req.body.metadata.Name;
                     const version: string = req.body.metadata.Version;
                     const nameID: string = req.body.metadata.ID;
                     console.log("nameID", nameID);
-    
-                    const familyID = await getFamilyID(nameID); 
+
+                    const familyID = await getFamilyID(nameID);
                     console.log("familyID", familyID);
-    
+
                     if (familyID != null) {
                         const result = await upload(zipFileBuffer, zipFileName, userID.toString(), familyID, version, nameID, gitHubLink);
                         console.log("result", result);
@@ -556,11 +557,11 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
                         }
                     }
                 });
-    
-                archive.on('error', function(err: Error) {
+
+                archive.on('error', function (err: Error) {
                     throw err;
                 });
-    
+
                 archive.pipe(output);
                 archive.directory(dir, false);
                 archive.finalize();
@@ -578,7 +579,7 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
         console.log("nameID", nameID);
         const familyID = await getFamilyID(nameID);
         console.log("familyID", familyID);
-        if(familyID != null) {
+        if (familyID != null) {
             const result = await upload(zipFile, zipFileName, userID.toString(), familyID, version, nameID);
             console.log("result", result);
             if (result) {
@@ -589,11 +590,11 @@ app.put('/package/:id', multerUpload.single('zipFile'), async (req: Request, res
                 res.status(400).send({ message: 'Package does not exist' });
             }
         }
-        
+
 
     } catch (error) {
         logger.info("400 { success: false, message: error }");
-        res.status(400).send({message: "There is missing field(s)" });
+        res.status(400).send({ message: "There is missing field(s)" });
     }
 });
 
@@ -603,7 +604,7 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
         logger.info("delete package/:id");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ message: 'No token provided' });
@@ -623,7 +624,7 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
         const result = await clearSinglePackageAG(req.params.id);
         if (result) {
             logger.info("200 { success: true, message: 'Package deleted successfully' }");
-            res.status(200).send({message: 'Package deleted successfully' });
+            res.status(200).send({ message: 'Package deleted successfully' });
         } else {
             logger.info("400 { success: false, message: 'Package does not exist' }");
             res.status(404).send({ message: 'Package does not exist' });
@@ -635,28 +636,55 @@ app.delete('/package/:id', async (req: Request, res: Response) => {
 }
 );
 
+const cloneAndZipRepository = async (gitHubLink: string, filepath: string) => {
+    const dir: string = '/tmp/test';
+    const url: string = gitHubLink;
+    const branch: string = 'master';
+
+    const githubToken: string | undefined = process.env.GITHUB_TOKEN;
+
+    try {
+        // Clone the repository
+        await git.clone({
+            fs,
+            http,
+            dir,
+            url,
+            ref: branch,
+            singleBranch: true,
+            depth: 1,
+            onAuth: () => ({ username: githubToken }),
+        });
+
+        // Create a zip file of the cloned repository
+        const output = fs.createWriteStream(filepath);
+        const archive = archiver('zip', { zlib: { level: 9 } });
+
+        output.on('close', async function () {
+            console.log(archive.pointer() + ' total bytes');
+            console.log('Archiver has been finalized and the output file descriptor has closed.');
+        });
+
+        archive.on('error', function (err: Error) {
+            throw err;
+        });
+
+        archive.pipe(output);
+        archive.directory(dir, false);
+        archive.finalize();
+    } catch (error) {
+        console.error("Error occurred:", error);
+    }
+}
+
+
 // /package Upload package
 app.post('/package', async (req: Request, res: Response) => {
     try {
         logger.info("post package");
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const content = req.body.data.Content;
-        if (!content) {
-            if (!req.body.data.URL) {
-            logger.info("400 { success: false, message: 'No file uploaded.' }");
-            return res.status(400).send({ message: 'No file uploaded.' });
-            }
-        }
-
-        console.log("creating a new package family");
-        logger.info("creating a new package family");
-        const binaryString = Buffer.from(content, 'base64').toString('binary');
-
-        const zipFileBuffer = Buffer.from(content, 'base64');
-        const zipFileName = "exceptions.zip";
-        
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ message: 'No token provided' });
@@ -683,22 +711,96 @@ app.post('/package', async (req: Request, res: Response) => {
 
         if (!packageFamilyID) {
             logger.info("409 { success: false, message: 'Package exists already.' }");
-            res.status(409).send({ message: 'Package exists already.' });
-            return;
+            // res.status(409).send({ message: 'Package exists already.' });
+            return res.status(409).send({ message: 'Package exists already.' });
         }
         const nameID = req.body.metadata["ID"]
+        const content = req.body.data.Content;
+
+        if (!content) {
+            if (!req.body.data.URL) {
+                logger.info("400 { success: false, message: 'No file uploaded.' }");
+                return res.status(400).send({ message: 'No file uploaded.' });
+            }
+
+            const gitHubLink: string = req.body.data.URL;
+
+            // check if github link is not npm link
+            if (gitHubLink.includes("npmjs.com/")){
+
+                logger.info("400 { success: false, message: 'No file uploaded.' }");
+                return res.status(400).send({ message: 'No file uploaded.' });
+
+
+                
+            }
+            console.log("gitHubLink", gitHubLink);
+            const dir: string = '/tmp/test';
+            const url: string = gitHubLink;
+            const branch: string = 'master';
+            const filepath: string = '/tmp/test.zip';
+
+            await cloneAndZipRepository(gitHubLink, filepath);
+
+            // Read the zip file into a buffer
+            const zipFileBuffer: Buffer = fs.readFileSync(filepath);
+
+            // Rest of your upload logic
+            const zipFileName: string = "test.zip";
+            const name: string = req.body.metadata.Name;
+            const version: string = req.body.metadata.Version;
+            const nameID: string = req.body.metadata.ID;
+            console.log("nameID", nameID);
+
+            // const familyID = await getFamilyID(nameID); 
+            // console.log("familyID", familyID);
+            // const familyID = await createPackageFamilyAG(userID.toString(), packageFamilyName);
+            const familyID = packageFamilyID
+
+            if (familyID != null) {
+                const result = await upload(zipFileBuffer, zipFileName, userID.toString(), familyID, version, nameID, gitHubLink);
+                console.log("result", result);
+                if (result) {
+                    logger.info("200 { success: true, message: 'Version is updated' }");
+                    return res.status(200).send({ message: 'Version is updated' });
+                } else {
+                    logger.info("400 { success: false, message: 'Package does not exist' }");
+                    return res.status(400).send({ message: 'Package does not exist' });
+                }
+            }
+
+
+
+        }
+
+
+        if (!content) {
+            if (!req.body.data.URL) {
+                logger.info("400 { success: false, message: 'No file uploaded.' }");
+                return res.status(400).send({ message: 'No file uploaded.' });
+            }
+        }
+
+        console.log("creating a new package family");
+        logger.info("creating a new package family");
+        const binaryString = Buffer.from(content, 'base64').toString('binary');
+
+        const zipFileBuffer = Buffer.from(content, 'base64');
+        const zipFileName = "exceptions.zip";
+
+
         const result = await upload(zipFileBuffer, zipFileName, userID.toString(), packageFamilyID, version, nameID);
 
         if (result) {
             logger.info("200 { success: true, message: 'File uploaded successfully' }");
-            res.send({ message: 'File uploaded successfully' });
+            return res.send({ message: 'File uploaded successfully' });
         } else {
             logger.info("424 { success: false, message: 'Package is not uploaded due to disqualified rating.' }");
-            res.status(424).send({ message: 'Package is not uploaded due to disqualified rating.' });
+            return res.status(424).send({ message: 'Package is not uploaded due to disqualified rating.' });
         }
     } catch (error) {
         logger.info("400 { success: false, message: error }");
-        res.status(400).send({ message: error });
+        return res.status(400).send({ message: error });
     }
 });
 
@@ -711,7 +813,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         const packageId = await getPackageID(req.params.id)
         console.log("PACKAGEID", packageId);
         logger.info("PACKAGEID", packageId);
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             logger.info("400 { success: false, message: 'No token provided' }");
             return res.status(400).send({ message: 'No token provided' });
@@ -732,7 +834,7 @@ app.get('/package/:id/rate', async (req: Request, res: Response) => {
         }
         if (packageId != null) {
             const packageFamilyID = await getRatesAG(userID.toString(), packageId);
-        
+
             if (!packageFamilyID) {
                 logger.info("400 { success: false, message: 'Invalid package family name' }");
                 res.status(400).send({ message: 'Invalid package family name' });
@@ -783,7 +885,7 @@ app.put('/authenticate', async (req, res) => {
         logger.info("body", req.body);
         logger.info("headers", req.headers);
 
-    
+
         if (!username || !password || !isAdmin) {
             logger.info("400 { success: false, message: 'There is missing field(s) in the AuthenticationRequest or it is formed improperly.' }");
             return res.status(400).send({
@@ -791,7 +893,7 @@ app.put('/authenticate', async (req, res) => {
             });
         }
         const authResult = await login(username, password);
-        
+
 
         if (authResult) {
             logger.info("200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }");
@@ -809,30 +911,30 @@ app.put('/authenticate', async (req, res) => {
         }
     } catch (error) {
         try {
-        const signUpResult = await register(username, password, isAdmin);
-        if (!signUpResult) {
-            logger.info("400 { success: false, message: 'The user already exists.' }");
-            throw new Error('The user already exists.');
-        }
-        console.log("register complete");
-        logger.info("register complete");
-        const authResult = await login(username, password);
-        if (authResult) {
-            logger.info("200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }");
-            // return token as JSON
-            const token = authResult.IdToken;
-            // create response and add json in header
-            res.setHeader('Content-Type', 'application/json');
-            return res.send("bearer " + token);
+            const signUpResult = await register(username, password, isAdmin);
+            if (!signUpResult) {
+                logger.info("400 { success: false, message: 'The user already exists.' }");
+                throw new Error('The user already exists.');
+            }
+            console.log("register complete");
+            logger.info("register complete");
+            const authResult = await login(username, password);
+            if (authResult) {
+                logger.info("200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }");
+                // return token as JSON
+                const token = authResult.IdToken;
+                // create response and add json in header
+                res.setHeader('Content-Type', 'application/json');
+                return res.send("bearer " + token);
 
+            }
+        } catch (error) {
+            logger.info("500 { success: false, message: error }");
+            // Respond with a 500 status code for any other errors
+            return res.status(500).send({
+                message: 'This system does not support authentication.'
+            });
         }
-    } catch (error) {
-        logger.info("500 { success: false, message: error }");
-        // Respond with a 500 status code for any other errors
-        return res.status(500).send({
-            message: 'This system does not support authentication.'
-        });
-    }
     }
 });
 
@@ -840,7 +942,7 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
     try {
 
         const packageName = req.params.name // Retrieve the package ID from the URL parameter
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ message: 'No token provided' });
         }
@@ -855,7 +957,7 @@ app.get('/package/byName/:name', async (req: Request, res: Response) => {
             return res.status(400).send({ message: 'Invalid token' });
         }
         const packageHistory = await getNameAG(userID.toString(), packageName);
-        
+
         if (!packageHistory) {
             res.status(400).send({ message: 'Invalid' });
             return;
@@ -873,7 +975,7 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
     try {
         const packageName = req.params.name // Retrieve the package ID from the URL parameter
         console.log(packageName);
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ message: 'No token provided' });
         }
@@ -888,8 +990,8 @@ app.delete('/package/byName/:name', async (req: Request, res: Response) => {
             return res.status(400).send({ message: 'Invalid token' });
         }
         const result = await deleteAllNameVersionsAG(userID.toString(), packageName);
-        if(result) {
-            res.status(200).send({message: 'Package is deleted' });
+        if (result) {
+            res.status(200).send({ message: 'Package is deleted' });
             return;
         }
         if (!result) {
@@ -906,7 +1008,7 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
     try {
         const regex = req.body.RegEx;
 
-        const token = (req.headers['x-authorization']as string)?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
             return res.status(400).send({ message: 'No token provided' });
         }
@@ -921,7 +1023,7 @@ app.post('/package/byRegEx', async (req: Request, res: Response) => {
             return res.status(400).send({ message: 'Invalid token' });
         }
         const packages = await packageRegexAG(userID.toString(), regex);
-        
+
         if (packages.length === 0) {
             return res.status(404).send({ message: 'No packages found' });
         }

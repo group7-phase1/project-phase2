@@ -67,6 +67,7 @@ export async function clearPackages(userID: string): Promise<boolean> {
 
 export async function updateFamilyScores(packageFamilyID: string, scores: module): Promise<boolean> {
     try {
+        console.log('------------------------------------');
         console.log('Updating family scores...');
         console.log(scores);
         const query = `
@@ -103,18 +104,30 @@ export async function insertUploadedFile(userID: string, packageName: string, ve
             DEPENDENCY_PINNING_SCORE: 0,
             CODE_REVIEW_COVERAGE_SCORE: 0,
         };
-
+        console.log("------------------------------------");
         console.log('Inserting into database...');
         logger.info('Inserting into database...');
         await GenerateCalculations(currModule, false);
+        let netScore = 0
         for (const key in currModule) {
             if (currModule.hasOwnProperty(key)) {
-              if ((currModule as any)[key] < 0.1) {
-                logger.error(`Score for ${key} is below 0.5`);
-                return false;
-              }
+                netScore += (currModule as any)[key];
+            //   if ((currModule as any)[key] < 0.1) {
+            //     logger.error(`Score for ${key} is below 0.5`);
+            //     return false;
+            //   }
             }
         }
+        netScore = netScore / 8;
+
+        if (netScore < 0.1) {
+            logger.error(`Net Score is below 0.5`);
+            return false;
+        }
+
+        currModule.NET_SCORE = netScore;
+
+        console.log("------------------------------------");
         console.log("After GenerateCalculations");
         console.log(currModule);
         // logger.info(currModule);
