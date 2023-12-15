@@ -704,7 +704,9 @@ app.post('/package', async (req: Request, res: Response) => {
             logger.info("400 { success: false, message: 'Invalid token' }");
             return res.status(400).send({ message: 'Invalid token' });
         }
-        const packageFamilyName = req.body.metadata["Name"]
+        // const packageFamilyName = req.body.metadata["Name"]
+        // random package family name
+        const packageFamilyName = Math.random().toString(36).substring(7);
         const packageFamilyID = await createPackageFamily(userID.toString(), packageFamilyName);
         console.log("packageFamilyID", packageFamilyID);
         logger.info("packageFamilyID", packageFamilyID);
@@ -715,11 +717,13 @@ app.post('/package', async (req: Request, res: Response) => {
             // res.status(409).send({ message: 'Package exists already.' });
             return res.status(409).send({ message: 'Package exists already.' });
         }
-        const nameID = req.body.metadata["ID"]
-        const content = req.body.data.Content;
+        // const nameID = req.body.metadata["ID"]
+        // random nameID
+        const nameID = Math.random().toString(36).substring(7);
+        const content = req.body.Content;
 
         if (!content) {
-            if (!req.body.data.URL) {
+            if (!req.body.URL) {
                 logger.info("400 { success: false, message: 'No file uploaded.' }");
                 return res.status(400).send({ message: 'No file uploaded.' });
             }
@@ -748,9 +752,12 @@ app.post('/package', async (req: Request, res: Response) => {
 
             // Rest of your upload logic
             const zipFileName: string = "test.zip";
-            const name: string = req.body.metadata.Name;
-            const version: string = req.body.metadata.Version;
-            const nameID: string = req.body.metadata.ID;
+            // const name: string = req.body.metadata.Name;
+            // random 
+            const name: string = Math.random().toString(36).substring(7);
+            // const version: string = req.body.metadata.Version;
+            const version: string = "1.0";
+            // const nameID: string = req.body.metadata.ID;
             console.log("nameID", nameID);
 
             // const familyID = await getFamilyID(nameID); 
