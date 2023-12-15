@@ -728,7 +728,9 @@ app.post('/package', async (req: Request, res: Response) => {
                 return res.status(400).send({ message: 'No file uploaded.' });
             }
 
-            const gitHubLink: string = req.body.data.URL;
+            const gitHubLink: string = req.body.URL;
+
+            logger.info("gitHubLink", gitHubLink);
 
             // check if github link is not npm link
             if (gitHubLink.includes("npmjs.com/")){
