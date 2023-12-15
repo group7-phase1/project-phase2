@@ -195,3 +195,1201 @@
 [2023-12-10T18:01:28.918Z] info: userID 11
 [2023-12-10T18:01:28.956Z] info: packageFamilyID null
 [2023-12-10T18:01:28.956Z] info: 409 { success: false, message: 'Package exists already.' }
+[2023-12-14T02:55:57.804Z] info: Starting server
+[2023-12-14T02:56:01.273Z] info: put package/:id
+[2023-12-14T02:56:01.273Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "UEsDBBQAAAAAADZVaVMAAAAAAAAAAAAAAAAFACAAdXVpZC9VVA0AB7iWimG4lophuJaKYXV4CwABBPcBAAAEFAAAAFBLAwQUAAgACAAkVWlTAAAAAAAAAAB6AQAAFgAgAHV1aWQvYmFiZWwuY29uZmlnLmpzb25VVA0AB5SWimGUlophlJaKYXV4CwABBPcBAAAEFAAAAKvmUlBQKihKLU4tKVayUoiO1QEL5JSmZ+YhCaTmlQE51UAmkJOcn5ubn5dVDBdBNSJaySEpMSk1Rx8ipgvSq6NQraBUkliUDlED5OTlp6QCWUoWSgq1OgpKufkppTmpIDmE8Qq1sbFg82t1IBanFuc6FeWXF6cWkWo1wvi0xJziVGwm+0EcRAMfoVnJBcK1XABQSwcIiFTUlZEAAAB6AQAAUEsDBBQACAAIACRVaVMAAAAAAAAAAFUEAAAPACAAdXVpZC9MSUNFTlNFLm1kVVQNAAeUlophlJaKYZSWimF1eAsAAQT3AQAABBQAAABdUltv2jAUfudXHPHUSlnH+rg3k5hiNcSRY8p4DIlDPIUY2WaIf79jk67tJCQ4t+9mZK9gwyTkulGjU/CAxeNslprzzepj7+GheYTnxY/Ft+fF8wKEOSjr4VWrrlMW6rEF43v81ZjRW324eGPdbFYqe9LOaTOCdoBzdbjB0dajV20CnVUKTAdNX9ujSsAbBLrBWVmHB+bgaz3q8Qg1op5vYdP3CONM56+1VZG1ds40ukY8aE1zOanR1z7wdXpQDh5QFMyr6WL+GElaVQ+gRwiz9xFcte/NxYNVDg00ASPBpWa4tEHD+3jQJz0xhPOYjQugF4cOgs4ETqbVXfhW0db5chi06xNotbtng00XmjHqJPj4biw4NQwBQaPu6PVDXdwJLOcQqJ8iirzX3py+OsGIuosdkVLFm9ZgZJHxt2p86IT1zgyDuQZr+GStDo7cz9lM4qg+mD8qerk//Wg8Sr1LCA9w/njVaeT6GrUf1BQY8mK89Sc7NtA7jw+vMfuzsZHvf5tPyL+mUPGV3BFBgVVQCv7GMprBnFRYzxPYMbnmWwm4IUgh98BXQIo9vLIiS4D+KgWtKuAC2KbMGcUeK9J8m7HiBZZ4V3D8lzP8eyOo5BAIJyhGqwC2oSJdY0mWLGdyn8CKySJgrhCUQEmEZOk2JwLKrSh5RZE+Q9iCFSuBLHRDC/mErNgD+oYFVGuS55GKbFG9iPpSXu4Fe1lLWPM8o9hcUlRGljm9U6GpNCdsk0BGNuSFxiuOKCKuTep2axpbyEfwk0rGi2Aj5YUUWCboUsh/pztW0QSIYFUIZCU4woc48YJHELwr6B0lRA1fXgRXQr2t6IeWjJIcsapw/Hn5afYXUEsHCLhJGDGDAgAAVQQAAFBLAwQUAAgACAA2VWlTAAAAAAAAAAAEGAAADgAgAHV1aWQvLkRTX1N0b3JlVVQNAAe4lophuJaKYbiWimF1eAsAAQT3AQAABBQAAADtmDsOwjAQRGeNC0s0LindcABuYEXJCbgABVeg99Eh2hGyFFJQJYJ5kvVWin9pHE8A2PC4X4AMIMGNMz6S2BaErjbOIYQQQoh9Y6503HYbQogdMp8Pha50cxufBzp2YzJd6Eo3t7FfoCOd6EwXutLNzUPLGD6MKxsTijGFWKHrV68sxN9wcOX5+z9hNf8LIX4Yi+N1HPAOBMsOr3br6ob1S0Dwn4WnbmyhK93cuggIsRVPUEsHCGoAiG2yAAAABBgAAFBLAwQUAAgACAA2VWlTAAAAAAAAAAB4AAAAGQAgAF9fTUFDT1NYL3V1aWQvLl8uRFNfU3RvcmVVVA0AB7iWimG4lophuZaKYXV4CwABBPcBAAAEFAAAAGNgFWNnYGJg8E1MVvAPVohQgAKQGAMnEBsBsRsQg/gVQMwAU+EgwIADOIaEBEGZFTBd6AAAUEsHCAuIwDg1AAAAeAAAAFBLAwQUAAAAAAAkVWlTAAAAAAAAAAAAAAAACgAgAHV1aWQvdGVzdC9VVA0AB5SWimG5lophlJaKYXV4CwABBPcBAAAEFAAAAFBLAwQUAAgACAAkVWlTAAAAAAAAAACIMQAAEQAgAHV1aWQvQ0hBTkdFTE9HLm1kVVQNAAeUlophlJaKYZSWimF1eAsAAQT3AQAABBQAAADdW82OGzmSvvspuDCwLmEsFX+SzMzuncG43dU9tTs2Gl3jvhQWMH9LaUuZmsyUqtSLOc877GmP+1zzJBskM7OkstxFYbGXRQNuWQqSwWDEF18E6Zfo7VLWd3bV3L148Wa1QnXTS7WySIevO9Q3qF9WHdq0zSere3RfgZCyyDR6u7Z1bw2q6ijiqpVdoBtr0W3Xy9rI1sx3tu2qpv73i2Xfb7pvLi/vqn65VQvdrC91U+9gBvhZruZ6VOPy6dgZck2LYMC66tHdtjJ2VdW2W7x48fLlS3RbLNiCnpx/C7KfuvA/WGu9ka293Hlxslgswgc6QxcUUzwndI6LWZzxu+0d+qF6sN2LF3O0kr/u0aqRBt3Z/mdQrFn/IldbMMzF7UvO8mcXrroOpC9BdAaL3RKhCydMir6w3ctB3FEnFC5VZgRlXGBqhOQlIUXBKJYFtbPZa6RXTQd6ebVEulpidmBHcp4d8WhHMtkRz3F2yo7ddrNp2h7Zh03zh9+zEsbiYELCk3UlPJhQCy6xY6kmHMSdzJkqMSl5aQQrDLEMLGic1EZZU4j8yIQsT1YLRMOGowXxORakjxbEowVxPqf5YMEfrOy3bTSgNAbBuM5CfLRVfVe5/eVOrioje5grRsrl++s/ozc/XQfnzPIydQsgGiyLrdAEq1TLDuKSKFdykuelcI4yjTl1GmeisNY4w112ZNks3bIgOgsjivQRRRhRPH8M44gCxxHPu/40gvgRJH0NEJ08hJ7nIWT0EHrgIWJO2QkPqdaA0TuLNrYFwFzLWlvUOLQjKHoMau0GRAFxpcfc4CP8+TAat83Z4CMWK/E87k0+EsQ1y4tMcFpqIXBRFgXOSGZo6Zi0hFEDkQ07aO3ab8B4PbX0qWWXjcqDReTa9raNemfpemdB76LQlmmZqvcgDt4NnuxAZy6MFVTn2mLmciXLQslM6GPfTs8HIDo7gMVP3WYdgzb9QPJ4ILZ0lBfJBzKIy5LynGupGVGamEzaMsssyTUucy4EB0A4geJwLt4z4TD0Z3lnA5q3fRcS9L1V/mvEwz5EesyKIh6QERayWvIBRXFXlAK2UcJmLKTHktqylBnLGOCO5IUsZlPokfNCD4+hRw5Cj88p/o3QA3c9jD61B5fediH2AnVA9XatwIVl28p9sBNLR0MW05+CjTmczCAG8ZwQMA+1BjNDXJ45Q6g04N6yyI3OSxMCsNn01br61aJfiqcwova97f7SfICpo+LpEchiBFrCRZaQ7kdHjeJZVlhNJCQWThzEowAA0U5RcGJS5sTRk44aHXP008WnDvCutX/dVi2ASjgWqft5DUAIpwZHg9S2NivIomFvWXrmzGLmVJYAUbPJhxLFSwn0TWjGC4sxLxUkTulMTgmTMiskp4foIqvLWtaN9ZS5Ax1PrnUk9Kjky/DJLw7fz4E/YoIhRkLm+8pMJzebTcGEzwmmHMRZDCZ8EEzZnJbD4f3jP/8Lfffz1Zt/u37/I3r7pzfvf7y68ef4AwDLcEpXb9+9udFttenRu8ZsoUS5uLp5N0PbziMR1CDvG+NPGjX1ag+D1nDSIz55zPKfO2teQ61i4a9Qr9QNWjetzzdOblf9IA11BUIfP340lXPwaQ6x7V3J7wi5FmL4lf/46lv/G1QwXQNFD5QtF/7bxS67mM2+RZeXaP4H9EobOFyFizmWRs8zl6m5FNbNGeSTXBJdFqJ8BfP8bljjPzyAyC6sBZ/+9nS938UfLuIK//j7f6NXpSLGA9+cqdzMMyXNvFTGzKmCmFfMaCXMq7ghb8/vrd0MgeBRqdtYXblKI7m6a1o4xXXnYz1Uc6tKtbKF4qf6bNHHIXgugjKXu+zV7ONrdL+s9BItQWNlbX2Yt+E4PnrJP+YgFk29aqC+a8eMZ02w83Xd9RaKq21n/bk8ObZ+KfuozDqe+PBDGOpd4wuf6KJTfPP1MwS7PlrVb+TbMw5gsv9o0ajGWwispv7Xm6fLeveYVv09+tKGYe0o5Zf+5nHhJ9JR9Ivln+ahIVTGSLi6eTTLfSs3G596NpCqpF7OAtLRdLpBI92gpnS8TAp+j3SDuDRljokRJRWUa5xbKGQdhrqsJJTmZUmOeBTNkrMiiAYUI+mQTUo/gmXPNw3GCi+jR+x0CqHYBchocrkNosGIRrqcqucp0mDEQTzTVgFy5lQWRCnuIM4V5sZASUupVkqeTIW+cBwdFHV7YP8PEEdyvYF46hsEoPv9uysE29Gfu15CEHRWT/UBSSe0JDY4LLa6yJL9YxAHYi1NlqncOgyVBmZCC0IdN4oT5ozE49ZuQy45L/VQn3rCuCn1sDkjp4y1lp+PT3gCNW+Re9nWHjbvm/azhzjVNvfdSBpwugfiSBpgu4TgZOY+iJtCYyByjotCEAtFSQYFiS4N0AhJrFDuuCTB6UR86oAFI5/RU/PiZDQyPTDy6V5QMLLU2nahvbju3rb7DXzwQFhBPqh7b1BWJmMTiMYSQjkqabLvDeKOccENcGJmJHAvbq0ykEdlaahxhBQ6UOMOUsSqcj4f1uHwTzlGUDu5k8A87HnyqKgu7PM0bCSPURwKuUxzV2pipXTMSg50GGvBmDYl1ioPam83vkEUlI7Glj2kbLB0MHPlWbE0axs0L5JxDESjB2eOuoRhowdHcQuWVcqRzFrusMMY0E0yowiF9CCEyY6C/YyeZD4WbWHc5Id0TvkpP9QrK2uwELLdGgqAamViJVtD+oxFQYzvaJx0byyiN/ISCtSEUmIwziBuc22BuNnCKfBMsBBVpZHSgolcJqBWC8fqy80KtBw1HBqAHZwo+KWFP+B0A3kZmFO3h8Bax50kN65ANB4zyzJJkwAhHHMUt7m0hjFlC0Fz650Uc2C+jnIhKcl9P+mo45oMVCA61CH5eXUIW2SP/oEP/SN7pg75y/JpmTCyX2CuxgeWigTW0zO0tv2y8TVlPwjdA6eUKx9qe2SqTjfbFoqWQJNBqYennPv1I6eOpAPI8hxdPQAA6ar31U3T28iOQ66K7HWg7qAo0E8oceqhaBl8A7ltHRJ7LIcOyLp39UeCbutJPf9DWOWAZw/+FIn6uHC3bLYr420QzFFFVr9AV/7KRp6ESh9oG9t4FnK/bMI+5mPOPd7EVJugnWwrWXv+P0c/Rzbmw7YHM46NND8tLG81UOInTZc7W9t",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T02:56:01.273Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiNTlmNTdjMTMtZDU0Mi00NjgzLThiMzYtMjNkYmYyNzMwZGI4Iiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjJmYTA2NzU5LWMyZGQtNDQ4Yy04YTdmLWRiZTgwZmQyMTBiMyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTIyNTAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTI2MTAzLCJpYXQiOjE3MDI1MjI1MDMsImp0aSI6IjAyYjdlYjgxLWM1NTgtNGI0MC1iOTczLTU1M2RmNjc4MGExNSJ9.y30WAt8FR0CJsNOjTd8A49Lw5qlu3jwRHkyGXWxErMNov-leHKh2PWcO3pfO1gbhVt-sLQNF_-ZS7haW5fi24d0c6anUBlogl25LrTD_NGhceuLZ9zi8hvVFHkM9eTzVu2nQblnT_vHOssyXZd-lp8mpUtS98vvkjpZTLEPK5u7PfajuIsxx_Tp9uJW1PyFUb1mja-lGk2dL8tpL4f_lRnK3FTroqof6HvaKfUva-xUpWr0I0UmXF5GrJmHHk3jRF9cabcoiYVMjmSehEwDmPA5BPBbh3gJ6CkAwW7yM-SvumT3fQTYV_HO6gJ5jZaSxk8BF7pmbp1uqf0I8sV9Qtw",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.35.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "286f66cd-11b5-43e3-a79e-efb612aa9d10",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5705"
+}
+[2023-12-14T02:56:01.274Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T02:56:01.444Z] info: userID 31
+[2023-12-14T19:31:42.920Z] info: Starting server
+[2023-12-14T19:33:47.301Z] info: put package/:id
+[2023-12-14T19:33:47.301Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:33:47.301Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiNTlmNTdjMTMtZDU0Mi00NjgzLThiMzYtMjNkYmYyNzMwZGI4Iiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjJmYTA2NzU5LWMyZGQtNDQ4Yy04YTdmLWRiZTgwZmQyMTBiMyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTIyNTAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTI2MTAzLCJpYXQiOjE3MDI1MjI1MDMsImp0aSI6IjAyYjdlYjgxLWM1NTgtNGI0MC1iOTczLTU1M2RmNjc4MGExNSJ9.y30WAt8FR0CJsNOjTd8A49Lw5qlu3jwRHkyGXWxErMNov-leHKh2PWcO3pfO1gbhVt-sLQNF_-ZS7haW5fi24d0c6anUBlogl25LrTD_NGhceuLZ9zi8hvVFHkM9eTzVu2nQblnT_vHOssyXZd-lp8mpUtS98vvkjpZTLEPK5u7PfajuIsxx_Tp9uJW1PyFUb1mja-lGk2dL8tpL4f_lRnK3FTroqof6HvaKfUva-xUpWr0I0UmXF5GrJmHHk3jRF9cabcoiYVMjmSehEwDmPA5BPBbh3gJ6CkAwW7yM-SvumT3fQTYV_HO6gJ5jZaSxk8BF7pmbp1uqf0I8sV9Qtw",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "a8da6944-7a54-461d-bf21-64aea14d1358",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5705"
+}
+[2023-12-14T19:33:47.302Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:33:47.530Z] info: userID 31
+[2023-12-14T19:34:06.576Z] info: post package
+[2023-12-14T19:34:06.576Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "UEsDBBQAAAAAAA9DQlMAAAAAAAAAAAAAAAALACAAZXhjZXB0aW9ucy9VVA0AB35PWGF+T1hhfk9YYXV4CwABBPcBAAAEFAAAAFBLAwQUAAgACACqMCJTAAAAAAAAAABNAQAAJAAgAGV4Y2VwdGlvbnMvQ29tbWNvdXJpZXJFeGNlcHRpb24uamF2YVVUDQAH4KEwYeGhMGHgoTBhdXgLAAEE9wEAAAQUAAAAdY7NCoMwDMfvfYoct0tfQAYDGbv7BrVmW9DaksQhDN99BSc65gKBwP/jl+R86+4IPgabN/g4MCFbHD0mpdhLYQyFFFl/PIyijpVuzqvYCiVlO5axwWKJdDHUsbVXVEXOTef5MmmoO/LgOycC5dp5WbCAo2LfCFRDrxRwFV7GQJ7E9HSKsMUCf/0w+2bSHuPwN3vMFPiMPkjsVoTTHmcyk3kDUEsHCOEX4+uiAAAATQEAAFBLAwQUAAgACACqMCJTAAAAAAAAAAB9AgAAKgAgAGV4Y2VwdGlvbnMvQ29tbWNvdXJpZXJFeGNlcHRpb25NYXBwZXIuamF2YVVUDQAH4KEwYeGhMGHgoTBhdXgLAAEE9wEAAAQUAAAAdVHNTsMwDL7nKXzcJOQXKKCJwYEDAiHxACY1U0bbRI7bVUJ7d7JCtrbbIkVx4u/HdgLZb9owWF9j2rX1rTgW5N5yUOebWBjj6uBFzzDCUUnUfZHViA8U+Z1jSBQurlFadZVTxxEz9CO9jDy21FGPrtmyVXwejmKa20WUmESF8cxujOBe8Sl38UIhsFzFvYnvXHkAmFWOTWg/K2fBVhQjrE9NzEQhaVZcc6MRZqnbS6x7+DEG0lr9tTfEk2mAzGYzoF87FkmFDbf/2jIN1OdwcckTuF9m28Ma/9XRDe6g4d0kt1gWJ5KwttJMi8M2lKRH/CMpLTLgJrnihjUn175Mgllxb/bmF1BLBwiV8DzjBgEAAH0CAABQSwMEFAAIAAgAD0NCUwAAAAAAAAAAGQMAACYAIABleGNlcHRpb25zL0dlbmVyaWNFeGNlcHRpb25NYXBwZXIuamF2YVVUDQAHfk9YYX9PWGF+T1hhdXgLAAEE9wEAAAQUAAAAjVNRa8IwEH7Prwg+VZA87a3bcJsyBhNHx9hzTE+Npk25XG3Z8L8v7ZbaKsICaS6977vvu6QtpNrLDXBlM+FnpmyJGlBAraAgbXMXM6azwiJdYBAcSSS9loqceJQOEnCFp0D8P0qAP9n0OqUkbTRpOME//JuerZ08yFrofAeKxEu7xMNc5QQ6XxRBXDjsI6AmMQ+NL2RRAF7FvaE96LQHMDZb2X2TA8yFM+ubnXhvnt7ptA3YNJBYUa6MVlwZ6Rx/hhxQqzNl7usayCAnx89St93+nn8zxv2Y/jbexoNz4nh2ai16eQBE76Td/ZkJNE42hFEnxKEeB61m9G+7k+B3PIdqkIvG8Ylk7EZ4XYvR6KGpGGpX0nHaoq3y0aQR6lEQqMR82IQoi1RSJzGTJD81bWfgFOq2YhTwE97/xsQ8SZZJIyE2QK9WSaO/IF2Ac/4fiMZB+MiO7AdQSwcIIu3xZlgBAAAZAwAAUEsBAhQDFAAAAAAAD0NCUwAAAAAAAAAAAAAAAAsAIAAAAAAAAAAAAO1BAAAAAGV4Y2VwdGlvbnMvVVQNAAd+T1hhfk9YYX5PWGF1eAsAAQT3AQAABBQAAABQSwECFAMUAAgACACqMCJT4Rfj66IAAABNAQAAJAAgAAAAAAAAAAAApIFJAAAAZXhjZXB0aW9ucy9Db21tY291cmllckV4Y2VwdGlvbi5qYXZhVVQNAAfgoTBh4aEwYeChMGF1eAsAAQT3AQAABBQAAABQSwECFAMUAAgACACqMCJTlfA84wYBAAB9AgAAKgAgAAAAAAAAAAAApIFdAQAAZXhjZXB0aW9ucy9Db21tY291cmllckV4Y2VwdGlvbk1hcHBlci5qYXZhVVQNAAfgoTBh4aEwYeChMGF1eAsAAQT3AQAABBQAAABQSwECFAMUAAgACAAPQ0JTIu3xZlgBAAAZAwAAJgAgAAAAAAAAAAAApIHbAgAAZXhjZXB0aW9ucy9HZW5lcmljRXhjZXB0aW9uTWFwcGVyLmphdmFVVA0AB35PWGF/T1hhfk9YYXV4CwABBPcBAAAEFAAAAFBLBQYAAAAABAAEALcBAACnBAAAAAA=",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:34:06.578Z] info: headers {
+  "x-authorization": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "95023982-6327-481d-a491-5417ed118002",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "2470"
+}
+[2023-12-14T19:34:06.578Z] info: creating a new package family
+[2023-12-14T19:34:06.580Z] info: sub "1234567890"
+[2023-12-14T19:34:06.754Z] info: userID null
+[2023-12-14T19:34:06.755Z] info: 400 { success: false, message: 'Invalid token' }
+[2023-12-14T19:38:15.793Z] info: put authenticate
+[2023-12-14T19:38:15.794Z] info: body {
+  "User": {
+    "name": "mateusz50",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-14T19:38:15.794Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "5b9775ba-99e4-4b34-bd1d-152c22980a8a",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-14T19:38:15.795Z] info: login()
+[2023-12-14T19:38:15.803Z] info: Attempting to log in user:  "mateusz50"
+[2023-12-14T19:38:16.394Z] info: User logged in successfully:  "mateusz50"
+[2023-12-14T19:38:16.395Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-14T19:38:23.342Z] info: post package
+[2023-12-14T19:38:23.342Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:38:23.342Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "5fdd0ffe-9322-402d-b6fe-f2a6a2cf6625",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "2470"
+}
+[2023-12-14T19:38:23.342Z] info: creating a new package family
+[2023-12-14T19:38:23.342Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:38:23.535Z] info: userID 31
+[2023-12-14T19:38:23.573Z] info: packageFamilyID 141
+[2023-12-14T19:38:23.573Z] info: upload()
+[2023-12-14T19:38:23.605Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1702582703574"
+[2023-12-14T19:38:23.606Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1702582703574/exceptions/package.json"
+[2023-12-14T19:38:23.606Z] error: package.json not found.
+[2023-12-14T19:38:23.606Z] info: 424 { success: false, message: 'Package is not uploaded due to disqualified rating.' }
+[2023-12-14T19:39:13.781Z] info: post package
+[2023-12-14T19:39:13.781Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:39:13.783Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "81c82c80-e5a9-428c-960d-d7552a7298f3",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:39:13.783Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-14T19:40:04.633Z] info: Starting server
+[2023-12-14T19:40:07.346Z] info: post package
+[2023-12-14T19:40:07.346Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:40:07.346Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "a4a43be7-a4fc-476c-97f1-775dd23b04fa",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:40:07.347Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-14T19:40:11.288Z] info: post package
+[2023-12-14T19:40:11.288Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:40:11.288Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e2061efa-7eda-4067-9c29-23f84846bf15",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:40:11.288Z] info: 400 { success: false, message: 'No file uploaded.' }
+[2023-12-14T19:43:38.673Z] info: Starting server
+[2023-12-14T19:43:41.361Z] info: post package
+[2023-12-14T19:43:41.361Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:43:41.361Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "24917f51-8dcb-40c4-9238-d45d18adef9f",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-14T19:43:41.362Z] info: creating a new package family
+[2023-12-14T19:43:41.362Z] info: 400 { success: false, message: error }
+[2023-12-14T19:46:55.203Z] info: put package/:id
+[2023-12-14T19:46:55.204Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "Content": "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",
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:46:55.205Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiNTlmNTdjMTMtZDU0Mi00NjgzLThiMzYtMjNkYmYyNzMwZGI4Iiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjJmYTA2NzU5LWMyZGQtNDQ4Yy04YTdmLWRiZTgwZmQyMTBiMyIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTIyNTAzLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTI2MTAzLCJpYXQiOjE3MDI1MjI1MDMsImp0aSI6IjAyYjdlYjgxLWM1NTgtNGI0MC1iOTczLTU1M2RmNjc4MGExNSJ9.y30WAt8FR0CJsNOjTd8A49Lw5qlu3jwRHkyGXWxErMNov-leHKh2PWcO3pfO1gbhVt-sLQNF_-ZS7haW5fi24d0c6anUBlogl25LrTD_NGhceuLZ9zi8hvVFHkM9eTzVu2nQblnT_vHOssyXZd-lp8mpUtS98vvkjpZTLEPK5u7PfajuIsxx_Tp9uJW1PyFUb1mja-lGk2dL8tpL4f_lRnK3FTroqof6HvaKfUva-xUpWr0I0UmXF5GrJmHHk3jRF9cabcoiYVMjmSehEwDmPA5BPBbh3gJ6CkAwW7yM-SvumT3fQTYV_HO6gJ5jZaSxk8BF7pmbp1uqf0I8sV9Qtw",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "c86cee8e-4ca6-45fb-a234-587404887fb0",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "5705"
+}
+[2023-12-14T19:46:55.207Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:46:55.405Z] info: userID 31
+[2023-12-14T19:47:34.066Z] info: put package/:id
+[2023-12-14T19:47:34.067Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-14T19:47:34.067Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e6798565-2dba-4acc-8e6d-65e8efd9a5e8",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "343"
+}
+[2023-12-14T19:47:34.067Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-14T19:47:34.265Z] info: userID 31
+[2023-12-14T19:47:35.003Z] info: 400 { success: false, message: error }
+[2023-12-15T14:04:06.072Z] info: Starting server
+[2023-12-15T14:04:36.113Z] info: put authenticate
+[2023-12-15T14:04:36.114Z] info: body {
+  "User": {
+    "name": "mateusz50",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-15T14:04:36.114Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "b6cb6332-4332-4194-b739-8b9a26475928",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-15T14:04:36.114Z] info: login()
+[2023-12-15T14:04:36.116Z] info: Attempting to log in user:  "mateusz50"
+[2023-12-15T14:04:36.582Z] info: User logged in successfully:  "mateusz50"
+[2023-12-15T14:04:36.583Z] info: 200 { success: true, message: 'User logged in successfully', token: authResult.IdToken }
+[2023-12-15T14:04:50.225Z] info: post package
+[2023-12-15T14:04:50.225Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:04:50.225Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "11af292b-a6f3-4df0-acc7-5c082bda7b8e",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:04:50.226Z] info: creating a new package family
+[2023-12-15T14:04:50.226Z] info: 400 { success: false, message: error }
+[2023-12-15T14:07:04.826Z] info: Starting server
+[2023-12-15T14:07:09.208Z] info: post package
+[2023-12-15T14:07:09.209Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:07:09.209Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "444d0816-1037-4412-a5e4-e41affc611b2",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:07:09.209Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:07:09.405Z] info: userID 31
+[2023-12-15T14:07:09.445Z] info: packageFamilyID null
+[2023-12-15T14:07:09.445Z] info: 409 { success: false, message: 'Package exists already.' }
+[2023-12-15T14:07:19.485Z] info: post package
+[2023-12-15T14:07:19.485Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore2"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:07:19.485Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "7b532a58-439d-4909-a3eb-d89c8b6637cb",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "302"
+}
+[2023-12-15T14:07:19.486Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:07:19.612Z] info: userID 31
+[2023-12-15T14:07:19.643Z] info: packageFamilyID null
+[2023-12-15T14:07:19.643Z] info: 409 { success: false, message: 'Package exists already.' }
+[2023-12-15T14:07:34.319Z] info: post package
+[2023-12-15T14:07:34.320Z] info: body {
+  "metadata": {
+    "Name": "Underscore2",
+    "Version": "1.0.0",
+    "ID": "underscore2"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:07:34.320Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "10828064-556b-4dba-864a-8bc9a22b9917",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "303"
+}
+[2023-12-15T14:07:34.320Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:07:34.447Z] info: userID 31
+[2023-12-15T14:07:34.470Z] info: packageFamilyID 144
+[2023-12-15T14:07:34.948Z] info: creating a new package family
+[2023-12-15T14:07:34.948Z] info: 400 { success: false, message: error }
+[2023-12-15T14:07:57.270Z] info: post package
+[2023-12-15T14:07:57.270Z] info: body {
+  "metadata": {
+    "Name": "Underscore22",
+    "Version": "1.0.0",
+    "ID": "underscore22"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:07:57.270Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "1e8f3de5-a091-456f-8e58-91d22c97bcf6",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "305"
+}
+[2023-12-15T14:07:57.270Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:07:57.401Z] info: userID 31
+[2023-12-15T14:07:57.425Z] info: packageFamilyID 145
+[2023-12-15T14:07:57.868Z] info: creating a new package family
+[2023-12-15T14:07:57.869Z] info: 400 { success: false, message: error }
+[2023-12-15T14:12:46.827Z] info: Starting server
+[2023-12-15T14:12:54.984Z] info: post package
+[2023-12-15T14:12:54.984Z] info: body {
+  "metadata": {
+    "Name": "Underscore222",
+    "Version": "1.0.0",
+    "ID": "underscore222"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:12:54.985Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "dc89aff9-5f17-45fd-ad27-64ebf0a7781c",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "307"
+}
+[2023-12-15T14:12:54.985Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:12:55.120Z] info: userID 31
+[2023-12-15T14:12:55.145Z] info: packageFamilyID 146
+[2023-12-15T14:12:55.679Z] info: creating a new package family
+[2023-12-15T14:12:55.679Z] info: 400 { success: false, message: error }
+[2023-12-15T14:14:34.082Z] info: post package
+[2023-12-15T14:14:34.082Z] info: body {
+  "metadata": {
+    "Name": "Underscore2222",
+    "Version": "1.0.0",
+    "ID": "underscore2222"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:14:34.082Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "8ce52223-3d66-4d0a-be8c-d48f6a1045da",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "309"
+}
+[2023-12-15T14:14:34.083Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:14:34.211Z] info: userID 31
+[2023-12-15T14:14:34.233Z] info: packageFamilyID 148
+[2023-12-15T14:14:34.708Z] info: creating a new package family
+[2023-12-15T14:14:34.708Z] info: 400 { success: false, message: error }
+[2023-12-15T14:15:46.392Z] info: Starting server
+[2023-12-15T14:15:50.724Z] info: post package
+[2023-12-15T14:15:50.724Z] info: body {
+  "metadata": {
+    "Name": "Underscore2222",
+    "Version": "1.0.0",
+    "ID": "underscore2222"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:15:50.724Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "792e0078-efc7-4bed-8071-8840688743e5",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "309"
+}
+[2023-12-15T14:15:50.725Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:15:50.880Z] info: userID 31
+[2023-12-15T14:15:50.911Z] info: packageFamilyID null
+[2023-12-15T14:15:50.911Z] info: 409 { success: false, message: 'Package exists already.' }
+[2023-12-15T14:15:54.658Z] info: post package
+[2023-12-15T14:15:54.658Z] info: body {
+  "metadata": {
+    "Name": "Underscore22222",
+    "Version": "1.0.0",
+    "ID": "underscore22222"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:15:54.658Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "3a1bc8ef-77c5-488d-b2a1-5c36b469f530",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "311"
+}
+[2023-12-15T14:15:54.658Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:15:54.784Z] info: userID 31
+[2023-12-15T14:15:54.902Z] info: packageFamilyID 151
+[2023-12-15T14:15:55.334Z] info: creating a new package family
+[2023-12-15T14:15:55.334Z] info: 400 { success: false, message: error }
+[2023-12-15T14:15:55.767Z] info: upload()
+[2023-12-15T14:15:55.767Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:15:57.274Z] info: Inserting into database...
+[2023-12-15T14:15:57.275Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:15:58.732Z] info: Entering fetchIssues function
+[2023-12-15T14:16:06.525Z] info: delete reset
+[2023-12-15T14:16:06.525Z] info: body {}
+[2023-12-15T14:16:06.525Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "33e7e5ba-a9e4-4b1a-81b8-02777c929799",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:16:06.527Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:16:06.656Z] info: userID 31
+[2023-12-15T14:16:06.657Z] info: Clearing packages from database...
+[2023-12-15T14:16:06.739Z] info: Packages cleared from database.
+[2023-12-15T14:16:06.739Z] info: result true
+[2023-12-15T14:16:06.739Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:16:14.388Z] info: Entering fetchPulls function
+[2023-12-15T14:16:20.105Z] info: post package
+[2023-12-15T14:16:20.106Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:16:20.106Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "af36ea38-d4c4-4526-89e6-c4af674ff6e5",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:16:20.107Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:16:20.219Z] info: userID 31
+[2023-12-15T14:16:20.243Z] info: packageFamilyID 152
+[2023-12-15T14:16:20.711Z] info: creating a new package family
+[2023-12-15T14:16:20.711Z] info: 400 { success: false, message: error }
+[2023-12-15T14:16:21.120Z] info: upload()
+[2023-12-15T14:16:21.120Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:16:22.578Z] info: Inserting into database...
+[2023-12-15T14:16:22.578Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:16:23.009Z] info: Entering fetchIssues function
+[2023-12-15T14:16:23.330Z] info: Cloning repository...
+[2023-12-15T14:16:23.342Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:16:25.794Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:16:25.794Z] info: File deleted successfully
+[2023-12-15T14:16:25.794Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:16:25.794Z] info: Cloning repository...
+[2023-12-15T14:16:27.970Z] info: Fetched Github user data
+[2023-12-15T14:17:39.455Z] info: Starting server
+[2023-12-15T14:17:43.106Z] info: post package
+[2023-12-15T14:17:43.106Z] info: body {
+  "metadata": {
+    "Name": "Underscore2",
+    "Version": "1.0.0",
+    "ID": "underscore2"
+  },
+  "data": {
+    "Content": "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",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:17:43.106Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiOTBlMDFhNTctODZjMy00MmRjLWFkYTMtMjI0MmFkZGExYzdlIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjdhMmEyZGE5LTc0MmEtNDhlNS1hZjY5LTk1NDZhZTI2MWI0MiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNTgyNjk2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNTg2Mjk2LCJpYXQiOjE3MDI1ODI2OTYsImp0aSI6IjU0MTc3YmQzLTk4MDktNGUyNC1iOTk0LTA2M2QxYWVmNGYwYiJ9.n8PclSFsTpqH3bSeFj_bAPeuiMvrcSWO-hoWktpUzF27dJSQa524N8eja25Oz9FgkUUUjcw3JHZ8cB5UcSA3_yMWDpHSuLFsr23lAEancoqj-Cbtm59M6F_I0BfgMrLmMxfcTW0FkBUxAgvenqRFPa0fMzWh5wGW0-dIxRJk4louaIQlGElbpZQX3LUF9oPZ5aIKrABngJozczubmUYD08TDSKr-dmBSKzzFTxZNUAKquWDzDtTXWbWu-HMmyS2iEue1pAEY0tWwJ4j6E3zCVwwke2J84gCIJ4eWDmn_MTVXN19Jhzf8FDuo0REcc3Het3Jxae5XysjdEnyJR0c-uQ",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "e925abae-0011-4057-bbff-7c2b072ff655",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "2472"
+}
+[2023-12-15T14:17:43.107Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:17:43.265Z] info: userID 31
+[2023-12-15T14:17:43.288Z] info: packageFamilyID 153
+[2023-12-15T14:17:43.289Z] info: creating a new package family
+[2023-12-15T14:17:43.290Z] info: upload()
+[2023-12-15T14:17:43.321Z] info: Unzipped to: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1702649863291"
+[2023-12-15T14:17:43.321Z] info: packageJsonPath: "/var/folders/wj/pbw13dkn3rb8jhvyv4gd621h0000gn/T/upload-1702649863291/exceptions/package.json"
+[2023-12-15T14:17:43.322Z] error: package.json not found.
+[2023-12-15T14:17:43.322Z] info: 424 { success: false, message: 'Package is not uploaded due to disqualified rating.' }
+[2023-12-15T14:19:09.883Z] info: delete reset
+[2023-12-15T14:19:09.883Z] info: body {}
+[2023-12-15T14:19:09.883Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "5eb6e57d-b632-4f2e-9201-81231b806801",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:19:09.883Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:19:10.019Z] info: userID 31
+[2023-12-15T14:19:10.019Z] info: Clearing packages from database...
+[2023-12-15T14:19:10.101Z] info: Packages cleared from database.
+[2023-12-15T14:19:10.102Z] info: result true
+[2023-12-15T14:19:10.102Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:20:53.835Z] info: post package
+[2023-12-15T14:20:53.835Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:20:53.836Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "679d19bf-3f9d-4690-b9ec-82039ca20244",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:20:53.836Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:20:53.968Z] info: userID 31
+[2023-12-15T14:20:53.990Z] info: packageFamilyID 154
+[2023-12-15T14:20:54.528Z] info: creating a new package family
+[2023-12-15T14:20:54.528Z] info: 400 { success: false, message: error }
+[2023-12-15T14:20:55.004Z] info: upload()
+[2023-12-15T14:20:55.004Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:20:56.391Z] info: Inserting into database...
+[2023-12-15T14:20:56.392Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:20:56.736Z] info: Entering fetchIssues function
+[2023-12-15T14:21:10.360Z] info: Entering fetchPulls function
+[2023-12-15T14:21:19.866Z] info: Cloning repository...
+[2023-12-15T14:21:19.909Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:21:23.492Z] info: Readme data gathered for https://github.com/jashkenas/underscore
+[2023-12-15T14:21:23.492Z] info: File deleted successfully
+[2023-12-15T14:21:23.512Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:21:23.512Z] info: Cloning repository...
+[2023-12-15T14:21:26.249Z] info: Fetched Github user data
+[2023-12-15T14:25:34.955Z] info: Starting server
+[2023-12-15T14:25:43.899Z] info: delete reset
+[2023-12-15T14:25:43.899Z] info: body {}
+[2023-12-15T14:25:43.899Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "ced5ff5f-6fe1-4df7-bd83-64790398535e",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:25:43.900Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:25:44.054Z] info: userID 31
+[2023-12-15T14:25:44.056Z] info: Clearing packages from database...
+[2023-12-15T14:25:44.137Z] info: Packages cleared from database.
+[2023-12-15T14:25:44.138Z] info: result true
+[2023-12-15T14:25:44.138Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:25:48.068Z] info: post package
+[2023-12-15T14:25:48.068Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:25:48.070Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "8712c5db-1e72-45a2-bee9-491260a657d7",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:25:48.070Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:25:48.090Z] info: userID 31
+[2023-12-15T14:25:48.114Z] info: packageFamilyID 155
+[2023-12-15T14:25:48.599Z] info: creating a new package family
+[2023-12-15T14:25:48.599Z] info: 400 { success: false, message: error }
+[2023-12-15T14:25:49.019Z] info: upload()
+[2023-12-15T14:25:49.019Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:25:50.484Z] info: Inserting into database...
+[2023-12-15T14:25:50.487Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:25:50.863Z] info: Entering fetchIssues function
+[2023-12-15T14:26:03.982Z] info: Entering fetchPulls function
+[2023-12-15T14:26:11.914Z] info: Cloning repository...
+[2023-12-15T14:26:11.980Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:26:15.308Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:26:15.308Z] info: File deleted successfully
+[2023-12-15T14:26:15.308Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:26:15.308Z] info: Cloning repository...
+[2023-12-15T14:26:18.142Z] info: Fetched Github user data
+[2023-12-15T14:28:05.410Z] info: Starting server
+[2023-12-15T14:28:09.100Z] info: delete reset
+[2023-12-15T14:28:09.101Z] info: body {}
+[2023-12-15T14:28:09.101Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "7b07f63b-dd3d-484a-aa74-2a4c60551b91",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:28:09.104Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:28:09.302Z] info: userID 31
+[2023-12-15T14:28:09.305Z] info: Clearing packages from database...
+[2023-12-15T14:28:09.414Z] info: Packages cleared from database.
+[2023-12-15T14:28:09.414Z] info: result true
+[2023-12-15T14:28:09.415Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:28:12.041Z] info: post package
+[2023-12-15T14:28:12.041Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:28:12.041Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "72d30e9c-6ef0-470f-ac97-d1a9cae8f859",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:28:12.041Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:28:12.060Z] info: userID 31
+[2023-12-15T14:28:12.082Z] info: packageFamilyID 156
+[2023-12-15T14:28:12.673Z] info: creating a new package family
+[2023-12-15T14:28:12.674Z] info: 400 { success: false, message: error }
+[2023-12-15T14:28:13.069Z] info: upload()
+[2023-12-15T14:28:13.069Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:28:13.967Z] info: Inserting into database...
+[2023-12-15T14:28:13.971Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:28:14.327Z] info: Entering fetchIssues function
+[2023-12-15T14:28:26.978Z] info: Entering fetchPulls function
+[2023-12-15T14:28:34.952Z] info: Cloning repository...
+[2023-12-15T14:28:34.958Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:28:38.754Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:28:38.754Z] info: File deleted successfully
+[2023-12-15T14:28:38.755Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:28:38.755Z] info: Cloning repository...
+[2023-12-15T14:28:41.378Z] info: Fetched Github user data
+[2023-12-15T14:28:53.924Z] info: Starting server
+[2023-12-15T14:28:55.164Z] info: delete reset
+[2023-12-15T14:28:55.165Z] info: body {}
+[2023-12-15T14:28:55.165Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "d3264a48-7a59-482f-942a-e55931737586",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:28:55.166Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:28:55.338Z] info: userID 31
+[2023-12-15T14:28:55.339Z] info: Clearing packages from database...
+[2023-12-15T14:28:55.438Z] info: Packages cleared from database.
+[2023-12-15T14:28:55.438Z] info: result true
+[2023-12-15T14:28:55.439Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:28:59.646Z] info: post package
+[2023-12-15T14:28:59.647Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:28:59.647Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "023cc24f-ef0c-45cf-ab12-232ec4cb411f",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:28:59.647Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:28:59.675Z] info: userID 31
+[2023-12-15T14:28:59.705Z] info: packageFamilyID 157
+[2023-12-15T14:29:00.266Z] info: creating a new package family
+[2023-12-15T14:29:00.266Z] info: 400 { success: false, message: error }
+[2023-12-15T14:29:00.750Z] info: upload()
+[2023-12-15T14:29:00.750Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:29:02.549Z] info: Inserting into database...
+[2023-12-15T14:29:02.549Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:29:02.841Z] info: Entering fetchIssues function
+[2023-12-15T14:29:15.201Z] info: Entering fetchPulls function
+[2023-12-15T14:29:24.116Z] info: Cloning repository...
+[2023-12-15T14:29:24.123Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:29:27.728Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:29:27.728Z] info: File deleted successfully
+[2023-12-15T14:29:27.729Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:29:27.729Z] info: Cloning repository...
+[2023-12-15T14:29:30.950Z] info: Fetched Github user data
+[2023-12-15T14:35:52.862Z] info: Starting server
+[2023-12-15T14:36:28.040Z] info: delete reset
+[2023-12-15T14:36:28.041Z] info: body {}
+[2023-12-15T14:36:28.042Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "5063c49c-bac3-43ad-b4d4-849cadf98d4e",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:36:28.044Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:36:28.346Z] info: userID 31
+[2023-12-15T14:36:28.348Z] info: Clearing packages from database...
+[2023-12-15T14:36:28.430Z] info: Packages cleared from database.
+[2023-12-15T14:36:28.431Z] info: result true
+[2023-12-15T14:36:28.432Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:36:59.170Z] info: post package
+[2023-12-15T14:36:59.171Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:36:59.171Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "2f7f2c30-0dc6-4843-a0ea-b08d17731aa5",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:36:59.171Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:36:59.301Z] info: userID 31
+[2023-12-15T14:36:59.323Z] info: packageFamilyID 158
+[2023-12-15T14:36:59.876Z] info: creating a new package family
+[2023-12-15T14:36:59.876Z] info: 400 { success: false, message: error }
+[2023-12-15T14:37:00.306Z] info: upload()
+[2023-12-15T14:37:00.306Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:37:01.990Z] info: Inserting into database...
+[2023-12-15T14:37:01.990Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:37:02.433Z] info: Entering fetchIssues function
+[2023-12-15T14:37:15.911Z] info: Entering fetchPulls function
+[2023-12-15T14:37:25.170Z] info: Cloning repository...
+[2023-12-15T14:37:25.276Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:37:27.906Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:37:27.906Z] info: File deleted successfully
+[2023-12-15T14:37:27.907Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:37:27.907Z] info: Cloning repository...
+[2023-12-15T14:37:30.323Z] info: Fetched Github user data
+[2023-12-15T14:37:30.324Z] info: Calculating Bus Factor
+[2023-12-15T14:37:30.324Z] info: Calculating Correctness
+[2023-12-15T14:37:30.324Z] info: Calculating Ramp Up
+[2023-12-15T14:37:30.324Z] info: Calculating License
+[2023-12-15T14:37:30.324Z] info: Calculating Net Score
+[2023-12-15T14:37:30.324Z] info: Completed calculation for module: https://github.com/jashkenas/underscore
+[2023-12-15T14:37:30.325Z] info: Program completed successfully
+[2023-12-15T14:37:30.535Z] info: [object Object]
+[2023-12-15T14:42:57.826Z] info: Starting server
+[2023-12-15T14:43:05.190Z] info: delete reset
+[2023-12-15T14:43:05.190Z] info: body {}
+[2023-12-15T14:43:05.190Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "6ac80740-c9d4-408a-a979-daff846eedc7",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:43:05.192Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:43:05.368Z] info: userID 31
+[2023-12-15T14:43:05.370Z] info: Clearing packages from database...
+[2023-12-15T14:43:05.452Z] info: Packages cleared from database.
+[2023-12-15T14:43:05.452Z] info: result true
+[2023-12-15T14:43:05.453Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:43:08.389Z] info: post package
+[2023-12-15T14:43:08.389Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:43:08.391Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "fa8c1645-812c-4ccb-b789-dafbac957aa2",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:43:08.391Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:43:08.412Z] info: userID 31
+[2023-12-15T14:43:08.435Z] info: packageFamilyID 159
+[2023-12-15T14:43:08.934Z] info: creating a new package family
+[2023-12-15T14:43:08.934Z] info: 400 { success: false, message: error }
+[2023-12-15T14:43:09.359Z] info: upload()
+[2023-12-15T14:43:09.359Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:43:09.834Z] info: Inserting into database...
+[2023-12-15T14:43:09.835Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:43:10.171Z] info: Entering fetchIssues function
+[2023-12-15T14:43:24.058Z] info: Entering fetchPulls function
+[2023-12-15T14:43:34.115Z] info: Cloning repository...
+[2023-12-15T14:43:34.150Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:43:36.636Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:43:36.636Z] info: File deleted successfully
+[2023-12-15T14:43:36.636Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:43:36.636Z] info: Cloning repository...
+[2023-12-15T14:43:38.832Z] info: Fetched Github user data
+[2023-12-15T14:43:38.832Z] info: Calculating Bus Factor
+[2023-12-15T14:43:38.832Z] info: Calculating Correctness
+[2023-12-15T14:43:38.832Z] info: Calculating Ramp Up
+[2023-12-15T14:43:38.832Z] info: Calculating License
+[2023-12-15T14:43:38.832Z] info: Calculating Net Score
+[2023-12-15T14:43:38.833Z] info: Completed calculation for module: https://github.com/jashkenas/underscore
+[2023-12-15T14:43:38.833Z] info: Program completed successfully
+[2023-12-15T14:43:38.950Z] info: [object Object]
+[2023-12-15T14:47:45.618Z] info: Starting server
+[2023-12-15T14:47:51.184Z] info: delete reset
+[2023-12-15T14:47:51.185Z] info: body {}
+[2023-12-15T14:47:51.185Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "a1e6e977-c9c2-471d-8e7e-dab0f1c251e0",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:47:51.186Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:47:51.337Z] info: userID 31
+[2023-12-15T14:47:51.338Z] info: Clearing packages from database...
+[2023-12-15T14:47:51.417Z] info: Packages cleared from database.
+[2023-12-15T14:47:51.418Z] info: result true
+[2023-12-15T14:47:51.418Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:47:54.995Z] info: post package
+[2023-12-15T14:47:54.995Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:47:54.995Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "2bb00acb-ace6-462d-8cba-9478f8d1bda6",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:47:54.995Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:47:55.013Z] info: userID 31
+[2023-12-15T14:47:55.036Z] info: packageFamilyID 160
+[2023-12-15T14:47:55.494Z] info: upload()
+[2023-12-15T14:47:55.495Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:47:55.966Z] info: Inserting into database...
+[2023-12-15T14:47:55.966Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:47:56.321Z] info: Entering fetchIssues function
+[2023-12-15T14:48:09.999Z] info: Entering fetchPulls function
+[2023-12-15T14:48:18.951Z] info: Cloning repository...
+[2023-12-15T14:48:18.958Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:48:21.668Z] info: Readme data gathered for https://github.com/jashkenas/underscore
+[2023-12-15T14:48:21.668Z] info: File deleted successfully
+[2023-12-15T14:48:21.689Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:48:21.689Z] info: Cloning repository...
+[2023-12-15T14:48:23.794Z] info: Fetched Github user data
+[2023-12-15T14:48:23.794Z] info: Calculating Bus Factor
+[2023-12-15T14:48:23.794Z] info: Calculating Correctness
+[2023-12-15T14:48:23.794Z] info: Calculating Ramp Up
+[2023-12-15T14:48:23.794Z] info: Calculating License
+[2023-12-15T14:48:23.794Z] info: Calculating Net Score
+[2023-12-15T14:48:23.795Z] info: Completed calculation for module: https://github.com/jashkenas/underscore
+[2023-12-15T14:48:23.795Z] info: Program completed successfully
+[2023-12-15T14:48:23.914Z] info: [object Object]
+[2023-12-15T14:49:32.676Z] info: Starting server
+[2023-12-15T14:49:34.970Z] info: delete reset
+[2023-12-15T14:49:34.971Z] info: body {}
+[2023-12-15T14:49:34.971Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "60e69144-2903-4550-9766-1469ea3982ee",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive"
+}
+[2023-12-15T14:49:34.972Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:49:35.124Z] info: userID 31
+[2023-12-15T14:49:35.126Z] info: Clearing packages from database...
+[2023-12-15T14:49:35.209Z] info: Packages cleared from database.
+[2023-12-15T14:49:35.210Z] info: result true
+[2023-12-15T14:49:35.210Z] info: 200 { success: true, message: 'registry is reset' }
+[2023-12-15T14:49:37.611Z] info: post package
+[2023-12-15T14:49:37.611Z] info: body {
+  "metadata": {
+    "Name": "Underscore",
+    "Version": "1.0.0",
+    "ID": "underscore"
+  },
+  "data": {
+    "URL": "https://github.com/jashkenas/underscore",
+    "JSProgram": "if (process.argv.length === 7) {\nconsole.log('Success')\nprocess.exit(0)\n} else {\nconsole.log('Failed')\nprocess.exit(1)\n}\n"
+  }
+}
+[2023-12-15T14:49:37.612Z] info: headers {
+  "x-authorization": "bearer eyJraWQiOiJkWUwxS1VuXC9iMVBRRTRxQ1RZMEk1TmNKbjNoZGwyOFRXS2NiVXRrdXd1UT0iLCJhbGciOiJSUzI1NiJ9.eyJvcmlnaW5fanRpIjoiMTFkZjVlODMtNWU3OC00Njk1LWJlODktNTA4ODNhMTAxYTBmIiwic3ViIjoiZjcyOGU0YzktYzk3ZC00ZmY0LTg0NWMtZGQzNmZmYjBiYjg4IiwiYXVkIjoiM283djVmajU1MXN1ZmQzMW5odW4yOWtvcDAiLCJldmVudF9pZCI6IjZjNjE0NjZiLWJmMjgtNDAwYi04OGIyLTdiNzQxMWZlN2QyNiIsInRva2VuX3VzZSI6ImlkIiwiYXV0aF90aW1lIjoxNzAyNjQ5MDc2LCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAudXMtZWFzdC0yLmFtYXpvbmF3cy5jb21cL3VzLWVhc3QtMl83SkdHWEJ5aGwiLCJjb2duaXRvOnVzZXJuYW1lIjoibWF0ZXVzejUwIiwiZXhwIjoxNzAyNjUyNjc2LCJpYXQiOjE3MDI2NDkwNzYsImp0aSI6ImFhNDU4ODU4LWEzODItNDZiYS1iZDdmLTgyODk3YjU0YWJiZiJ9.aaMILtP4iVEjQfozyTQZJA1ShFVgqBCbEoE1Wydp4XVvFzll81CrzWY48Ycl8L8VzFPaGDv15YFnDehZolxZn6CX5r7ulbtYTa2Z6SMhs-F53NQKOnVhEYYKZtbDEddpcqHn2UUtAl_1VlAJcwjYp5xfMq2iV3IkeX6xij1zT-IFRpHt_4mZxzBw-oDJVyLGn4SWaA4czTnbxoRzoTFGfZAS_PvSm3bgsluOlFCePPUlXwtzNnBtlBUHoExdfW7lKYZFkLQuoaz1sWuXdBYSv7zwYBvxlu3t3x1SmZNdGC95J9eHjyWpuiSTnHnWMiGWTIA_slWgBp9bB0HhhAs2CA",
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "54b0ab66-3975-4ddd-b07d-31c17a72eef7",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "301"
+}
+[2023-12-15T14:49:37.612Z] info: sub "f728e4c9-c97d-4ff4-845c-dd36ffb0bb88"
+[2023-12-15T14:49:37.632Z] info: userID 31
+[2023-12-15T14:49:37.653Z] info: packageFamilyID 161
+[2023-12-15T14:49:38.189Z] info: upload()
+[2023-12-15T14:49:38.189Z] info: GitHub link: "https://github.com/jashkenas/underscore"
+[2023-12-15T14:49:39.633Z] info: Inserting into database...
+[2023-12-15T14:49:39.633Z] info: Working on link: https://github.com/jashkenas/underscore
+[2023-12-15T14:49:39.973Z] info: Entering fetchIssues function
+[2023-12-15T14:49:52.450Z] info: Entering fetchPulls function
+[2023-12-15T14:50:00.885Z] info: Cloning repository...
+[2023-12-15T14:50:00.891Z] info: ENOTEMPTY: directory not empty, rmdir './local-repo/.git'
+[2023-12-15T14:50:03.669Z] info: An error occurred:NotFoundError: Could not find origin/master.
+[2023-12-15T14:50:03.669Z] info: File deleted successfully
+[2023-12-15T14:50:03.670Z] info: Cloned local repo deleted successfully
+[2023-12-15T14:50:03.670Z] info: Cloning repository...
+[2023-12-15T14:50:05.928Z] info: Fetched Github user data
+[2023-12-15T14:50:05.929Z] info: Calculating Bus Factor
+[2023-12-15T14:50:05.929Z] info: Calculating Correctness
+[2023-12-15T14:50:05.929Z] info: Calculating Ramp Up
+[2023-12-15T14:50:05.929Z] info: Calculating License
+[2023-12-15T14:50:05.929Z] info: Calculating Net Score
+[2023-12-15T14:50:05.929Z] info: Completed calculation for module: https://github.com/jashkenas/underscore
+[2023-12-15T14:50:05.930Z] info: Program completed successfully
+[2023-12-15T14:50:06.059Z] info: [object Object]
+[2023-12-15T14:50:06.060Z] info: 200 { success: true, message: 'Version is updated' }
