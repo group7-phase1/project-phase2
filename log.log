@@ -1393,3 +1393,46 @@
 [2023-12-15T14:50:05.930Z] info: Program completed successfully
 [2023-12-15T14:50:06.059Z] info: [object Object]
 [2023-12-15T14:50:06.060Z] info: 200 { success: true, message: 'Version is updated' }
+[2023-12-15T15:09:35.806Z] info: Starting server
+[2023-12-15T15:09:37.731Z] info: put authenticate
+[2023-12-15T15:09:37.731Z] info: body {
+  "User": {
+    "name": "mateusz50",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-15T15:09:37.731Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "4a32f4fa-9e53-4f0c-9f36-1020e23a3463",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
+[2023-12-15T15:09:38.810Z] info: put authenticate
+[2023-12-15T15:09:38.810Z] info: body {
+  "User": {
+    "name": "mateusz50",
+    "isAdmin": true
+  },
+  "Secret": {
+    "password": "correcthorsebatterystaple123(!__+@**(A"
+  }
+}
+[2023-12-15T15:09:38.810Z] info: headers {
+  "content-type": "application/json",
+  "user-agent": "PostmanRuntime/7.36.0",
+  "accept": "*/*",
+  "cache-control": "no-cache",
+  "postman-token": "4b73a108-5984-4fdd-9067-d717d5d7893a",
+  "host": "localhost:3000",
+  "accept-encoding": "gzip, deflate, br",
+  "connection": "keep-alive",
+  "content-length": "160"
+}
