@@ -1,0 +1,5 @@
+{"metric":"BUS_FACTOR_SCORE", "api":"rest", "filepath":"fetch.ts", "line":212}
+{"metric":"CORRECTNESS_SCORE", "api":"rest", "filepath":"fetch.ts", "line":119}
+{"metric":"RAMP_UP_SCORE", "api":"clone", "filepath":"github-readme-extractor.ts", "line":49}
+{"metric":"RESPONSIVE_MAINTAINER_SCORE", "api":"rest", "fetch.ts", "line":119}
+{"metric":"LICENSE_SCORE", "api":"clone", "filepath":"github-readme-extractor.ts", "line":52}
