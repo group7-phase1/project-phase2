@@ -682,6 +682,7 @@ const cloneAndZipRepository = async (gitHubLink: string, filepath: string) => {
 app.post('/package', async (req: Request, res: Response) => {
     try {
         logger.info("post package");
+        logger.info("req", req);
         logger.info("body", req.body);
         logger.info("headers", req.headers);
         const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
