@@ -7,7 +7,7 @@ import { getFamilyID, deleteAllNameVersionsAG, getNameAG, getRatesAG, getPackage
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
 import { register, login, decodeToken } from './user_auth';
-import { indexPack, version } from 'isomorphic-git';
+import { indexPack, log, version } from 'isomorphic-git';
 import { Credentials } from '@aws-sdk/types';
 import * as fs from 'fs';
 import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
@@ -329,7 +329,7 @@ app.post('/packages', async (req: Request, res: Response) => {
     try {
         logger.info("body", req.body);
         logger.info("headers", req.headers);
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         logger.info("token", token);
         const offset = req.headers.offset;
         if (req.headers.offset == null) {
@@ -417,7 +417,7 @@ app.get('/package/:id', async (req: Request, res: Response) => {
         logger.info("body", req.body);
         logger.info("headers", req.headers);
         const packageID = await getPackageID(req.params.id)
-        const token = req.headers.authorization?.split(' ')[1];
+        const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         const offset = req.headers.offset;
         if (req.headers.offset == null) {
             const offset = 1;
@@ -682,8 +682,8 @@ const cloneAndZipRepository = async (gitHubLink: string, filepath: string) => {
 app.post('/package', async (req: Request, res: Response) => {
     try {
         logger.info("post package");
-        logger.info("req", req);
         logger.info("body", req.body);
+
         logger.info("headers", req.headers);
         const token = (req.headers['x-authorization'] as string)?.split(' ')[1];
         if (!token) {
@@ -809,7 +809,6 @@ app.post('/package', async (req: Request, res: Response) => {
 app.get('/package/:id/rate', async (req: Request, res: Response) => {
     try {
         logger.info("get package/:id/rate");
-        logger.info("req", req);
         logger.info("body", req.body);
         logger.info("headers", req.headers);
         const packageId = await getPackageID(req.params.id)
