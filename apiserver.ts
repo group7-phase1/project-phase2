@@ -808,6 +808,7 @@ app.post('/package', async (req: Request, res: Response) => {
 app.get('/package/:id/rate', async (req: Request, res: Response) => {
     try {
         logger.info("get package/:id/rate");
+        logger.info("req", req);
         logger.info("body", req.body);
         logger.info("headers", req.headers);
         const packageId = await getPackageID(req.params.id)
